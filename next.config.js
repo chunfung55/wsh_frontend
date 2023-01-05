@@ -1,10 +1,32 @@
 /** @type {import('next').NextConfig} */
 
-import { i18n } from "./next-i18next.config";
+// const fs = require("fs/promises");
+
+// const locales = await fs.readdir("./public/locales");
+// const defaultLocale = "en";
+
+// const nextConfig = {
+//   reactStrictMode: true,
+//   i18n: {
+//     locales: [defaultLocale, ...locales],
+//     defaultLocale,
+//     localeDetection: false,
+//   },
+// };
+
+// export default nextConfig;
+
+// @ts-check
+const { i18n } = require("./next-i18next.config.js");
+const { loadCustomBuildParams } = require("./next-utils.config");
+const { esmExternals = false, tsconfigPath } = loadCustomBuildParams();
 
 const nextConfig = {
+  experimental: {
+    esmExternals, // https://nextjs.org/blog/next-11-1#es-modules-support
+  },
   reactStrictMode: true,
   i18n,
 };
 
-export default nextConfig;
+module.exports = nextConfig;

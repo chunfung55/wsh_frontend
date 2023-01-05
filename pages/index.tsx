@@ -5,11 +5,16 @@ import { Inter } from "@next/font/google";
 import { useTranslation } from "next-i18next";
 import type { GetStaticProps, InferGetStaticPropsType } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import React from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
+type Props = {
+  // Add custom props here
+};
+
 const Home = (_props: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation("common");
   return <>{t("greeting")}</>;
 };
 
