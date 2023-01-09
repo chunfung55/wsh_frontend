@@ -39,6 +39,15 @@ function Navbar() {
     setAnchorElUser(null);
   };
 
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -73,6 +82,7 @@ function Navbar() {
             >
               <MenuIcon />
             </IconButton>
+            {/* mobile menu */}
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -117,6 +127,7 @@ function Navbar() {
           >
             LOGO
           </Typography> */}
+
           <Box
             sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
             justifyContent="center"
@@ -130,6 +141,29 @@ function Navbar() {
                 {page}
               </Button>
             ))}
+            <Button
+              key={"testing"}
+              sx={{ my: 2, color: "white", display: "block" }}
+              aria-controls={open ? "basic-menu" : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? "true" : undefined}
+              onClick={handleClick}
+            >
+              {"testing"}
+            </Button>
+            <Menu
+              id="basic-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                "aria-labelledby": "basic-button",
+              }}
+            >
+              <MenuItem onClick={handleClose}>Profile</MenuItem>
+              <MenuItem onClick={handleClose}>My account</MenuItem>
+              <MenuItem onClick={handleClose}>Logout</MenuItem>
+            </Menu>
           </Box>
 
           {/* <Box sx={{ flexGrow: 0 }}>
