@@ -12,9 +12,11 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-//abc
+import { createTheme,ThemeProvider, createStyles, makeStyles  } from '@mui/material/styles';
+import { grey } from "@mui/material/colors";
 
-const pages = ["Products", "Pricing", "Blog"];
+
+const pages = ["HOME", "ABOUT SAFARI", "DESTINATIONS","ITINERARIES","TRAVEL INFO","ABOUT US"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar() {
@@ -49,9 +51,20 @@ function Navbar() {
     setAnchorEl(null);
   };
 
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: grey[300],
+      },
+    },
+  });
+
+ 
+
   return (
+    <ThemeProvider theme={theme}>
     <AppBar position="static">
-      <Container maxWidth="xl">
+      
         <Toolbar disableGutters>
           {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
@@ -71,7 +84,7 @@ function Navbar() {
           >
             LOGO
           </Typography> */}
-
+          
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -99,16 +112,17 @@ function Navbar() {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: "block", md: "none" },
+                display: { xs: "block", md: "none" ,padding: "200", color:"white"},
               }}
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <Typography textAlign="center" >{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
+          
           {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
@@ -197,8 +211,12 @@ function Navbar() {
             </Menu>
           </Box> */}
         </Toolbar>
-      </Container>
+
     </AppBar>
+    </ThemeProvider>    
   );
+  <Container maxWidth="xl">
+          
+  </Container>
 }
 export default Navbar;
