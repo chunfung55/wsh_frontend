@@ -12,9 +12,13 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-//abc
+import { createTheme,ThemeProvider, createStyles, makeStyles  } from '@mui/material/styles';
+import { grey } from "@mui/material/colors";
+import DeleteIcon from '@mui/icons-material/Delete';
+import '../styles/Home.module.css';
+import GlobalButton from "./GlobalButton";
 
-const pages = ["Products", "Pricing", "Blog"];
+const pages = ["HOME", "ABOUT SAFARI", "DESTINATIONS","ITINERARIES","TRAVEL INFO","ABOUT US"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar() {
@@ -49,29 +53,20 @@ function Navbar() {
     setAnchorEl(null);
   };
 
-  return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            LOGO
-          </Typography> */}
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: grey[300],
+      },
+    },
+  });
 
+ 
+
+  return (
+    <ThemeProvider theme={theme}>
+    <AppBar position="static" style={{ background: 'default', boxShadow: 'none'}}>
+        <Toolbar>  
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -99,45 +94,33 @@ function Navbar() {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: "block", md: "none" },
+                display: { xs: "block", md: "none"},
               }}
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <Typography textAlign="center" >{page}</Typography>
+                <svg data-testid="DeleteIcon"></svg>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            LOGO
-          </Typography> */}
-
+          
           <Box
             sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
             justifyContent="center"
           >
+          
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleOpenNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{ my: 2, 
+                  color: "black", 
+                  display: "block" ,  
+                  "&:hover": {
+                    color: "#d0c19A",
+                }}}
               >
                 {page}
               </Button>
@@ -159,6 +142,7 @@ function Navbar() {
               onClose={handleClose}
               MenuListProps={{
                 "aria-labelledby": "basic-button",
+                sx:{"backgroundColor": "#d0c19A"}
               }}
             >
               <MenuItem onClick={handleClose}>Profile</MenuItem>
@@ -166,39 +150,34 @@ function Navbar() {
               <MenuItem onClick={handleClose}>Logout</MenuItem>
             </Menu>
           </Box>
-
-          {/* <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box> */}
         </Toolbar>
-      </Container>
     </AppBar>
+    <Box>
+    <GlobalButton></GlobalButton>
+    </Box>
+    <Button 
+sx={{backgroundColor :"#d0c19A",
+color:"black",
+pt: 1,
+pl: 3,
+pr: 3,
+pd: 2,
+borderRadius: '18px',
+fontWeight: 'bold',
+fontSize: 12,"&:hover": {
+  color: "#d0c19A",
+  backgroundColor: "#564C4A",
+ 
+},
+
+}}>CONTACT US</Button>
+
+    <Button sx={{ fontSize: 20,
+         backgroundColor: 'rgba(255, 255, 255, 0.5)', boxShadow: 2}}>中</Button>
+    </ThemeProvider>    
   );
+  <Container maxWidth="xl">
+          
+  </Container>
 }
 export default Navbar;
