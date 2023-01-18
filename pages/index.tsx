@@ -2,10 +2,12 @@
 // import Image from "next/image";
 import { Inter } from "@next/font/google";
 // import styles from "../styles/Home.module.css";
+import "../styles/Home.module.css";
 import { useTranslation } from "next-i18next";
 import type { GetStaticProps, InferGetStaticPropsType } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React from "react";
+import themeButton from '../components/themeButton';
 
 const inter = Inter({ subsets: ["latin"] });
 
