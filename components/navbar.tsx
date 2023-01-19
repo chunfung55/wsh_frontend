@@ -12,13 +12,25 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-import { createTheme,ThemeProvider, createStyles, makeStyles  } from '@mui/material/styles';
+import {
+  createTheme,
+  ThemeProvider,
+  createStyles,
+  makeStyles,
+} from "@mui/material/styles";
 import { grey } from "@mui/material/colors";
-import DeleteIcon from '@mui/icons-material/Delete';
-import '../styles/Home.module.css';
+import DeleteIcon from "@mui/icons-material/Delete";
+import "../styles/Home.module.css";
 import GlobalButton from "./GlobalButton";
 
-const pages = ["HOME", "ABOUT SAFARI", "DESTINATIONS","ITINERARIES","TRAVEL INFO","ABOUT US"];
+const pages = [
+  "HOME",
+  "ABOUT SAFARI",
+  "DESTINATIONS",
+  "ITINERARIES",
+  "TRAVEL INFO",
+  "ABOUT US",
+];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar() {
@@ -61,12 +73,13 @@ function Navbar() {
     },
   });
 
- 
-
   return (
     <ThemeProvider theme={theme}>
-    <AppBar position="static" style={{ background: 'default', boxShadow: 'none'}}>
-        <Toolbar>  
+      <AppBar
+        position="static"
+        style={{ background: "default", boxShadow: "none" }}
+      >
+        <Toolbar>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -94,33 +107,34 @@ function Navbar() {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: "block", md: "none"},
+                display: { xs: "block", md: "none" },
               }}
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                <Typography textAlign="center" >{page}</Typography>
-                <svg data-testid="DeleteIcon"></svg>
+                  <Typography textAlign="center">{page}</Typography>
+                  <svg data-testid="DeleteIcon"></svg>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          
+
           <Box
             sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
             justifyContent="center"
           >
-          
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleOpenNavMenu}
-                sx={{ my: 2, 
-                  color: "black", 
-                  display: "block" ,  
+                sx={{
+                  my: 2,
+                  color: "black",
+                  display: "block",
                   "&:hover": {
                     color: "#d0c19A",
-                }}}
+                  },
+                }}
               >
                 {page}
               </Button>
@@ -142,7 +156,7 @@ function Navbar() {
               onClose={handleClose}
               MenuListProps={{
                 "aria-labelledby": "basic-button",
-                sx:{"backgroundColor": "#d0c19A"}
+                sx: { backgroundColor: "#d0c19A" },
               }}
             >
               <MenuItem onClick={handleClose}>Profile</MenuItem>
@@ -151,33 +165,41 @@ function Navbar() {
             </Menu>
           </Box>
         </Toolbar>
-    </AppBar>
-    <Box>
-    <GlobalButton></GlobalButton>
-    </Box>
-    <Button 
-sx={{backgroundColor :"#d0c19A",
-color:"black",
-pt: 1,
-pl: 3,
-pr: 3,
-pd: 2,
-borderRadius: '18px',
-fontWeight: 'bold',
-fontSize: 12,"&:hover": {
-  color: "#d0c19A",
-  backgroundColor: "#564C4A",
- 
-},
+      </AppBar>
+      <Box>
+        <GlobalButton></GlobalButton>
+      </Box>
+      <Button
+        sx={{
+          backgroundColor: "#d0c19A",
+          color: "black",
+          pt: 1,
+          pl: 3,
+          pr: 3,
+          pd: 2,
+          borderRadius: "18px",
+          fontWeight: "bold",
+          fontSize: 12,
+          "&:hover": {
+            color: "#d0c19A",
+            backgroundColor: "#564C4A",
+          },
+        }}
+      >
+        CONTACT US
+      </Button>
 
-}}>CONTACT US</Button>
-
-    <Button sx={{ fontSize: 20,
-         backgroundColor: 'rgba(255, 255, 255, 0.5)', boxShadow: 2}}>中</Button>
-    </ThemeProvider>    
+      <Button
+        sx={{
+          fontSize: 20,
+          backgroundColor: "rgba(255, 255, 255, 0.5)",
+          boxShadow: 2,
+        }}
+      >
+        中
+      </Button>
+    </ThemeProvider>
   );
-  <Container maxWidth="xl">
-          
-  </Container>
+  <Container maxWidth="xl"></Container>;
 }
 export default Navbar;
