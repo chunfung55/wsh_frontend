@@ -12,11 +12,23 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import CssBaseline from "@mui/material/CssBaseline";
 import styles from "../styles/Home.module.css";
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
-
-const pages = ["ABOUT SAFARI", "DESTINATIONS","ITINERARIES","TRAVEL INFO","ABOUT US"];
-const aboutSafa = ["a day at safari", "what time of year is the best for african","what is the big 5?","the great migration","migration map","safari accommodation"];
+const pages = [
+  "ABOUT SAFARI",
+  "DESTINATIONS",
+  "ITINERARIES",
+  "TRAVEL INFO",
+  "ABOUT US",
+];
+const aboutSafa = [
+  "a day at safari",
+  "what time of year is the best for african",
+  "what is the big 5?",
+  "the great migration",
+  "migration map",
+  "safari accommodation",
+];
 
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
@@ -54,14 +66,18 @@ function Navbar() {
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
- 
-
   return (
-<>
-    <CssBaseline/>
-    <AppBar  position="static" className={styles.navbar} >
-        <Toolbar>  
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } ,  opacity: [0.9, 0.8, 0.3]}}>
+    <>
+      <CssBaseline />
+      <AppBar position="static" className={styles.navbar}>
+        <Toolbar>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "flex", md: "none" },
+              opacity: [0.9, 0.8, 0.3],
+            }}
+          >
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -88,43 +104,47 @@ function Navbar() {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: "block", md: "none"},
+                display: { xs: "block", md: "none" },
               }}
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                <Typography textAlign="center" >{page}</Typography>
-                <svg data-testid="DeleteIcon"></svg>
+                  <Typography textAlign="center">{page}</Typography>
+                  <svg data-testid="DeleteIcon"></svg>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          
+
           <Box
             sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
             justifyContent="center"
           >
             <Button className={styles.navbar_button}>HOME</Button>
             {pages.map((page) => (
-              <div>
-              <Button
-                key={page}
-                id="basic-button"
-                aria-controls={open ? 'basic-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? 'true' : undefined}
-                onClick={handleClick}
-                className={styles.navbar_button}
-              >
-                {page}<ArrowDropDownIcon fontSize="small" className={styles.dropDownIcon}></ArrowDropDownIcon>
-              </Button>
-              <NavMenu page={page}></NavMenu>
-             </div>
+              <div key={page}>
+                <Button
+                  key={page}
+                  id="basic-button"
+                  aria-controls={open ? "basic-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? "true" : undefined}
+                  onClick={handleClick}
+                  className={styles.navbar_button}
+                >
+                  {page}
+                  <ArrowDropDownIcon
+                    fontSize="small"
+                    className={styles.dropDownIcon}
+                  ></ArrowDropDownIcon>
+                </Button>
+                <NavMenu page={page}></NavMenu>
+              </div>
             ))}
-         
           </Box>
         </Toolbar>
-    </AppBar>
-  </>
-)}
+      </AppBar>
+    </>
+  );
+}
 export default Navbar;

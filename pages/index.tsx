@@ -8,7 +8,6 @@ import type { GetStaticProps, InferGetStaticPropsType } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React from "react";
 
-
 const inter = Inter({ subsets: ["latin"] });
 
 type Props = {
