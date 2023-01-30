@@ -1,11 +1,8 @@
 import React from 'react';
 import Carousel from 'react-material-ui-carousel'
-import { Paper, Button } from '@mui/material'
-
-
-
-function Example(props:any)
-{
+import { Paper, Button, Typography, Box, Grid } from '@mui/material'
+import styles from "../styles/Home.module.css";
+export function Example() {
     var items = [
         {
             name: "Random Name #1",
@@ -20,22 +17,24 @@ function Example(props:any)
     return (
         <Carousel>
             {
-                items.map( (item, i) => <Item key={i} item={item} /> )
+                items.map((item, i) => <Item key={i} item={item} />)
             }
         </Carousel>
     )
 }
 
-function Item(props:any)
-{
+export function Item(props: any) {
     return (
-        <Paper>
-            <h2>{props.item.name}</h2>
-            <p>{props.item.description}</p>
-
-            <Button className="CheckButton">
-                Check it out!
-            </Button>
+        <Paper className={styles.slide}>
+            <Box
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                minHeight="100vh"
+            >
+                <Typography className={styles.slider_title}  paragraph>{props.item.name}</Typography>
+                <Typography  className={styles.slider_title}  paragraph>{props.item.description}</Typography>
+            </Box>
         </Paper>
     )
 }

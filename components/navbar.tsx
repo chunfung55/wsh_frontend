@@ -6,19 +6,18 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
-import { createTheme,ThemeProvider, createStyles, makeStyles  } from '@mui/material/styles';
-import { grey } from "@mui/material/colors";
-import DeleteIcon from '@mui/icons-material/Delete';
-import '../styles/Home.module.css';
-import GlobalButton from "./GlobalButton";
+import NavMenu from "./navMenu";
 
-const pages = ["HOME", "ABOUT SAFARI", "DESTINATIONS","ITINERARIES","TRAVEL INFO","ABOUT US"];
+import Button from "@mui/material/Button";
+import MenuItem from "@mui/material/MenuItem";
+import CssBaseline from "@mui/material/CssBaseline";
+import styles from "../styles/Home.module.css";
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+
+
+const pages = ["ABOUT SAFARI", "DESTINATIONS","ITINERARIES","TRAVEL INFO","ABOUT US"];
+const aboutSafa = ["a day at safari", "what time of year is the best for african","what is the big 5?","the great migration","migration map","safari accommodation"];
+
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar() {
@@ -53,21 +52,16 @@ function Navbar() {
     setAnchorEl(null);
   };
 
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: grey[300],
-      },
-    },
-  });
+  const [mobileOpen, setMobileOpen] = React.useState(false);
 
  
 
   return (
-    <ThemeProvider theme={theme}>
-    <AppBar position="static" style={{ background: 'default', boxShadow: 'none'}}>
+<>
+    <CssBaseline/>
+    <AppBar  position="static" className={styles.navbar} >
         <Toolbar>  
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } ,  opacity: [0.9, 0.8, 0.3]}}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -110,74 +104,27 @@ function Navbar() {
             sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
             justifyContent="center"
           >
-          
+            <Button className={styles.navbar_button}>HOME</Button>
             {pages.map((page) => (
+              <div>
               <Button
                 key={page}
-                onClick={handleOpenNavMenu}
-                sx={{ my: 2, 
-                  color: "black", 
-                  display: "block" ,  
-                  "&:hover": {
-                    color: "#d0c19A",
-                }}}
+                id="basic-button"
+                aria-controls={open ? 'basic-menu' : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? 'true' : undefined}
+                onClick={handleClick}
+                className={styles.navbar_button}
               >
-                {page}
+                {page}<ArrowDropDownIcon fontSize="small" className={styles.dropDownIcon}></ArrowDropDownIcon>
               </Button>
+              <NavMenu page={page}></NavMenu>
+             </div>
             ))}
-            <Button
-              key={"testing"}
-              sx={{ my: 2, color: "white", display: "block" }}
-              aria-controls={open ? "basic-menu" : undefined}
-              aria-haspopup="true"
-              aria-expanded={open ? "true" : undefined}
-              onClick={handleClick}
-            >
-              {"testing"}
-            </Button>
-            <Menu
-              id="basic-menu"
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              MenuListProps={{
-                "aria-labelledby": "basic-button",
-                sx:{"backgroundColor": "#d0c19A"}
-              }}
-            >
-              <MenuItem onClick={handleClose}>Profile</MenuItem>
-              <MenuItem onClick={handleClose}>My account</MenuItem>
-              <MenuItem onClick={handleClose}>Logout</MenuItem>
-            </Menu>
+         
           </Box>
         </Toolbar>
     </AppBar>
-    <Box>
-    <GlobalButton></GlobalButton>
-    </Box>
-    <Button 
-sx={{backgroundColor :"#d0c19A",
-color:"black",
-pt: 1,
-pl: 3,
-pr: 3,
-pd: 2,
-borderRadius: '18px',
-fontWeight: 'bold',
-fontSize: 12,"&:hover": {
-  color: "#d0c19A",
-  backgroundColor: "#564C4A",
- 
-},
-
-}}>CONTACT US</Button>
-
-    <Button sx={{ fontSize: 20,
-         backgroundColor: 'rgba(255, 255, 255, 0.5)', boxShadow: 2}}>中</Button>
-    </ThemeProvider>    
-  );
-  <Container maxWidth="xl">
-          
-  </Container>
-}
+  </>
+)}
 export default Navbar;

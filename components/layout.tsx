@@ -1,4 +1,4 @@
-import Navbar from "./navbar";
+import Header from "./header";
 import Footer from "./footer";
 import { CommonPageProps } from "@/interfaces/common";
 import Head from "next/head";
@@ -8,9 +8,10 @@ export default function Layout({ children }: CommonPageProps) {
   return (
     <>
       <Head>
-        <title>title</title>
+        <title>Wild Senses - Home</title>
       </Head>
-      <Navbar />
+      <Header></Header>
+  
       <main>{children}</main>
       <Footer />
     </>
