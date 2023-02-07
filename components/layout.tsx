@@ -11,7 +11,7 @@ export default function Layout({ children }: CommonPageProps) {
         <title>Wild Senses - Home</title>
       </Head>
       <Header></Header>
-  
+
       <main>{children}</main>
       <Footer />
     </>
