@@ -3,15 +3,13 @@ import Head from "next/head";
 import React from "react";
 import { appWithTranslation } from "next-i18next";
 import Layout from "@/components/layout";
+import HomePage from "./home/HomePage";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <React.Fragment>
-      <Head>
-        <title>Wild Senses</title>
-      </Head>
       <Layout>
-        <Component {...pageProps} />
+        <Component {...pageProps} />  <HomePage></HomePage>
       </Layout>
     </React.Fragment>
   );

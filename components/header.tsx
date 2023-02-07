@@ -15,11 +15,11 @@ import StickyButton from "./stickyButton";
 
 const Header = () => {
   return (
-    <>
+    <div>
       <CssBaseline />
 
       <div className={styles.page}>
-        <Container maxWidth="xl">
+        <Container maxWidth="lg">
           <Grid item xs={12} sm container className={styles.header}>
             <div className={styles.left}>
               <div>
@@ -61,7 +61,7 @@ const Header = () => {
 
         <Example></Example>
       </div>
-    </>
+    </div>
   );
 };
 export default Header;
