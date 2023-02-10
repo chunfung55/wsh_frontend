@@ -26,7 +26,7 @@ const Header = () => {
                 <a href="">中</a> | <a href="">Eng</a>
               </div>
               <div>
-                <GlobalButton name="MIGRATION MAP"></GlobalButton>
+                <GlobalButton name="MIGRATION MAP" style="comButton"></GlobalButton>
               </div>
             </div>
 
@@ -46,7 +46,7 @@ const Header = () => {
 
             <div className={styles.right}>
               <div>
-                <GlobalButton name="CONTACT US"></GlobalButton>
+                <GlobalButton name="CONTACT US" style="comButton"></GlobalButton>
               </div>
               <div>
                 <Typography className={styles.lowFontCol1}>

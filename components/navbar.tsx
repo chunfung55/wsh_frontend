@@ -14,22 +14,23 @@ import CssBaseline from "@mui/material/CssBaseline";
 import styles from "../styles/Home.module.css";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
-const pages = [
-  "ABOUT SAFARI",
-  "DESTINATIONS",
-  "ITINERARIES",
-  "TRAVEL INFO",
-  "ABOUT US",
-];
-const aboutSafa = [
-  "a day at safari",
-  "what time of year is the best for african",
-  "what is the big 5?",
-  "the great migration",
-  "migration map",
-  "safari accommodation",
-];
+const pageTitles = ["ABOUT SAFARI","DESTINATIONS","ITINERARIES","TRAVEL INFO","ABOUT US"] ;
 
+const pages = [
+  {
+    "ABOUT SAFARI":
+      ["a day at safari",
+        "what time of year is the best for african",
+        "what is the big 5?",
+        "the great migration",
+        "migration map",
+        "safari accommodation",]
+  },
+  {"DESTINATIONS":["KENYA", "TANZANIA"]},
+  {"ITINERARIES":["Family Holiday","HoneyMoon"]},
+  {"TRAVEL INFO":["Latest News","FAQS"]},
+  {"ABOUT US":["Who we are"]},
+];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar() {
@@ -107,12 +108,12 @@ function Navbar() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
+              {/* {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                   <svg data-testid="DeleteIcon"></svg>
                 </MenuItem>
-              ))}
+              ))} */}
             </Menu>
           </Box>
 
@@ -121,10 +122,10 @@ function Navbar() {
             justifyContent="center"
           >
             <Button className={styles.navbar_button}>HOME</Button>
-            {pages.map((page) => (
-              <div key={page}>
+            {/* {pageTitles.map((pageTitle) => (
+              <div key={pageTitle}>
                 <Button
-                  key={page}
+                  key={pageTitle}
                   id="basic-button"
                   aria-controls={open ? "basic-menu" : undefined}
                   aria-haspopup="true"
@@ -132,15 +133,17 @@ function Navbar() {
                   onClick={handleClick}
                   className={styles.navbar_button}
                 >
-                  {page}
+                  {pageTitle}
                   <ArrowDropDownIcon
                     fontSize="small"
                     className={styles.dropDownIcon}
                   ></ArrowDropDownIcon>
                 </Button>
-                <NavMenu page={page}></NavMenu>
+                {pages.{pageTitle}.map((page) => (
+                  <NavMenu page={page}></NavMenu>
+                ))}
               </div>
-            ))}
+            ))} */}
           </Box>
         </Toolbar>
       </AppBar>

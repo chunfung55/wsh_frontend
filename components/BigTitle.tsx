@@ -1,9 +1,10 @@
 import { Container, Grid } from "@mui/material";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { homedir } from "os";
 import "../styles/Home.module.css";
 import styles from "../styles/Home.module.css";
-
+// HomePage title
 const BigTitle = ({ content }: { content: string }) => {
   return (
   <Container className={styles.big_title_container} >

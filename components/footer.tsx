@@ -64,18 +64,18 @@ const aboutUs = [
 
 export default function Footer() {
   return (
-    <div>
-      <Container maxWidth="false" sx={{ maxWidth:'85%'  }} className={styles.footer}>
+      <Box sx={{backgroundImage: 'url(https://www.wildsensesholidays.com/images/enquiry_ban.png)'}} style={{padding: "32px 0px 2px"}} className={styles.footer}>
+      <Container maxWidth="false" sx={{ maxWidth:'85%'  }} className={styles.footer_background}>
         <Grid
           item
-          xs={12}
+          md={12}
           sm={12}
           container
           spacing={0}
           className={styles.footer_top}
         >
-          <Grid xs={2}></Grid>
-          <Grid xs={2}  className={styles.footer_grid}>
+          <Grid md={2} ></Grid>
+          <Grid item  md={3}  sm={12} xs={12} className={styles.footer_grid} display="flex"  >
             <Box
               component="img"
               sx={{
@@ -88,7 +88,7 @@ export default function Footer() {
               src="https://picsum.photos/id/1/200/300"
             />
           </Grid>
-          <Grid xs={4} display="flex" justifyContent="center"  alignItems="start" className={styles.footer_grid}>
+          <Grid item md sm={12} xs={12}  display="flex"  className={styles.footer_grid} alignItems="start">
             <IconButton aria-label="delete">
               <FacebookIcon fontSize="large"/>
             </IconButton>
@@ -96,79 +96,71 @@ export default function Footer() {
               <InstagramIcon fontSize="large"/>
             </IconButton>
           </Grid>
-          <Grid xs={2} className={styles.footer_grid}>
-            <GlobalButton name="Enquire Us"></GlobalButton>
+          <Grid item md sm={12} xs={12}  className={styles.footer_grid}  display="flex"  justifyContent="center"  alignItems="start">
+            <GlobalButton name="Enquire Us" style="comButton"></GlobalButton>
           </Grid>
-          <Grid xs={2}> </Grid>
+          <Grid md={2}></Grid>
         </Grid>
+        </Container>
+        <Container maxWidth="false" sx={{ maxWidth:'85%'  }} className={styles.footer_background}>
         <hr className={styles.footer_hr}></hr>
         <Grid
-          item
-          lg={12}
-          sm={6}
           container
+          lg={12}
+          md={12}
+          sm={12}
+          xs={12}
           spacing={0}
           className={styles.footer_top}
         >
-          <Grid xs={2} className={styles.footer_grid}></Grid>
-          <Grid xs={2} className={styles.footer_grid}>
+          <Grid md={2} sm={0}></Grid>
+          <Grid sm={12} xs={12} md={2} className={styles.footer_grid}>
             <Typography className={styles.footer_siteTitle}>
               Destinations
             </Typography>
-          </Grid>
-          <Grid xs={2} className={styles.footer_grid}>
-            <Typography className={styles.footer_siteTitle}>
-              Itineraries
-            </Typography>
-          </Grid>
-          <Grid xs={2} className={styles.footer_grid}>
-            <Typography className={styles.footer_siteTitle}>
-              Travel Info
-            </Typography>
-          </Grid>
-          <Grid xs={2} className={styles.footer_grid}>
-            <Typography className={styles.footer_siteTitle}>
-              About Us
-            </Typography>
-          </Grid>
-          <Grid xs={2}></Grid>
-
-          <Grid xs={2}></Grid>
-          <Grid xs={2} className={styles.footer_grid}>
-
             {destinations.map((destin) => (
               <a href={destin} className={styles.footer_content}><Typography className={styles.footer_content}>
                 {destin}
               </Typography></a>
             ))}
           </Grid>
-          <Grid xs={2} className={styles.footer_grid}>
+          <Grid sm={12} xs={12} md={2} className={styles.footer_grid}>
+            <Typography className={styles.footer_siteTitle}>
+              Itineraries
+            </Typography>
             {itineraries.map((itin) => (
               <a href={itin} className={styles.footer_content}><Typography className={styles.footer_content}>
                 {itin}
               </Typography></a>
             ))}
           </Grid>
-          <Grid xs={2} className={styles.footer_grid}>
+          <Grid sm={12} xs={12} md={2} className={styles.footer_grid}>
+            <Typography className={styles.footer_siteTitle}>
+              Travel Info
+            </Typography>
             {travelInfo.map((info) => (
               <a href={info} className={styles.footer_content}><Typography className={styles.footer_content}>
                 {info}
               </Typography></a>
             ))}
           </Grid>
-          <Grid xs={2} className={styles.footer_grid}>
+          <Grid  sm={12} xs={12} md={2} className={styles.footer_grid}>
+            <Typography className={styles.footer_siteTitle}>
+              About Us
+            </Typography>
             {aboutUs.map((us) => (
               <a href={us} className={styles.footer_content}><Typography className={styles.footer_content}>
                 {us}
               </Typography></a>
             ))}
           </Grid>
-          <Grid xs={2}></Grid>
+          <Grid md={2} sm={0}></Grid>
+
         </Grid>
         <Grid display="flex" justifyContent="center">
           <Typography className={styles.footer_copyRight}>Copyright C 2019 Wild Senses Holidays</Typography>
         </Grid>
-      </Container>
-    </div>
+        </Container>
+        </Box>
   );
 }

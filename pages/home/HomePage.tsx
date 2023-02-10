@@ -74,6 +74,26 @@ const months = [
   'Jan-Mar', 'Apr-Jun', 'Jul-Sep', 'Oct-Dec'
 ];
 
+const travelIdeas = [
+  {title: 'Giraffe Manor & Kenya Fly-In Safari',
+  content: 'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica',
+  location: 'sabi sands, Victoria Falls, Sossusvlei',
+  night: '9 Nights',
+  price: 'From HKD 47,780/adult',
+  },
+  {title: 'Giraffe Manor & Kenya Fly-In Safari',
+  content: 'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica',
+  location: 'sabi sands, Victoria Falls, Sossusvlei',
+  night: '9 Nights',
+  price: 'From HKD 47,780/adult',
+  },
+  {title: 'Giraffe Manor & Kenya Fly-In Safari',
+  content: 'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica',
+  location: 'sabi sands, Victoria Falls, Sossusvlei',
+  night: '9 Nights',
+  price: 'From HKD 47,780/adult',
+  },
+];
 const Table = dynamic(() => import("../../components/ImgCard"), {
   ssr: false,
 });
@@ -139,15 +159,11 @@ export default function HomePage() {
                 spacing={0}
                 alignItems="center"
                 justifyContent="center" sx={{ padding: '0px 15px' }}>
-                <Grid md={4}>
-                  <ImgCard></ImgCard>
-                </Grid>
-                <Grid md={4}>
-                  <ImgCard></ImgCard>
-                </Grid>
-                <Grid md={4}>
-                  <ImgCard></ImgCard>
-                </Grid>
+                   {travelIdeas.map((travelIdea) => (
+            <Grid md={4}>
+            <ImgCard title={travelIdea.title} content={travelIdea.content} location={travelIdea.location} night={travelIdea.night} price={travelIdea.price}></ImgCard>
+          </Grid>
+          ))}
               </Grid>
 
             </Container>
@@ -155,22 +171,6 @@ export default function HomePage() {
 
         </div>
       </div>
-      <Container>
-        <Grid
-          item
-          xs={12}
-          sm={12}
-          container
-          spacing={0}
-          alignItems="center"
-          justifyContent="center"
-        >
-          <Grid md={2}></Grid>
-          <Grid md={10}>
-
-          </Grid>
-        </Grid>
-      </Container>
       <BigTitle content="OUR DESTINATIONS"></BigTitle>
       <Container maxWidth="xl">
         <Grid
@@ -198,8 +198,31 @@ export default function HomePage() {
         </ImageList>
 
       </Container>
-
+      <div className={styles.frame_grey}>
+      <div className={styles.container_fluid}>
+      <Container >
       <BigTitle content="LATEST NEWS"></BigTitle>
+      </Container>
+      <div className={styles.row}>
+            <Container sx={{ padding: '0px 15px' }} maxWidth={false}>
+              <Grid item
+                xs={12}
+                sm={12}
+                container
+                spacing={0}
+                alignItems="center"
+                justifyContent="center" sx={{ padding: '0px 15px' }}>
+                  {travelIdeas.map((travelIdea) => (
+            <Grid md={4}>
+            <ImgCard title={travelIdea.title} content={travelIdea.content} location={travelIdea.location} night={travelIdea.night} price={travelIdea.price}></ImgCard>
+          </Grid>
+          ))}
+              </Grid>
+
+            </Container>
+          </div>
+          </div>
+          </div>
       <BigTitle content="INSTA MOMENTS"></BigTitle>
       <br></br>
       <ImageList cols={4} gap={0}>
