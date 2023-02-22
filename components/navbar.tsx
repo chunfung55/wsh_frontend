@@ -14,6 +14,7 @@ import MenuItem from "@mui/material/MenuItem";
 import CssBaseline from "@mui/material/CssBaseline";
 import styles from "../styles/Home.module.css";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import Header from "./header";
 
 
 const pageTitles = ["ABOUT SAFARI","DESTINATIONS","ITINERARIES","TRAVEL INFO","ABOUT US"] ;
@@ -72,7 +73,7 @@ function Navbar() {
   return (
     <>
       <CssBaseline />
-      <AppBar position="static" className={styles.navbar}>
+      <AppBar className={styles.navbar} elevation={0} >
         <Toolbar>
           <Box
             sx={{

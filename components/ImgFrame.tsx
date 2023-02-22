@@ -1,11 +1,12 @@
-import { ImageList, ImageListItem } from "@mui/material";
+import { Box, ImageList, ImageListItem, ImageListItemBar } from "@mui/material";
 import Button from "@mui/material/Button";
 import "../styles/Home.module.css";
 import styles from "../styles/Home.module.css";
+import { styled } from '@mui/material/styles';
 
-const ImgFrame = ({ img, title}: { img: string, title: string }) => {
+const ImgFrame = ({ img, title }: { img: string, title: string }) => {
 
-    
+
   return (
     <ImageListItem key={img}>
       <img className={styles.imgFrame}
@@ -14,8 +15,18 @@ const ImgFrame = ({ img, title}: { img: string, title: string }) => {
         alt={title}
         loading="lazy"
       />
+      <Box
+      className="boxTitle" 
+      style={{
+        display: 'none',
+        position: 'absolute',
+        color: 'white',
+        top: '50%',
+        left: '50%',
+        transform: 'translateX(-50%)',
+      }} >{title}</Box>
     </ImageListItem>
-  )  ;
+  );
 };
 
 export default ImgFrame;

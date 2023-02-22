@@ -34,7 +34,7 @@ export default function ImgCard({ title, content, location, night, price }:
             <Typography className={styles.card_footer_title}>
               {night}
             </Typography>
-            <GlobalButton name={price} style="comButton_card"></GlobalButton>
+            <GlobalButton name={price} cssClass="comButton_card"></GlobalButton>
           </div>
         </CardContent>
       </Card>

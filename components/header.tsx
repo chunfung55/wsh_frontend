@@ -7,61 +7,60 @@ import Box from "@mui/material/Box";
 import styles from "../styles/Home.module.css";
 import styled from "@emotion/styled";
 import Typography from "@mui/material/Typography";
-import { Example } from "./slider";
-import { CssBaseline } from "@mui/material";
+
+import { CssBaseline, Slide, useScrollTrigger } from "@mui/material";
 import { relative } from "node:path/win32";
 import ChipButton from "./ChipButton";
 import StickyButton from "./stickyButton";
+import logo from "./img/logo.png";
+import Image from "mui-image";
+import { Props } from "next/script";
 
-const Header = () => {
+function HideOnScroll(props) {
+  const { children, window } = props;
+  // Note that you normally won't need to set the window ref as useScrollTrigger
+  // will default to window.
+  // This is only being set here because the demo is in an iframe.
+  const trigger = useScrollTrigger({ target: window ? window() : undefined });
+
   return (
-    <div>
-      <CssBaseline />
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  );
+}
 
-      <div className={styles.page}>
-        <Container maxWidth="lg">
-          <Grid item xs={12} sm container className={styles.header}>
-            <div className={styles.left}>
-              <div>
-                <a href="">中</a> | <a href="">Eng</a>
-              </div>
-              <div>
-                <GlobalButton name="MIGRATION MAP" style="comButton"></GlobalButton>
-              </div>
-            </div>
-
-            <div className={styles.center}>
-              <Box
-                sx={{
-                  width: 141,
-                  height: 110,
-                  backgroundColor: "primary.dark",
-                  "&:hover": {
-                    backgroundColor: "primary.main",
-                    opacity: [0.9, 0.8, 0.7],
-                  },
-                }}
-              ></Box>
-            </div>
-
-            <div className={styles.right}>
-              <div>
-                <GlobalButton name="CONTACT US" style="comButton"></GlobalButton>
-              </div>
-              <div>
+export default function Header(props:any) {
+  
+  return (
+    <HideOnScroll {...props}>
+    <Box sx={{ position: "relative", width:"100vw", zIndex: "100000" }}>
+        <Container maxWidth="lg" >
+          <Grid container>
+            <Box className={styles.left}>
+              <Box>
+                  <a href="">中</a> | <a href="">Eng</a>
+              </Box>
+              <Box>
+                <GlobalButton name="MIGRATION MAP" cssClass="comButton"></GlobalButton>
+              </Box>
+            </Box>
+            <Box className={styles.center}>
+            <Image src={logo.src} height="110px" width="114px"></Image>
+            </Box>
+            <Box className={styles.right}>
+              <Box>
+                <GlobalButton name="CONTACT US" cssClass="comButton"></GlobalButton>
+              </Box>
+              <Box>
                 <Typography className={styles.lowFontCol1}>
                   (852) - 2813 8778
                 </Typography>
-              </div>
-            </div>
+              </Box>
+            </Box>
           </Grid>
         </Container>
-        <StickyButton className={styles.upFontCol1}>CONTACT US</StickyButton>
-        <Navbar />
-
-        <Example></Example>
-      </div>
-    </div>
+</Box>
+</HideOnScroll>
   );
 };
-export default Header;

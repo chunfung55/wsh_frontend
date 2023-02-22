@@ -152,7 +152,7 @@ export default function HomePage() {
           <center>   <NavLink labels={months}></NavLink></center>
           <div className={styles.row}>
             <Container sx={{ padding: '0px 15px' }} maxWidth={false}>
-              <Grid item
+              <Grid item={true} 
                 xs={12}
                 sm={12}
                 container
@@ -174,7 +174,6 @@ export default function HomePage() {
       <BigTitle content="OUR DESTINATIONS"></BigTitle>
       <Container maxWidth="xl">
         <Grid
-          item
           xs={12}
           sm={12}
           container
@@ -205,7 +204,7 @@ export default function HomePage() {
       </Container>
       <div className={styles.row}>
             <Container sx={{ padding: '0px 15px' }} maxWidth={false}>
-              <Grid item
+              <Grid
                 xs={12}
                 sm={12}
                 container

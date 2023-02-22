@@ -13,6 +13,7 @@ import ButtonBase from "@mui/material/ButtonBase";
 import { Righteous, Yellowtail } from "@next/font/google";
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import logo2 from "./img/logo2.png";
 
 const destinations = [
   "Kenya",
@@ -64,10 +65,9 @@ const aboutUs = [
 
 export default function Footer() {
   return (
-      <Box sx={{backgroundImage: 'url(https://www.wildsensesholidays.com/images/enquiry_ban.png)'}} style={{padding: "32px 0px 2px"}} className={styles.footer}>
+      <Box sx={{backgroundImage: 'url(https://www.wildsensesholidays.com/images/enquiry_ban.png)', t:"32px",b:"2px" }} className={styles.footer}>
       <Container maxWidth="false" sx={{ maxWidth:'85%'  }} className={styles.footer_background}>
         <Grid
-          item
           md={12}
           sm={12}
           container
@@ -75,20 +75,18 @@ export default function Footer() {
           className={styles.footer_top}
         >
           <Grid md={2} ></Grid>
-          <Grid item  md={3}  sm={12} xs={12} className={styles.footer_grid} display="flex"  >
+          <Grid item={true}  md={3}  sm={12} xs={12} className={styles.footer_grid} display="flex"  >
             <Box
               component="img"
               sx={{
-                height: 233,
-                width: 350,
-                maxHeight: { xs: 100, md: 100 },
-                maxWidth: { xs: 100, md: 100 },
+                height: 78,
+                width: 100
               }}
               alt="The house from the offer."
-              src="https://picsum.photos/id/1/200/300"
+              src={logo2.src}
             />
           </Grid>
-          <Grid item md sm={12} xs={12}  display="flex"  className={styles.footer_grid} alignItems="start">
+          <Grid item={true}  md sm={12} xs={12}  display="flex"  className={styles.footer_grid} alignItems="start">
             <IconButton aria-label="delete">
               <FacebookIcon fontSize="large"/>
             </IconButton>
@@ -96,8 +94,8 @@ export default function Footer() {
               <InstagramIcon fontSize="large"/>
             </IconButton>
           </Grid>
-          <Grid item md sm={12} xs={12}  className={styles.footer_grid}  display="flex"  justifyContent="center"  alignItems="start">
-            <GlobalButton name="Enquire Us" style="comButton"></GlobalButton>
+          <Grid item={true}  md sm={12} xs={12}  className={styles.footer_grid}  display="flex"  justifyContent="center"  alignItems="start">
+            <GlobalButton name="Enquire Us" cssClass="comButton"></GlobalButton>
           </Grid>
           <Grid md={2}></Grid>
         </Grid>
