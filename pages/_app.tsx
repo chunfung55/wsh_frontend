@@ -9,12 +9,14 @@ import WhatIsBig5 from "./about/WhatIsBig5";
 import TheGreatMigration from "./about/TheGreatMigration";
 import SafariAcco from "./about/SafariAcco";
 import Kenya from "./destin/Kenya";
+import Faq from "./travelInfo/Faqs";
+import LatestNews from "./travelInfo/LatestNews";
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <React.Fragment>
       <Layout>
         <Component {...pageProps} />  
-        <Kenya></Kenya> 
+        <LatestNews></LatestNews> 
       </Layout>
     </React.Fragment>
   );

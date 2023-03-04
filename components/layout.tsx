@@ -1,5 +1,5 @@
 
-import Footer from "./footer";
+import Footer from "@/components/Footer";
 import { CommonPageProps } from "@/interfaces/common";
 import Head from "next/head";
 import React from "react";

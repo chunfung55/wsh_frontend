@@ -34,6 +34,7 @@ export function Item(props: any) {
       
       <Image src={props.item.imglink} ></Image>
       <Box 
+        position= "absolute"
         display="flex"
         justifyContent="center"
         alignItems="center"

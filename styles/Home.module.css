@@ -93,6 +93,14 @@
     margin: 8px 0px 16px;
     color: #DCD0B4;
 }
+.yellow_hr {
+    width: "5%";
+    border-top: 3px solid rgb(251, 255, 0);
+    margin: "0px 16px";
+}
+.subpage_hr {
+    border-top: 2px solid #564C4A;
+}
 
 .footer_hr {
     margin: -24px;
@@ -142,6 +150,25 @@
     z-index: 2;
 }
 
+.img_content_title{
+    
+    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+    transition:1s;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: Georgia-serif;
+}
+.img_content_button{
+    margin-top: 5px;
+    padding: 5px;
+    font-size: 13px;
+    color: #fff;
+    background-color: hsla(42, 37%, 64%, .8);
+    border:1px solid hsla(42, 37%, 64%, .8);
+    border-radius:5px;
+    font-family:'Nunito', sans-serif !important;
+}
+
 .navbar {
     background-color: #FFFFFF40;
     color: #564C4A;
@@ -150,9 +177,12 @@
     font-weight: 300;
     opacity: 0.7;
     top:10%;
+    z-index: 99;
 }
 
 .navbar_button {
+    text-transform: uppercase;
+    padding: 8px;
     color: black;
     display: block;
     color: "#d0c19A",
@@ -160,6 +190,17 @@
 
 .navbar_button:hover {
     color: #d0c19A;
+}
+
+.navbar_subMenu{
+    background-color: #D0C19A;
+    z-index: 99999;
+}
+.navbar_subMenu_font{
+    font-family: sans-serif;
+    color: #564C4A;
+    font-size: 12px;
+    padding: 0px 0px 10px;
 }
 
 .comButton {
@@ -268,11 +309,15 @@
 }
 
 .slider_title {
+    position: absolute;
     font-family: sans-serif;
+    transform: translateX(-50%);
     font-size: 3rem;
     color: #fff;
     text-shadow: 0 0 3px #d0c19A, 0 0 5px #d0c19A;
 }
+
+
 
 .slide:hover {
     top: 0%;
@@ -366,6 +411,13 @@
     color: #514531;
 }
 
+.h3_home_title {
+    font-family: sans-serif;
+    font-size: 28px;
+    margin: 0px 0px 8px;
+    padding: 20px 0px 0px;
+}
+
 .p {
     color: #826E4D;
     font-size: 15px;
@@ -445,4 +497,38 @@
     padding: 80px 0px 80px 0px;
     font-family: sans-serif;
 
+}
+
+.fnq_span{
+    color: #c5b181;
+    font-family: sans-serif;
+    font-size: 20px;
+    padding: 0px 0px 8px;
+}
+
+.article{
+    margin: 0px 0px 32px; 
+}
+
+.page_frame_sub_menu{
+    padding:12px 20px 12px 0px;
+    color:#564C4A;
+    font-size:15px;
+    font-family: Georgia;
+}
+
+.page_frame_sub_menu_active:hover{
+    background-color:#C5C5C5;
+    color:#564C4A;
+}
+
+.page_frame_sub_menu:hover{
+    background-color: #C5C5C5;
+}
+
+.page_frame_sub_menu_active{
+
+    color:#C5C5C5;
+    font-size:15px;
+    font-family: Georgia;
 }

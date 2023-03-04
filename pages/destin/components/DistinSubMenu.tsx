@@ -1,5 +1,15 @@
-import {   Link, ListItem, ListItemText, makeStyles } from "@mui/material";
+import {   Link, ListItem, ListItemText, makeStyles, styled } from "@mui/material";
 import styles from "@/styles/Home.module.css";
+
+export const StyledLink = styled(Link)(({ theme }) => ({
+  color: 'green',
+  "&.Mui-checked": {
+    color: 'green'
+  },
+  '& svg[data-testid="RadioButtonCheckedIcon"]': {
+    color: 'orange'
+  }
+}));
 
 export function subMenu({subContent, subLink}:{ subContent: string, subLink: string}) {
 

@@ -23,7 +23,7 @@ const DistinFrame = ({children }: CommonPageProps) => {
                             <Box >
                             {cats.map((cat) => (
                                 <Box>
-                                    <Typography sx={{pt:"40px",pb:"20px", fontSize:"17px"}} className={styles.dist_menu_title}>{cat}</Typography>
+                                    <Typography sx={{p:"40px 20px 12px 0px", fontSize:"17px"}} className={styles.dist_menu_title}>{cat}</Typography>
                                     <List sx={style} component="nav" aria-label="mailbox folders">
                                     {pages.map((page) => (
                                         <DistinSubMenu link="" content={page} ></DistinSubMenu>
