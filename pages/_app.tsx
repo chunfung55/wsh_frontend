@@ -11,12 +11,15 @@ import SafariAcco from "./about/SafariAcco";
 import Kenya from "./destin/Kenya";
 import Faq from "./travelInfo/Faqs";
 import LatestNews from "./travelInfo/LatestNews";
+import { fetchAPI } from "@/lib/api";
+
 const App = ({ Component, pageProps }: AppProps) => {
+  console.log("in app", Component);
   return (
     <React.Fragment>
       <Layout>
-        <Component {...pageProps} />  
-        <LatestNews></LatestNews> 
+        <Component {...pageProps} />
+        <LatestNews></LatestNews>
       </Layout>
     </React.Fragment>
   );

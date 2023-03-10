@@ -1,4 +1,3 @@
-
 import Footer from "@/components/Footer";
 import { CommonPageProps } from "@/interfaces/common";
 import Head from "next/head";
@@ -10,27 +9,26 @@ import Navbar from "./navbar";
 import { Example } from "./slider";
 import { Box } from "@mui/system";
 import { useScrollTrigger } from "@mui/material";
-
+import { GetStaticProps } from "next";
+import { fetchAPI } from "@/lib/api";
 
 export default function Layout({ children }: CommonPageProps) {
   return (
-    <Box >
+    <Box>
       <Head>
         <title>Wild Senses - Home</title>
       </Head>
-      <Box sx={{ position: "fixed",  zIndex: "100000" }}>
-      
-      <Header/>
-     
-      <Box sx={{ position: "absolute"}}>
-      <Navbar/>
-      </Box>
+      <Box sx={{ position: "fixed", zIndex: "100000" }}>
+        <Header />
+
+        <Box sx={{ position: "absolute" }}>
+          <Navbar />
+        </Box>
       </Box>
       <Box sx={{ top: "0", zIndex: "1" }}>
-      <Example></Example>
+        <Example></Example>
 
-    
-      <main>{children}</main>
+        <main>{children}</main>
       </Box>
       <Footer />
     </Box>
