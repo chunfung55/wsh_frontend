@@ -15,6 +15,9 @@ import StickyButton from "./stickyButton";
 import logo from "./img/logo.png";
 import Image from "mui-image";
 import { Props } from "next/script";
+import Link from "next/link";
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from "@mui/icons-material/Facebook";
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -30,6 +33,13 @@ function HideOnScroll(props) {
   );
 }
 
+const StyledLink = styled(Link)({
+  color:"#564C4A",
+  textshadow: "0px 0px 10px black",
+  textDecoration: "none",
+});
+
+
 export default function Header(props:any) {
   
   return (
@@ -38,23 +48,24 @@ export default function Header(props:any) {
         <Container maxWidth="lg" >
           <Grid container>
             <Box className={styles.left}>
-              <Box>
-                  <a href="">中</a> | <a href="">Eng</a>
+              <Box sx={{pt:"20px", pb:"20px"}}>
+                  <StyledLink href="" >中</StyledLink> | <StyledLink href="">Eng</StyledLink>
               </Box>
               <Box>
-                <GlobalButton name="MIGRATION MAP" cssClass="comButton"></GlobalButton>
+                <GlobalButton content="MIGRATION MAP" cssName={styles.comButton} url={""}></GlobalButton>
               </Box>
             </Box>
             <Box className={styles.center}>
             <Image src={logo.src} height="110px" width="114px"></Image>
             </Box>
             <Box className={styles.right}>
-              <Box>
-                <GlobalButton name="CONTACT US" cssClass="comButton"></GlobalButton>
+              <Box  sx={{pt:"20px", pb:"20px"}}>
+                <GlobalButton content="CONTACT US" cssName={styles.comButton} url={""}></GlobalButton>
               </Box>
               <Box>
+              <InstagramIcon fontSize="small" /> <FacebookIcon fontSize="small" />
                 <Typography className={styles.lowFontCol1}>
-                  (852) - 2813 8778
+                 (852) - 2813 8778
                 </Typography>
               </Box>
             </Box>

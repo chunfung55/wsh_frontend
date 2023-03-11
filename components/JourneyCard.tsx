@@ -3,8 +3,9 @@ import Button from "@mui/material/Button";
 import "../styles/Home.module.css";
 import styles from "../styles/Home.module.css";
 
-const JourneyCard = ({imgLink , name, btnContent, url }:{imgLink:string, name:string,btnContent:string, url:string}) => {
-  return (   <Card elevation={0} >
+const JourneyCard = ({imgLink , name, btnContent, url, styleClass }:{imgLink:string, name:string,btnContent:string, url:string, styleClass:string}) => {
+  return (   
+  <Card elevation={0} >
     <CardActionArea href={url}>
         <Box style={{ position: "relative" }}>
             <CardMedia
@@ -23,7 +24,7 @@ const JourneyCard = ({imgLink , name, btnContent, url }:{imgLink:string, name:st
             </Box>
 
         </Box>
-    </CardActionArea>
+  </CardActionArea>
     </Card>);
 };
 

@@ -7,9 +7,9 @@ import StickyButton from "./stickyButton";
 import styles from "@/styles/Home.module.css";
 import Header from "./header";
 import Navbar from "./navbar";
-import { Example } from "./slider";
 import { Box } from "@mui/system";
 import { useScrollTrigger } from "@mui/material";
+import ImgSlider from "./slider";
 
 
 export default function Layout({ children }: CommonPageProps) {
@@ -27,9 +27,7 @@ export default function Layout({ children }: CommonPageProps) {
       </Box>
       </Box>
       <Box sx={{ top: "0", zIndex: "1" }}>
-      <Example></Example>
-
-    
+      <ImgSlider></ImgSlider>
       <main>{children}</main>
       </Box>
       <Footer />

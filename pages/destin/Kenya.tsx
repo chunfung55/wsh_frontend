@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BottomNavigation, BottomNavigationAction, Box, Button, Card, CardContent, CardHeader, CardMedia, Divider, Grid, ImageList, ImageListItem, List, ListItem, ListItemText, Paper, Typography } from "@mui/material";
 import styles from "@/styles/Home.module.css";
 import DistinFrame from "./components/DistinFrame";
@@ -7,6 +7,9 @@ import Image from "mui-image";
 import { fontSize } from "@mui/system";
 import QuestCard from "./components/QuestCard";
 import QuestSubTitle from "./components/QuestSubTitle";
+import JourneyCard from "@/components/JourneyCard";
+import LatestNewsItem from "../travelInfo/components/LatestNewsItem";
+import VisitItem from "./components/visitItem";
 
 const contents = [{
     title: "Morning Game Drive",
@@ -18,27 +21,10 @@ const contents = [{
     imgUrl: "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6"
 }];
 
-const el = document.getElementById('container');
-
-const btn = document.getElementById('btn');
-
-if (el != null && btn != null) {
-  btn.addEventListener('click', function handleClick() {
-    if (el.style.visibility === 'hidden') {
-      // ✅ Shows element if hidden
-      el.style.visibility = 'visible';
-
-      btn.textContent = 'Hide div';
-    } else {
-      // ✅ Hides element if shown
-      el.style.visibility = 'hidden';
-
-      btn.textContent = 'Show div';
-    }
-  });
-}
+const news = [{url: 'https://images.unsplash.com/photo-1516802273409-68526ee1bdd6', title:'Book Your 2022/23 Antarctica Journey ', img:'https://images.unsplash.com/photo-1516802273409-68526ee1bdd6',content:'There can be no finer way to experience Antarctica than booking a well designed journey with Wild Senses Holidays.'},{url: 'https://images.unsplash.com/photo-1516802273409-68526ee1bdd6', title:'Book Your 2022/23 Antarctica Journey ', img:'https://images.unsplash.com/photo-1516802273409-68526ee1bdd6',content:'There can be no finer way to experience Antarctica than booking a well designed journey with Wild Senses Holidays.'}];
 
 export default function Kenya() {
+    const [isShown, setIsShown] = useState(false);
     return (
         <Box>
             <BigTitle content="KENYA"></BigTitle>
@@ -52,14 +38,21 @@ export default function Kenya() {
                         </Box>
                         <Grid>
                             <Box className={styles.h1_about}>
-                                <ImageList cols={2}>
-                                    <ImageListItem >
+                               <Grid container md={12}>
+                               <Grid item md={1.65}>
                                         <Image src="https://images.unsplash.com/photo-1516802273409-68526ee1bdd6" width="225px" height="225px"></Image>
-                                    </ImageListItem>
-                                    <ImageListItem >
+                                </Grid>
+                                <Grid item md={1.65}>
                                         <Image src="https://images.unsplash.com/photo-1516802273409-68526ee1bdd6" width="225px" height="225px"></Image>
-                                    </ImageListItem>
-                                </ImageList>
+                                </Grid>
+                                <Grid item md={1.65}>
+                                        <Image src="https://images.unsplash.com/photo-1516802273409-68526ee1bdd6" width="225px" height="225px"></Image>
+                                </Grid>
+                                <Grid item md={1.65}>
+                                        <Image src="https://images.unsplash.com/photo-1516802273409-68526ee1bdd6" width="225px" height="225px"></Image>
+                                </Grid>
+                                </Grid>
+                               
                             </Box>
                             <Box>
                                 <Grid container md={12} >
@@ -84,36 +77,17 @@ export default function Kenya() {
                                     <Grid item ></Grid>
                                 </Grid>
                                 <Box className={styles.row}></Box>
+                                
                                 <Grid container md={12} >
-                                    <Grid item md={6}>
-                                        <Box className={styles.item15} >
-                                            <Card elevation={0} >
-                                                <Box style={{ position: "relative" }}>
-                                                    <CardMedia
-                                                        component="img"
-                                                        alt="green iguana"
-                                                        width="100%"
-                                                        image="https://images.unsplash.com/photo-1516802273409-68526ee1bdd6"
-                                                        sx={{
-                                                            ':hover': {
-                                                                opacity: 0.7,
-                                                               
-                                                            },
-                                                        }}
-                                                    />
-
-                                                    <Box style={{ position: "absolute", bottom: "5%", right: "-130px", transform: "translateX(-50%)"}}>
-                                                        <Typography className={styles.img_content_title} sx={{ p: "10px" }}>Chobe National Park</Typography>
-                                                        <hr className={styles.card_img}></hr>
-                                                        <Button className={styles.img_content_button}>Read More</Button>
-                                                    </Box>
-
-                                                </Box>
-                                            </Card>
-                                        </Box>
-                                    </Grid>
-                                    <Grid item md={6}></Grid>
+                                    {news.map((jou) => (
+                                        <Grid item md={6} sx={{ pb: "40px" }}>
+                                          
+                                            <VisitItem url={jou.url} title={jou.title} img={jou.img} content={jou.content} style={styles.lates_new_item} />
+                                            
+                                        </Grid>
+                                    ))}
                                 </Grid>
+          
                             </Box>
                         </Grid>
 

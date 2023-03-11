@@ -1,12 +1,31 @@
 
 import React from "react";
 import Carousel from "react-material-ui-carousel";
-import { Paper, Button, Typography, Box, Grid } from "@mui/material";
+import { Paper, Button, Typography, Box, Grid, Card, CardMedia, CardActionArea } from "@mui/material";
 import styles from "../styles/Home.module.css";
 import Header from "./header";
 import Image from "mui-image";
 
-export function Example() {
+
+interface imgObj{
+  imgLink: string,
+  title: string,
+  content: string,
+  href: string,
+}
+
+interface cardObj{
+  imgLink: string,
+  title: string,
+  content: string,
+  location?: string,
+  night?: string,
+  price?: string,
+  href: string,
+}
+
+
+export default function  ImgSlider () {
   const items = [
     {
       imglink: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
@@ -22,36 +41,28 @@ export function Example() {
   return (
     <Carousel  className={styles.slide} animation="slide">
       {items.map((item, i) => (
-        <Item key={i} item={item} />
+        <ImgItem key={i} item={item} />
       ))}
     </Carousel>
   );
 }
-
-export function Item(props: any) {
+function ImgItem(props:any) {
   return (
     <Paper>
+      <Card sx={{borderRadius:'0',position: "relative"}}>
+        <CardActionArea href={props.item.href}>
+        <CardMedia >
+        <Image src={props.item.imglink} height="100%"></Image>
+        <Box sx={{position: "absolute", color: "white",top: '35%',left: "50%",transform: "translateX(-50%)"}}>
+         <center> <Typography className={styles.slider_title}>{props.item.name}</Typography>
+          <Typography className={styles.slider_title}>{props.item.description}</Typography>
+          </center>
+        </Box>
+        </CardMedia>
+        </CardActionArea>
       
-      <Image src={props.item.imglink} ></Image>
-      <Box 
-        position= "absolute"
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        minHeight="100vh"
-      >
-        <Box>
-        <Typography className={styles.slider_title} paragraph>
-          {props.item.name}
-        </Typography>
-        </Box>
-        <Box>
-        <Typography className={styles.slider_title} paragraph>
-          {props.item.description}
-        </Typography>
-        </Box>
-      </Box>
-    
+      </Card>
     </Paper>
   );
 }
+

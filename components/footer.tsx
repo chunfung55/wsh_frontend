@@ -95,7 +95,7 @@ export default function Footer() {
             </IconButton>
           </Grid>
           <Grid item={true}  md sm={12} xs={12}  className={styles.footer_grid}  display="flex"  justifyContent="center"  alignItems="start">
-            <GlobalButton name="Enquire Us" cssClass="comButton"></GlobalButton>
+            <GlobalButton content="Enquire Us" cssName={styles.comButton} url={""}></GlobalButton>
           </Grid>
           <Grid md={2}></Grid>
         </Grid>
