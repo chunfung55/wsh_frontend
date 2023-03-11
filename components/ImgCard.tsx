@@ -1,15 +1,32 @@
-import { Card, CardActionArea, CardMedia, Typography, CardContent } from "@mui/material";
+import {
+  Card,
+  CardActionArea,
+  CardMedia,
+  Typography,
+  CardContent,
+} from "@mui/material";
 import "../styles/Home.module.css";
 import styles from "../styles/Home.module.css";
 import GlobalButton from "./GlobalButton";
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { padding } from "@mui/system";
 
-export default function ImgCard({ title, content, location, night, price }: 
-  { title: string, content: string, location: string, night: string, price: string }) {
+export default function ImgCard({
+  title,
+  content,
+  location,
+  night,
+  price,
+}: {
+  title: string;
+  content: string;
+  location: string;
+  night: string;
+  price: string;
+}) {
   return (
     <div className={styles.item}>
-      <Card className={styles.card_img} sx={{ borderRadius: '16px' }}>
+      <Card className={styles.card_img} sx={{ borderRadius: "16px" }}>
         <CardMedia
           component="img"
           height="490"
@@ -21,9 +38,7 @@ export default function ImgCard({ title, content, location, night, price }:
             <div className={styles.card_title}>
               <center>{title}</center>
             </div>
-            <Typography className={styles.fontsm}>
-              {content}
-            </Typography>
+            <Typography className={styles.fontsm}>{content}</Typography>
           </div>
           <div className={styles.card_footer}>
             <Typography className={styles.card_loca}>
@@ -40,4 +55,4 @@ export default function ImgCard({ title, content, location, night, price }:
       </Card>
     </div>
   );
-};
+}

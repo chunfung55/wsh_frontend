@@ -30,27 +30,32 @@ function HideOnScroll(props) {
   );
 }
 
-export default function Header(props:any) {
-  
+export default function Header(props: any) {
   return (
     <HideOnScroll {...props}>
-    <Box sx={{ position: "relative", width:"100vw", zIndex: "100000" }}>
-        <Container maxWidth="lg" >
+      <Box sx={{ position: "relative", width: "100vw", zIndex: "100000" }}>
+        <Container maxWidth="lg">
           <Grid container>
             <Box className={styles.left}>
               <Box>
-                  <a href="">中</a> | <a href="">Eng</a>
+                <a href="">中</a> | <a href="">Eng</a>
               </Box>
               <Box>
-                <GlobalButton name="MIGRATION MAP" cssClass="comButton"></GlobalButton>
+                <GlobalButton
+                  name="MIGRATION MAP"
+                  cssClass="comButton"
+                ></GlobalButton>
               </Box>
             </Box>
             <Box className={styles.center}>
-            <Image src={logo.src} height="110px" width="114px"></Image>
+              <Image src={logo.src} height="110px" width="114px"></Image>
             </Box>
             <Box className={styles.right}>
               <Box>
-                <GlobalButton name="CONTACT US" cssClass="comButton"></GlobalButton>
+                <GlobalButton
+                  name="CONTACT US"
+                  cssClass="comButton"
+                ></GlobalButton>
               </Box>
               <Box>
                 <Typography className={styles.lowFontCol1}>
@@ -60,7 +65,7 @@ export default function Header(props:any) {
             </Box>
           </Grid>
         </Container>
-</Box>
-</HideOnScroll>
+      </Box>
+    </HideOnScroll>
   );
-};
+}

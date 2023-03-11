@@ -204,50 +204,60 @@ function Navbar() {
             sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
             justifyContent="center"
           >
-            {navItems?.map((navItem) => (
-              <Box key={navItem.title}>
-                <Link
-                  id="basic-button"
-                  aria-controls={open ? "basic-menu" : undefined}
-                  aria-haspopup="true"
-                  aria-expanded={open ? "true" : undefined}
-                  onClick={handleClick}
-                  className={styles.navbar_button}
-                  underline="none"
-                >
-                  {navItem.title}
-                  <ArrowDropDownIcon
-                    fontSize="small"
-                    className={styles.dropDownIcon}
-                  />
-                </Link>
-                <Popover
-                  id={id}
-                  open={open}
-                  anchorEl={anchorEl}
-                  onClose={handleClose}
-                  anchorOrigin={{
-                    vertical: "bottom",
-                    horizontal: "left",
-                  }}
-                  elevation={0}
-                >
-                  {navItem.submenu.map((submenu) => (
-                    <Box className={styles.navbar_subMenu} key={submenu.title}>
-                      <Typography sx={{ p: 2 }}>
-                        <Link
-                          href={submenu.url}
-                          underline="none"
-                          className={styles.navbar_subMenu_font}
+            {navItems?.map((navItem) => {
+              console.log("navItem", navItem);
+
+              return (
+                <Box key={navItem.title}>
+                  <Link
+                    id="basic-button"
+                    aria-controls={open ? "basic-menu" : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? "true" : undefined}
+                    onClick={handleClick}
+                    className={styles.navbar_button}
+                    underline="none"
+                  >
+                    {navItem.title}
+                    <ArrowDropDownIcon
+                      fontSize="small"
+                      className={styles.dropDownIcon}
+                    />
+                  </Link>
+                  <Popover
+                    id={id}
+                    open={open}
+                    anchorEl={anchorEl}
+                    onClose={handleClose}
+                    anchorOrigin={{
+                      vertical: "bottom",
+                      horizontal: "left",
+                    }}
+                    elevation={0}
+                  >
+                    {navItem.submenu.map((submenu) => {
+                      console.log("submenu", submenu);
+                      return (
+                        <Box
+                          className={styles.navbar_subMenu}
+                          key={submenu.title}
                         >
-                          {submenu.title}
-                        </Link>
-                      </Typography>
-                    </Box>
-                  ))}
-                </Popover>
-              </Box>
-            ))}
+                          <Typography sx={{ p: 2 }}>
+                            <Link
+                              href={submenu.url}
+                              underline="none"
+                              className={styles.navbar_subMenu_font}
+                            >
+                              {submenu.title}
+                            </Link>
+                          </Typography>
+                        </Box>
+                      );
+                    })}
+                  </Popover>
+                </Box>
+              );
+            })}
           </Box>
         </Toolbar>
       </AppBar>

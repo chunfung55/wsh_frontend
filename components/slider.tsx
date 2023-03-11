@@ -1,4 +1,3 @@
-
 import React from "react";
 import Carousel from "react-material-ui-carousel";
 import { Paper, Button, Typography, Box, Grid } from "@mui/material";
@@ -20,7 +19,7 @@ export function Example() {
     },
   ];
   return (
-    <Carousel  className={styles.slide} animation="slide">
+    <Carousel className={styles.slide} animation="slide">
       {items.map((item, i) => (
         <Item key={i} item={item} />
       ))}
@@ -31,27 +30,25 @@ export function Example() {
 export function Item(props: any) {
   return (
     <Paper>
-      
-      <Image src={props.item.imglink} ></Image>
-      <Box 
-        position= "absolute"
+      <Image src={props.item.imglink}></Image>
+      <Box
+        position="absolute"
         display="flex"
         justifyContent="center"
         alignItems="center"
         minHeight="100vh"
       >
         <Box>
-        <Typography className={styles.slider_title} paragraph>
-          {props.item.name}
-        </Typography>
+          <Typography className={styles.slider_title} paragraph>
+            {props.item.name}
+          </Typography>
         </Box>
         <Box>
-        <Typography className={styles.slider_title} paragraph>
-          {props.item.description}
-        </Typography>
+          <Typography className={styles.slider_title} paragraph>
+            {props.item.description}
+          </Typography>
         </Box>
       </Box>
-    
     </Paper>
   );
 }
