@@ -67,9 +67,7 @@ export default function Kenya() {
                                     </Box>
                                 </Grid>
                                 <Grid md={12}>
-
                                     <QuestSubTitle title="PLACES YOU MAY VISIT"></QuestSubTitle>
-
                                 </Grid>
                                 <Grid container md={12} >
                                     <Grid item md={5.75}></Grid>
@@ -81,9 +79,7 @@ export default function Kenya() {
                                 <Grid container md={12} >
                                     {news.map((jou) => (
                                         <Grid item md={6} sx={{ pb: "40px" }}>
-                                          
                                             <VisitItem url={jou.url} title={jou.title} img={jou.img} content={jou.content} style={styles.lates_new_item} />
-                                            
                                         </Grid>
                                     ))}
                                 </Grid>
