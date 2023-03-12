@@ -14,13 +14,16 @@ import LatestNews from "./travelInfo/LatestNews";
 import { fetchAPI } from "@/lib/api";
 
 import Term from "./travelInfo/Term";
+import ExtraMoment from "./aboutUs/ExtraMoment";
+import WhoWeAre from "./aboutUs/WhoWeAre";
+import Position from "./aboutUs/Position";
 const App = ({ Component, pageProps }: AppProps) => {
   console.log("in app", Component);
   return (
     <React.Fragment>
       <Layout>
         <Component {...pageProps} />
-        <Kenya></Kenya>
+        <Position></Position>
       </Layout>
     </React.Fragment>
   );

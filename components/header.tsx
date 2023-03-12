@@ -63,11 +63,13 @@ export default function Header(props: any) {
             </Box>
             <Box className={styles.right}>
               <Box sx={{ pt: "20px", pb: "20px" }}>
-                <GlobalButton
-                  content="CONTACT US"
-                  cssName={styles.comButton}
-                  url={""}
-                ></GlobalButton>
+                <b>
+                  <GlobalButton
+                    content="CONTACT US"
+                    cssName={styles.comButton}
+                    url={""}
+                  ></GlobalButton>
+                </b>
               </Box>
               <Box>
                 <InstagramIcon fontSize="small" />{" "}

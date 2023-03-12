@@ -259,6 +259,20 @@
     font-size: 16px;
 }
 
+.card_footer_font {
+    color: #ffffff;
+    font-size: 13px;
+    font-family: sans-serif;
+}
+
+.card_footer_font_right{
+    color: #ffffff;
+    font-size: 13px;
+    font-family: sans-serif;
+    float: right;
+    font-size: 12px;
+}
+
 .comButton_card {
     color: #ffffff;
     font-size: 13px;
@@ -575,3 +589,16 @@
 .lates_new_item{
     border-radius: '20px 20px 0px 0px' ;
 }
+
+.position_font{
+    color: #58595B;
+    font-size:15px;
+    line-height:1.1;
+    font-family: 'Nunito', sans-serif !important;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
