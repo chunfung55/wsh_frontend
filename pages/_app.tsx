@@ -2,7 +2,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import React from "react";
 import { appWithTranslation } from "next-i18next";
-import Layout from "@/components/layout";
+import Layout from "@/components/Layout";
 import HomePage from "./home/HomePage";
 import WhatTimeOfYear from "./about/WhatTimeOfYear";
 import WhatIsBig5 from "./about/WhatIsBig5";
@@ -13,13 +13,14 @@ import Faq from "./travelInfo/Faqs";
 import LatestNews from "./travelInfo/LatestNews";
 import { fetchAPI } from "@/lib/api";
 
+import Term from "./travelInfo/Term";
 const App = ({ Component, pageProps }: AppProps) => {
   console.log("in app", Component);
   return (
     <React.Fragment>
       <Layout>
         <Component {...pageProps} />
-        <LatestNews></LatestNews>
+        <Kenya></Kenya>
       </Layout>
     </React.Fragment>
   );

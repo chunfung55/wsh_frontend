@@ -1,20 +1,16 @@
 import React from "react";
-import type { AppProps } from "next/app";
-import Layout from "../../components/layout";
-import { appWithTranslation } from "next-i18next";
 import ImgCard from "../../components/ImgCard";
-import GlobalButton from "@/components/GlobalButton";
 import Container from "@mui/material/Container";
 import {
   BottomNavigation,
   BottomNavigationAction,
+  Box,
   Grid,
   ImageList,
   ImageListItem,
   Typography,
 } from "@mui/material";
 import styles from "../../styles/Home.module.css";
-import ImgButton from "@/components/ImgButton";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import ImgFrame from "@/components/ImgFrame";
 import BigTitle from "@/components/BigTitle";
@@ -27,6 +23,7 @@ import helicopter from "./img/helicopter.png";
 import phone from "./img/phone.png";
 
 import Image from "mui-image";
+import CardSlider from "@/components/CardSlider";
 const itemData = [
   {
     id: 1,
@@ -93,7 +90,7 @@ const months = ["Jan-Mar", "Apr-Jun", "Jul-Sep", "Oct-Dec"];
 
 const travelIdeas = [
   {
-    id: 1,
+    imgLink: "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
     title: "Giraffe Manor & Kenya Fly-In Safari",
     content:
       "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
@@ -102,7 +99,7 @@ const travelIdeas = [
     price: "From HKD 47,780/adult",
   },
   {
-    id: 2,
+    imgLink: "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
     title: "Giraffe Manor & Kenya Fly-In Safari",
     content:
       "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
@@ -111,7 +108,7 @@ const travelIdeas = [
     price: "From HKD 47,780/adult",
   },
   {
-    id: 3,
+    imgLink: "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
     title: "Giraffe Manor & Kenya Fly-In Safari",
     content:
       "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
@@ -120,13 +117,23 @@ const travelIdeas = [
     price: "From HKD 47,780/adult",
   },
 ];
+
+const LatestNews = [
+  {
+    title: "Book Your 2022/23 Antarctica Journey",
+    content:
+      "There can be no finer way to experience Antarctica than booking a well designed journey with Wild Senses Holidays. Book early with special offer.",
+    button: "Read More",
+  },
+];
+
 const Table = dynamic(() => import("../../components/ImgCard"), {
   ssr: false,
 });
 
 export default function HomePage() {
   return (
-    <div>
+    <Box>
       <div className={styles.frame}>
         <div>
           <div className={styles.row}>
@@ -182,44 +189,23 @@ export default function HomePage() {
           </Container>
         </div>
       </div>
-      <div className={styles.frame_grey}>
-        <div className={styles.container_fluid}>
+      <Box className={styles.frame_grey}>
+        <Box className={styles.container_fluid}>
           <Container>
             <BigTitle content="TRAVEL IDEAS BY MONTHS"></BigTitle>
           </Container>
-
           <center>
             {" "}
             <NavLink labels={months}></NavLink>
           </center>
-          <div className={styles.row}>
-            <Container sx={{ padding: "0px 15px" }} maxWidth={false}>
-              <Grid
-                item={true}
-                xs={12}
-                sm={12}
-                container
-                spacing={0}
-                alignItems="center"
-                justifyContent="center"
-                sx={{ padding: "0px 15px" }}
-              >
-                {travelIdeas.map((travelIdea) => (
-                  <Grid md={4} key={travelIdea.id}>
-                    <ImgCard
-                      title={travelIdea.title}
-                      content={travelIdea.content}
-                      location={travelIdea.location}
-                      night={travelIdea.night}
-                      price={travelIdea.price}
-                    ></ImgCard>
-                  </Grid>
-                ))}
-              </Grid>
-            </Container>
-          </div>
-        </div>
-      </div>
+          <Box className={styles.row}>
+            <Container
+              sx={{ padding: "0px 15px" }}
+              maxWidth={false}
+            ></Container>
+          </Box>
+        </Box>
+      </Box>
       <BigTitle content="OUR DESTINATIONS"></BigTitle>
       <Container maxWidth="xl">
         <Grid
@@ -267,15 +253,7 @@ export default function HomePage() {
                 sx={{ padding: "0px 15px" }}
               >
                 {travelIdeas.map((travelIdea) => (
-                  <Grid md={4} key={travelIdea.id}>
-                    <ImgCard
-                      title={travelIdea.title}
-                      content={travelIdea.content}
-                      location={travelIdea.location}
-                      night={travelIdea.night}
-                      price={travelIdea.price}
-                    ></ImgCard>
-                  </Grid>
+                  <Grid md={4}></Grid>
                 ))}
               </Grid>
             </Container>
@@ -289,7 +267,6 @@ export default function HomePage() {
           <ImgFrame key={item.id} img={item.img} title={item.title}></ImgFrame>
         ))}
       </ImageList>
-      <br></br>
-    </div>
+    </Box>
   );
 }

@@ -4,55 +4,83 @@ import {
   CardMedia,
   Typography,
   CardContent,
+  Link,
+  Button,
+  Box,
+  styled,
 } from "@mui/material";
 import "../styles/Home.module.css";
 import styles from "../styles/Home.module.css";
 import GlobalButton from "./GlobalButton";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { padding } from "@mui/system";
+import { useState } from "react";
 
-export default function ImgCard({
-  title,
-  content,
-  location,
-  night,
-  price,
-}: {
+interface cardItem {
+  imgLink: string;
   title: string;
   content: string;
-  location: string;
-  night: string;
-  price: string;
-}) {
-  return (
-    <div className={styles.item}>
-      <Card className={styles.card_img} sx={{ borderRadius: "16px" }}>
-        <CardMedia
-          component="img"
-          height="490"
-          src="https://picsum.photos/id/1/700/800"
-          className={styles.card_img_hr}
-        />
-        <CardContent>
-          <div className={styles.card_body}>
-            <div className={styles.card_title}>
-              <center>{title}</center>
-            </div>
-            <Typography className={styles.fontsm}>{content}</Typography>
-          </div>
-          <div className={styles.card_footer}>
-            <Typography className={styles.card_loca}>
-              <LocationOnIcon></LocationOnIcon>
-              {location}
-            </Typography>
+  location?: string;
+  night?: string;
+  price?: string;
+  href: string;
+}
 
-            <Typography className={styles.card_footer_title}>
-              {night}
-            </Typography>
-            <GlobalButton name={price} cssClass="comButton_card"></GlobalButton>
-          </div>
-        </CardContent>
+const CardContentNoPadding = styled(CardContent)(`
+  padding: 0;
+  &:last-child {
+    padding-bottom: 0;
+  }
+`);
+
+export default function ImgCard(cardObj: cardItem) {
+  return (
+    <Box className={styles.item}>
+      <Card
+        className={styles.card_img}
+        sx={{ borderRadius: "16px", boxShadow: 0 }}
+      >
+        <CardActionArea href={cardObj.href}>
+          <CardMedia
+            width="100%"
+            component="img"
+            src={cardObj.imgLink}
+            className={styles.card_img_hr}
+          />
+          <CardContentNoPadding>
+            <Box className={styles.card_body}>
+              <Box className={styles.card_title}>
+                <center>{cardObj.title}</center>
+              </Box>
+              <Typography className={styles.fontsm}>
+                {cardObj.content}
+              </Typography>
+            </Box>
+            <Box className={styles.card_footer}>
+              <Typography className={styles.card_loca}>
+                <LocationOnIcon fontSize="small" />
+                {cardObj.location}
+              </Typography>
+              <Typography className={styles.card_footer_title}>
+                {cardObj.night}
+              </Typography>
+              <Button
+                className={styles.img_content_button}
+                sx={{
+                  textTransform: "none",
+                  borderRadius: "none",
+                  "&.MuiButtonBase-root:hover": {
+                    bgcolor: " hsla(42, 37%, 64%, .8)",
+                  },
+                }}
+                disableRipple
+              >
+                {cardObj.price}
+              </Button>
+            </Box>
+          </CardContentNoPadding>
+        </CardActionArea>
       </Card>
-    </div>
+    </Box>
   );
 }

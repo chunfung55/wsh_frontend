@@ -15,11 +15,13 @@ const JourneyCard = ({
   name,
   btnContent,
   url,
+  styleClass,
 }: {
   imgLink: string;
   name: string;
   btnContent: string;
   url: string;
+  styleClass: string;
 }) => {
   return (
     <Card elevation={0}>

@@ -125,7 +125,11 @@ export default function Footer() {
             justifyContent="center"
             alignItems="start"
           >
-            <GlobalButton name="Enquire Us" cssClass="comButton"></GlobalButton>
+            <GlobalButton
+              content="Enquire Us"
+              cssName={styles.comButton}
+              url={""}
+            ></GlobalButton>
           </Grid>
           <Grid md={2}></Grid>
         </Grid>
