@@ -8,6 +8,7 @@ import type { GetStaticProps, InferGetStaticPropsType } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React from "react";
 import { fetchAPI } from "@/lib/api";
+import HomePage from "./home/HomePage";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,7 +33,11 @@ const Home = () =>
   {
     // const { t } = useTranslation("common");
     // return <>{t("greeting")}</>;
-    return <></>;
+    return (
+      <>
+        <HomePage />
+      </>
+    );
   };
 
 // export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => ({

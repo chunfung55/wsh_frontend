@@ -23,7 +23,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     <React.Fragment>
       <Layout>
         <Component {...pageProps} />
-        <Position></Position>
+        {/* <Position></Position> */}
       </Layout>
     </React.Fragment>
   );

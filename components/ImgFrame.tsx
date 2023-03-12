@@ -11,7 +11,7 @@ interface imgFrameItem {
 
 // const ImgFrame = (props: imgFrameItem) => {};
 
-const ImgFrame = ({ img, title }: { img: string; title: string }) => {
+const ImgFrame = (props: any) => {
   return (
     <ImageListItem key={props.img}>
       <img
