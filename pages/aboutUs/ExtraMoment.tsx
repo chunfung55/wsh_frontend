@@ -65,7 +65,7 @@ export default function ExtraMoment() {
     <Box>
       <BigTitle content="EXTRAORDINARY MOMENTS"></BigTitle>
       <Box sx={{ pt: "50px" }}>
-        <Container maxWidth="false" sx={{ maxWidth: "85%" }}>
+        <Container  sx={{ maxWidth: "85%" }}>
           <center>
             <Box className={styles.p} sx={{ pb: "30px" }}>
               We would love to show you to a world of experiences you never
@@ -89,7 +89,7 @@ export default function ExtraMoment() {
           <BigDivider></BigDivider>
         </Container>
         <BigTitle content="RECOMMENDED JOURNEYS"></BigTitle>
-        <Container maxWidth="false" sx={{ maxWidth: "85%" }}>
+        <Container sx={{ maxWidth: "85%" }}>
           <Grid container md={12} sx={{ pb: "50px" }}>
             {journeys.map((jou) => (
               <Grid item md={4}>

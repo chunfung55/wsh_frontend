@@ -69,7 +69,6 @@ export default function Footer() {
       className={styles.footer}
     >
       <Container
-        maxWidth="false"
         sx={{ maxWidth: "85%" }}
         className={styles.footer_background}
       >
@@ -135,7 +134,6 @@ export default function Footer() {
         </Grid>
       </Container>
       <Container
-        maxWidth="false"
         sx={{ maxWidth: "85%" }}
         className={styles.footer_background}
       >

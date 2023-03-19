@@ -129,23 +129,17 @@ function Navbar() {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  // Instead of tracking a single element, set the element according to
+  // the menu item's index.
+  const handleClick = (index, event) => {
+    setAnchorEl({ [index]: event.currentTarget });
   };
 
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
   const handleClose = () => {
     setAnchorEl(null);
   };
-
-  const open = Boolean(anchorEl);
-  const id = open ? "simple-popover" : undefined;
-
-  const [mobileOpen, setMobileOpen] = React.useState(false);
 
   return (
     <>
@@ -204,60 +198,71 @@ function Navbar() {
             sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
             justifyContent="center"
           >
-            {navItems?.map((navItem) => {
+            {navItems?.map((navItem, index) => {
               console.log("navItem", navItem);
+              if (navItem.submenu.length > 0) {
+                return (
+                  <Box key={navItem.title}>
+                    <Button>
+                      <Link
+                        id="basic-button"
+                        aria-controls={open ? "basic-menu" : undefined}
+                        aria-haspopup="true"
+                        aria-expanded={open ? "true" : undefined}
+                        onClick={(e) => handleClick(index, e)}
+                        onClose={handleClose}
+                        className={styles.navbar_button}
+                        underline="none"
+                      >
+                        {navItem.title}
+                        <ArrowDropDownIcon
+                          fontSize="small"
+                          className={styles.dropDownIcon}
+                        />
+                      </Link>
+                    </Button>
+                    <SubMenu
+                      id="basic-menu"
+                      anchorEl={anchorEl && anchorEl[index]}
+                      keepMounted
+                      open={ Boolean(anchorEl && anchorEl[index])}
+                      onClose={handleClose}
+                      MenuListProps={{
+                        'aria-labelledby': 'basic-button',
+                        sx: {py: '0px',boxShadow: 0 ,
+                        }
+                      }}
+                    >
+                      <Box   className={styles.navbar_subMenu}>
+                      {navItem.submenu.map((submenu, submenuindex) => {
+                        return (
+                          <MenuItem  className={styles.navbar_subMenu}  key={submenuindex} onClick={handleClose}> {submenu.title}</MenuItem>
+                        )
+                      })}
+                      </Box>
+                    </SubMenu>
 
-              return (
-                <Box key={navItem.title}>
-                  <Link
-                    id="basic-button"
-                    aria-controls={open ? "basic-menu" : undefined}
-                    aria-haspopup="true"
-                    aria-expanded={open ? "true" : undefined}
-                    onClick={handleClick}
-                    className={styles.navbar_button}
-                    underline="none"
-                  >
-                    {navItem.title}
-                    <ArrowDropDownIcon
-                      fontSize="small"
-                      className={styles.dropDownIcon}
-                    />
-                  </Link>
-                  <Popover
-                    id={id}
-                    open={open}
-                    anchorEl={anchorEl}
-                    onClose={handleClose}
-                    anchorOrigin={{
-                      vertical: "bottom",
-                      horizontal: "left",
-                    }}
-                    elevation={0}
-                  >
-                    {navItem.submenu.map((submenu) => {
-                      console.log("submenu", submenu);
-                      return (
-                        <Box
-                          className={styles.navbar_subMenu}
-                          key={submenu.title}
-                        >
-                          <Typography sx={{ p: 2 }}>
-                            <Link
-                              href={submenu.url}
-                              underline="none"
-                              className={styles.navbar_subMenu_font}
-                            >
-                              {submenu.title}
-                            </Link>
-                          </Typography>
-                        </Box>
-                      );
-                    })}
-                  </Popover>
-                </Box>
-              );
+                  </Box>
+                );
+              }
+              else {
+                return (
+                  <Button>
+                    <Link
+                      id="basic-button"
+                      aria-controls={open ? "basic-menu" : undefined}
+                      aria-haspopup="true"
+                      aria-expanded={open ? "true" : undefined}
+                      className={styles.navbar_button}
+                      underline="none"
+                    >
+                      {navItem.title}
+                    </Link>
+                  </Button>
+                );
+              }
             })}
+
           </Box>
         </Toolbar>
       </AppBar>
@@ -265,3 +270,12 @@ function Navbar() {
   );
 }
 export default Navbar;
+
+const SubMenu = styled(Menu)({
+ 
+  menu: {
+    "& .MuiPaper-root": {
+      backgroundColor: "lightblue"
+    }
+  }
+});
