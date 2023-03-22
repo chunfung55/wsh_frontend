@@ -2,7 +2,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import React from "react";
 import { appWithTranslation } from "next-i18next";
-import Layout from "@/components/Layout";
+import Layout from "@/components/layout";
 import HomePage from "./home/HomePage";
 import WhatTimeOfYear from "./about/WhatTimeOfYear";
 import WhatIsBig5 from "./about/WhatIsBig5";
