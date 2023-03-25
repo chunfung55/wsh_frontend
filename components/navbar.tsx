@@ -80,37 +80,37 @@ import { useEffect, useState } from "react";
 //   // ...
 // ];
 
-function Navbar() {
-  const [navItems, setNavItems] = useState([]);
-  useEffect(() => {
-    async function fetchData() {
-      const navItemsRespose = await await fetchAPI(
-        "/navigation/render/main-navigation",
-        {
-          populate: "*",
-        }
-      );
-      console.log("navItemsRespose", navItemsRespose);
-      let mainMeuns = navItemsRespose.filter((obj) => obj?.parent == null);
-      mainMeuns = mainMeuns.map((obj) => ({ ...obj, submenu: [] }));
-      console.log("mainMeun", mainMeuns);
-      navItemsRespose.forEach((element) => {
-        console.log(element);
-        if (element?.parent) {
-          let index = 0;
-          mainMeuns.forEach((mainMeun) => {
-            if (mainMeun.id == element.parent.id) {
-              mainMeuns[index].submenu.push(element);
-            }
-            index++;
-          });
-        }
-      });
-      console.log("mainMeun2", mainMeuns);
-      setNavItems(mainMeuns);
-    }
-    fetchData();
-  }, []);
+function Navbar({ navItems }) {
+  // const [navItems, setNavItems] = useState([]);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const navItemsRespose = await await fetchAPI(
+  //       "/navigation/render/main-navigation",
+  //       {
+  //         populate: "*",
+  //       }
+  //     );
+  //     console.log("navItemsRespose", navItemsRespose);
+  //     let mainMeuns = navItemsRespose.filter((obj) => obj?.parent == null);
+  //     mainMeuns = mainMeuns.map((obj) => ({ ...obj, submenu: [] }));
+  //     console.log("mainMeun", mainMeuns);
+  //     navItemsRespose.forEach((element) => {
+  //       console.log(element);
+  //       if (element?.parent) {
+  //         let index = 0;
+  //         mainMeuns.forEach((mainMeun) => {
+  //           if (mainMeun.id == element.parent.id) {
+  //             mainMeuns[index].submenu.push(element);
+  //           }
+  //           index++;
+  //         });
+  //       }
+  //     });
+  //     console.log("mainMeun2", mainMeuns);
+  //     setNavItems(mainMeuns);
+  //   }
+  //   fetchData();
+  // }, []);
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -206,9 +206,13 @@ function Navbar() {
                     <Button>
                       <Link
                         id="basic-button"
-                        aria-controls={open ? "basic-menu" : undefined}
+                        aria-controls={
+                          anchorEl && anchorEl[index] ? "basic-menu" : undefined
+                        }
                         aria-haspopup="true"
-                        aria-expanded={open ? "true" : undefined}
+                        aria-expanded={
+                          anchorEl && anchorEl[index] ? "true" : undefined
+                        }
                         onClick={(e) => handleClick(index, e)}
                         onClose={handleClose}
                         className={styles.navbar_button}
@@ -254,9 +258,13 @@ function Navbar() {
                   <Button>
                     <Link
                       id="basic-button"
-                      aria-controls={open ? "basic-menu" : undefined}
+                      aria-controls={
+                        anchorEl && anchorEl[index] ? "basic-menu" : undefined
+                      }
                       aria-haspopup="true"
-                      aria-expanded={open ? "true" : undefined}
+                      aria-expanded={
+                        anchorEl && anchorEl[index] ? "true" : undefined
+                      }
                       className={styles.navbar_button}
                       underline="none"
                     >

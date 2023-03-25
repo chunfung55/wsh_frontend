@@ -2,31 +2,34 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import React from "react";
 import { appWithTranslation } from "next-i18next";
-import Layout from "@/components/layout";
-import HomePage from "./home/HomePage";
-import WhatTimeOfYear from "./about/WhatTimeOfYear";
-import WhatIsBig5 from "./about/WhatIsBig5";
-import TheGreatMigration from "./about/TheGreatMigration";
-import SafariAcco from "./about/SafariAcco";
-import Kenya from "./destin/Kenya";
-import Faq from "./travelInfo/Faqs";
-import LatestNews from "./travelInfo/LatestNews";
-import { fetchAPI } from "@/lib/api";
+import { Box } from "@mui/system";
+import Header from "@/components/header";
+import Navbar from "@/components/navbar";
+import ImgSlider from "@/components/slider";
+import Footer from "@/components/footer";
 
-import Term from "./travelInfo/Term";
-import ExtraMoment from "./aboutUs/ExtraMoment";
-import WhoWeAre from "./aboutUs/WhoWeAre";
-import Position from "./aboutUs/Position";
 const App = ({ Component, pageProps }: AppProps) => {
-  console.log("in app", Component);
   return (
-    <React.Fragment>
-      <Layout>
-        <Component {...pageProps} />
-        <LatestNews></LatestNews>
-        {/* <Position></Position> */}
-      </Layout>
-    </React.Fragment>
+    <Box>
+      <Head>
+        <title>Wild Senses - Home</title>
+      </Head>
+      <Component {...pageProps} />
+      {/* <Box sx={{ position: "fixed", zIndex: "100000" }}>
+          <Header />
+
+          <Box sx={{ position: "absolute" }}>
+            <Navbar />
+          </Box>
+        </Box>
+        <Box sx={{ top: "0", zIndex: "1" }}>
+          <ImgSlider></ImgSlider>
+          <main>
+            <Component {...pageProps} />
+          </main>
+        </Box> */}
+      <Footer />
+    </Box>
   );
 };
 
