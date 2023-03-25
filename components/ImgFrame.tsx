@@ -3,6 +3,8 @@ import Button from "@mui/material/Button";
 import "../styles/Home.module.css";
 import styles from "../styles/Home.module.css";
 import { styled } from "@mui/material/styles";
+import { useState } from "react";
+import Typography from "@mui/material/Typography";
 
 interface imgFrameItem {
   img: string;
@@ -12,6 +14,7 @@ interface imgFrameItem {
 // const ImgFrame = (props: imgFrameItem) => {};
 
 const ImgFrame = (props: any) => {
+  const [isShown, setIsShown] = useState(false);
   return (
     <ImageListItem key={props.img}>
       <img
@@ -20,20 +23,16 @@ const ImgFrame = (props: any) => {
         srcSet={`${props.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
         alt={props.title}
         loading="lazy"
+        onMouseEnter={() => setIsShown(true)}
+        onMouseLeave={() => setIsShown(false)}
       />
-      <Box
-        className="boxTitle"
-        style={{
-          display: "none",
-          position: "absolute",
-          color: "white",
-          width: "50%",
-          height: "50%",
-          transform: "translateX(-50%)",
-        }}
-      >
+      {isShown && (
+      <Box className={styles.imgFrame_backgrd}>
+        <Typography className={styles.imgFrame_text}>
         {props.title}
-      </Box>
+        </Typography>
+        </Box>
+      )}
     </ImageListItem>
   );
 };

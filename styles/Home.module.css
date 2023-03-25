@@ -171,14 +171,11 @@
 }
 
 .navbar {
-    background-color: #FFFFFF40;
     color: #564C4A;
     font-size: 12px;
     font-family: sans-serif;
     font-weight: 300;
     opacity: 0.7;
-    top:10%;
-    z-index: 99;
 }
 
 .navbar_button {
@@ -200,14 +197,19 @@
     padding: 15px 25px ;
     margin: -5px 0px 0px;
 }
-.navbar_subMenu:hover{
-    background-color: #ffffff;
-}
+
 .navbar_subMenu_font{
-    font-family: sans-serif;
+    font-family: 'Montserrat', sans-serif !important;
     color: #564C4A;
     font-size: 12px;
+    font-weight: 600;
     padding: 0px 0px 10px;
+    letter-spacing: .15rem;
+    opacity: 0.7;
+}
+
+.navbar_subMenu_font:hover{
+    background-color: #fff;
 }
 
 .comButton {
@@ -451,9 +453,21 @@
     font-size: 22px;
 }
 
-.imgFrame:hover {
-    opacity: 0.8;
+.imgFrame_backgrd{
     background-color: hsla(42, 37%, 64%, .8);
+}
+
+.imgFrame_text{
+    font-family: sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    font-size: 22px;
 }
 
 .nav_link {

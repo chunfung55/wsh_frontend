@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "./navbar";
 import GlobalButton from "./GlobalButton";
 import { Container } from "@mui/system";
 import Grid from "@mui/material/Grid";
@@ -9,29 +8,14 @@ import styled from "@emotion/styled";
 import Typography from "@mui/material/Typography";
 
 import { CssBaseline, Slide, useScrollTrigger } from "@mui/material";
-import { relative } from "node:path/win32";
-import ChipButton from "./ChipButton";
-import StickyButton from "./stickyButton";
 import logo from "./img/logo.png";
 import Image from "mui-image";
-import { Props } from "next/script";
 import Link from "next/link";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
+import Navbar from "./navbar";
 
-function HideOnScroll(props) {
-  const { children, window } = props;
-  // Note that you normally won't need to set the window ref as useScrollTrigger
-  // will default to window.
-  // This is only being set here because the demo is in an iframe.
-  const trigger = useScrollTrigger({ target: window ? window() : undefined });
 
-  return (
-    <Slide appear={false} direction="down" in={!trigger}>
-      {children}
-    </Slide>
-  );
-}
 
 const StyledLink = styled(Link)({
   color: "#564C4A",
@@ -41,9 +25,8 @@ const StyledLink = styled(Link)({
 
 export default function Header(props: any) {
   return (
-    <HideOnScroll {...props}>
-      <Box sx={{ position: "relative", width: "100vw", zIndex: "100000" }}>
-        <Container maxWidth="lg">
+    <>
+        <Container maxWidth="lg" >
           <Grid container>
             <Box className={styles.left}>
               <Box sx={{ pt: "20px", pb: "20px" }}>
@@ -79,9 +62,8 @@ export default function Header(props: any) {
                 </Typography>
               </Box>
             </Box>
-          </Grid>
-        </Container>
-      </Box>
-    </HideOnScroll>
+            </Grid>
+        </Container>    
+        </>
   );
 }

@@ -11,7 +11,7 @@ import {
   CardActionArea,
 } from "@mui/material";
 import styles from "../styles/Home.module.css";
-import Header from "./header";
+import Header from "./Header";
 import Image from "mui-image";
 
 interface imgObj {
@@ -55,7 +55,7 @@ export default function ImgSlider() {
 function ImgItem(props: any) {
   return (
     <Paper>
-      <Card sx={{ borderRadius: "0", position: "relative" }}>
+      <Card sx={{ borderRadius: "0", position: "relative",backgroundColor:'hsl(189, 58%, 62%)' }}>
         <CardActionArea href={props.item.href}>
           <CardMedia>
             <Image src={props.item.imglink} height="100%"></Image>

@@ -14,10 +14,10 @@ import MenuItem from "@mui/material/MenuItem";
 import CssBaseline from "@mui/material/CssBaseline";
 import styles from "../styles/Home.module.css";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import Header from "./header";
-import { Link, Popover, styled } from "@mui/material";
+import { Link, Popover, Slide, styled, useScrollTrigger } from "@mui/material";
 import { fetchAPI } from "@/lib/api";
 import { useEffect, useState } from "react";
+import Header from "./Header";
 
 // export async function getServerSideProps() {
 //   const navItemsRespose = await fetchAPI("/navigation/render/main-navigation", {
@@ -80,7 +80,14 @@ import { useEffect, useState } from "react";
 //   // ...
 // ];
 
+
+
 function Navbar() {
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [showBar, setShowBar] = useState(false);
+
+
+
   const [navItems, setNavItems] = useState([]);
   useEffect(() => {
     async function fetchData() {
@@ -140,11 +147,10 @@ function Navbar() {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
   return (
-    <>
+    < >
       <CssBaseline />
-      <AppBar className={styles.navbar} elevation={0}>
+      <AppBar className={styles.navbar} color="transparent" elevation={0}>
         <Toolbar>
           <Box
             sx={{
@@ -233,15 +239,14 @@ function Navbar() {
                         }
                       }}
                     >
-                      <Box   className={styles.navbar_subMenu}>
+                      <Box className={styles.navbar_subMenu}>
                       {navItem.submenu.map((submenu, submenuindex) => {
                         return (
-                          <MenuItem  className={styles.navbar_subMenu}  key={submenuindex} onClick={handleClose}> {submenu.title}</MenuItem>
+                          <MenuItem  className={styles.navbar_subMenu_font}  key={submenuindex} onClick={handleClose}> {submenu.title}</MenuItem>
                         )
                       })}
                       </Box>
                     </SubMenu>
-
                   </Box>
                 );
               }

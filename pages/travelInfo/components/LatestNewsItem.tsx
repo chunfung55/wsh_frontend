@@ -1,20 +1,10 @@
 import React, { useState } from "react";
 import {
-  BottomNavigation,
-  BottomNavigationAction,
   Box,
-  Button,
   Card,
   CardActionArea,
   CardMedia,
   Divider,
-  Grid,
-  ImageList,
-  ImageListItem,
-  List,
-  ListItem,
-  ListItemText,
-  Paper,
   Typography,
 } from "@mui/material";
 import styles from "@/styles/Home.module.css";
