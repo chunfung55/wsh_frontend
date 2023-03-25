@@ -206,13 +206,9 @@ function Navbar({ navItems }) {
                     <Button>
                       <Link
                         id="basic-button"
-                        aria-controls={
-                          anchorEl && anchorEl[index] ? "basic-menu" : undefined
-                        }
+                        // aria-controls={open ? "basic-menu" : undefined}
                         aria-haspopup="true"
-                        aria-expanded={
-                          anchorEl && anchorEl[index] ? "true" : undefined
-                        }
+                        // aria-expanded={open ? "true" : undefined}
                         onClick={(e) => handleClick(index, e)}
                         onClose={handleClose}
                         className={styles.navbar_button}
@@ -258,13 +254,13 @@ function Navbar({ navItems }) {
                   <Button>
                     <Link
                       id="basic-button"
-                      aria-controls={
-                        anchorEl && anchorEl[index] ? "basic-menu" : undefined
-                      }
+                      // aria-controls={
+                      //   open ? "basic-menu" : undefined
+                      // }
                       aria-haspopup="true"
-                      aria-expanded={
-                        anchorEl && anchorEl[index] ? "true" : undefined
-                      }
+                      // aria-expanded={
+                      //   open ? "true" : undefined
+                      // }
                       className={styles.navbar_button}
                       underline="none"
                     >
