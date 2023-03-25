@@ -58,7 +58,7 @@ export default function WhoWeAre() {
         <Box sx={{ pt: "100px" }}>
           <BigTitle content="OUR TRAVEL SPECIALISTS"></BigTitle>
         </Box>
-        <Container  sx={{ maxWidth: "85%" }}>
+        <Container sx={{ maxWidth: "85%" }}>
           <Grid md={12} container>
             <Grid md={12} item>
               <Box className={styles.item15}>

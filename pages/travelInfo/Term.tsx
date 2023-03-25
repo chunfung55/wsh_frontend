@@ -71,7 +71,7 @@ export default function Term() {
           ))}
         </Grid>
       </Container>
-      <Container  sx={{ maxWidth: "85%" }}>
+      <Container sx={{ maxWidth: "85%" }}>
         <Box className={styles.item15}>
           <BigDivider></BigDivider>
         </Box>

@@ -108,7 +108,7 @@ export default function LatestNews() {
       </Box>
 
       <BigTitle content="RECOMMENDED JOURNEYS"></BigTitle>
-      <Container  sx={{ maxWidth: "85%" }}>
+      <Container sx={{ maxWidth: "85%" }}>
         <Grid container md={12} sx={{ pb: "50px" }}>
           {journeys.map((jou) => (
             <Grid item md={4}>

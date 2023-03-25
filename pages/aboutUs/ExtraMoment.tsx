@@ -65,7 +65,7 @@ export default function ExtraMoment() {
     <Box>
       <BigTitle content="EXTRAORDINARY MOMENTS"></BigTitle>
       <Box sx={{ pt: "50px" }}>
-        <Container  sx={{ maxWidth: "85%" }}>
+        <Container sx={{ maxWidth: "85%" }}>
           <center>
             <Box className={styles.p} sx={{ pb: "30px" }}>
               We would love to show you to a world of experiences you never

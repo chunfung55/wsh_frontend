@@ -80,44 +80,37 @@ import Header from "./Header";
 //   // ...
 // ];
 
-
-
-function Navbar() {
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [showBar, setShowBar] = useState(false);
-
-
-
-  const [navItems, setNavItems] = useState([]);
-  useEffect(() => {
-    async function fetchData() {
-      const navItemsRespose = await await fetchAPI(
-        "/navigation/render/main-navigation",
-        {
-          populate: "*",
-        }
-      );
-      console.log("navItemsRespose", navItemsRespose);
-      let mainMeuns = navItemsRespose.filter((obj) => obj?.parent == null);
-      mainMeuns = mainMeuns.map((obj) => ({ ...obj, submenu: [] }));
-      console.log("mainMeun", mainMeuns);
-      navItemsRespose.forEach((element) => {
-        console.log(element);
-        if (element?.parent) {
-          let index = 0;
-          mainMeuns.forEach((mainMeun) => {
-            if (mainMeun.id == element.parent.id) {
-              mainMeuns[index].submenu.push(element);
-            }
-            index++;
-          });
-        }
-      });
-      console.log("mainMeun2", mainMeuns);
-      setNavItems(mainMeuns);
-    }
-    fetchData();
-  }, []);
+function Navbar({ navItems }) {
+  // const [navItems, setNavItems] = useState([]);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const navItemsRespose = await await fetchAPI(
+  //       "/navigation/render/main-navigation",
+  //       {
+  //         populate: "*",
+  //       }
+  //     );
+  //     console.log("navItemsRespose", navItemsRespose);
+  //     let mainMeuns = navItemsRespose.filter((obj) => obj?.parent == null);
+  //     mainMeuns = mainMeuns.map((obj) => ({ ...obj, submenu: [] }));
+  //     console.log("mainMeun", mainMeuns);
+  //     navItemsRespose.forEach((element) => {
+  //       console.log(element);
+  //       if (element?.parent) {
+  //         let index = 0;
+  //         mainMeuns.forEach((mainMeun) => {
+  //           if (mainMeun.id == element.parent.id) {
+  //             mainMeuns[index].submenu.push(element);
+  //           }
+  //           index++;
+  //         });
+  //       }
+  //     });
+  //     console.log("mainMeun2", mainMeuns);
+  //     setNavItems(mainMeuns);
+  //   }
+  //   fetchData();
+  // }, []);
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -212,9 +205,9 @@ function Navbar() {
                     <Button>
                       <Link
                         id="basic-button"
-                        aria-controls={open ? "basic-menu" : undefined}
+                        // aria-controls={open ? "basic-menu" : undefined}
                         aria-haspopup="true"
-                        aria-expanded={open ? "true" : undefined}
+                        // aria-expanded={open ? "true" : undefined}
                         onClick={(e) => handleClick(index, e)}
                         onClose={handleClose}
                         className={styles.navbar_button}
@@ -231,33 +224,42 @@ function Navbar() {
                       id="basic-menu"
                       anchorEl={anchorEl && anchorEl[index]}
                       keepMounted
-                      open={ Boolean(anchorEl && anchorEl[index])}
+                      open={Boolean(anchorEl && anchorEl[index])}
                       onClose={handleClose}
                       MenuListProps={{
-                        'aria-labelledby': 'basic-button',
-                        sx: {py: '0px',boxShadow: 0 ,
-                        }
+                        "aria-labelledby": "basic-button",
+                        sx: { py: "0px", boxShadow: 0 },
                       }}
                     >
                       <Box className={styles.navbar_subMenu}>
-                      {navItem.submenu.map((submenu, submenuindex) => {
-                        return (
-                          <MenuItem  className={styles.navbar_subMenu_font}  key={submenuindex} onClick={handleClose}> {submenu.title}</MenuItem>
-                        )
-                      })}
+                        {navItem.submenu.map((submenu, submenuindex) => {
+                          return (
+                            <MenuItem
+                              className={styles.navbar_subMenu}
+                              key={submenuindex}
+                              onClick={handleClose}
+                            >
+                              {" "}
+                              {submenu.title}
+                            </MenuItem>
+                          );
+                        })}
                       </Box>
                     </SubMenu>
                   </Box>
                 );
-              }
-              else {
+              } else {
                 return (
                   <Button>
                     <Link
                       id="basic-button"
-                      aria-controls={open ? "basic-menu" : undefined}
+                      // aria-controls={
+                      //   open ? "basic-menu" : undefined
+                      // }
                       aria-haspopup="true"
-                      aria-expanded={open ? "true" : undefined}
+                      // aria-expanded={
+                      //   open ? "true" : undefined
+                      // }
                       className={styles.navbar_button}
                       underline="none"
                     >
@@ -267,7 +269,6 @@ function Navbar() {
                 );
               }
             })}
-
           </Box>
         </Toolbar>
       </AppBar>
@@ -277,10 +278,9 @@ function Navbar() {
 export default Navbar;
 
 const SubMenu = styled(Menu)({
- 
   menu: {
     "& .MuiPaper-root": {
-      backgroundColor: "lightblue"
-    }
-  }
+      backgroundColor: "lightblue",
+    },
+  },
 });

@@ -68,10 +68,7 @@ export default function Footer() {
       }}
       className={styles.footer}
     >
-      <Container
-        sx={{ maxWidth: "85%" }}
-        className={styles.footer_background}
-      >
+      <Container sx={{ maxWidth: "85%" }} className={styles.footer_background}>
         <Grid
           md={12}
           sm={12}
@@ -133,10 +130,7 @@ export default function Footer() {
           <Grid md={2}></Grid>
         </Grid>
       </Container>
-      <Container
-        sx={{ maxWidth: "85%" }}
-        className={styles.footer_background}
-      >
+      <Container sx={{ maxWidth: "85%" }} className={styles.footer_background}>
         <hr className={styles.footer_hr}></hr>
         <Grid
           container

@@ -83,5 +83,4 @@ export default function ImgCard(cardObj: cardItem) {
       </Card>
     </Box>
   );
-
 }

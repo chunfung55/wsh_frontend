@@ -2,10 +2,8 @@ import React from "react";
 import Carousel from "react-material-ui-carousel";
 import {
   Paper,
-  Button,
   Typography,
   Box,
-  Grid,
   Card,
   CardMedia,
   CardActionArea,
@@ -34,12 +32,12 @@ interface cardObj {
 export default function ImgSlider() {
   const items = [
     {
-      imglink: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+      imglink: "/images/1.jpeg",
       name: "Random Name #1",
       description: "Probably the most random thing you have ever seen!",
     },
     {
-      imglink: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62",
+      imglink: "/images/2.jpeg",
       name: "Random Name #2",
       description: "Hello World!",
     },
@@ -58,7 +56,11 @@ function ImgItem(props: any) {
       <Card sx={{ borderRadius: "0", position: "relative",backgroundColor:'hsl(189, 58%, 62%)' }}>
         <CardActionArea href={props.item.href}>
           <CardMedia>
-            <Image src={props.item.imglink} height="100%"></Image>
+            <Image
+              src={props.item.imglink}
+              height="100%"
+              key={props.key}
+            ></Image>
             <Box
               sx={{
                 position: "absolute",
