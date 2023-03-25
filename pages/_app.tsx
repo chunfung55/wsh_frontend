@@ -23,6 +23,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     <React.Fragment>
       <Layout>
         <Component {...pageProps} />
+        <LatestNews></LatestNews>
         {/* <Position></Position> */}
       </Layout>
     </React.Fragment>

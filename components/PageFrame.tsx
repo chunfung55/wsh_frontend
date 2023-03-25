@@ -30,7 +30,7 @@ const PageFrame = ({ children }: CommonPageProps) => {
   return (
     <>
       <Box sx={{ flexgrow: 1 }}>
-        <Container maxWidth="false" sx={{ maxWidth: "85%" }}>
+        <Container sx={{ maxWidth: "85%" }}>
           <Grid container>
             <Grid item md={2.5}>
               <Box className={styles.item15}>

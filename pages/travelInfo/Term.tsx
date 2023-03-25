@@ -71,13 +71,13 @@ export default function Term() {
           ))}
         </Grid>
       </Container>
-      <Container maxWidth="false" sx={{ maxWidth: "85%" }}>
+      <Container sx={{ maxWidth: "85%" }}>
         <Box className={styles.item15}>
           <BigDivider></BigDivider>
         </Box>
       </Container>
       <BigTitle content="RECOMMENDED JOURNEYS"></BigTitle>
-      <Container maxWidth="false" sx={{ maxWidth: "85%" }}>
+      <Container sx={{ maxWidth: "85%" }}>
         <Grid container md={12} sx={{ pb: "50px" }}>
           {journeys.map((jou) => (
             <Grid item md={4}>

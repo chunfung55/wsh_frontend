@@ -71,7 +71,7 @@ export default function LatestNews() {
       <Box>
         <BigTitle content="LATEST NEWS"></BigTitle>
         <Box sx={{ pt: "50px" }}>
-          <Container maxWidth="false" sx={{ maxWidth: "85%" }}>
+          <Container sx={{ maxWidth: "85%" }}>
             <Grid container md={12}>
               {news.map((newItem) => (
                 <Grid md={6} sm={6} lg={4}>
@@ -87,7 +87,7 @@ export default function LatestNews() {
             </Grid>
           </Container>
           <BigTitle content="RECOMMENDED JOURNEYS"></BigTitle>
-          <Container maxWidth="false" sx={{ maxWidth: "85%" }}>
+          <Container sx={{ maxWidth: "85%" }}>
             <Grid container md={12} sx={{ pb: "50px" }}>
               {journeys.map((jou) => (
                 <Grid item md={4}>
@@ -108,7 +108,7 @@ export default function LatestNews() {
       </Box>
 
       <BigTitle content="RECOMMENDED JOURNEYS"></BigTitle>
-      <Container maxWidth="false" sx={{ maxWidth: "85%" }}>
+      <Container sx={{ maxWidth: "85%" }}>
         <Grid container md={12} sx={{ pb: "50px" }}>
           {journeys.map((jou) => (
             <Grid item md={4}>

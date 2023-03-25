@@ -20,7 +20,7 @@ const AboutFrame = ({ children }: CommonPageProps) => {
   return (
     <>
       <Box className={styles.row} sx={{ flexgrow: 1 }}>
-        <Container maxWidth="false" sx={{ maxWidth: "85%" }}>
+        <Container sx={{ maxWidth: "85%" }}>
           <Grid container md={12} lg={12} xl={12}>
             <Grid item={true} md={2} lg={2} xl={2}>
               <Box>

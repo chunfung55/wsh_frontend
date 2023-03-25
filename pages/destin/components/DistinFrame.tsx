@@ -21,7 +21,7 @@ const DistinFrame = ({ children }: CommonPageProps) => {
   return (
     <>
       <Box className={styles.row} sx={{ flexgrow: 1 }}>
-        <Container maxWidth="false" sx={{ maxWidth: "85%" }}>
+        <Container sx={{ maxWidth: "85%" }}>
           <Grid container>
             <Grid item md={2}>
               <Box>
