@@ -14,10 +14,11 @@ import MenuItem from "@mui/material/MenuItem";
 import CssBaseline from "@mui/material/CssBaseline";
 import styles from "../styles/Home.module.css";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import { Link, Popover, Slide, styled, useScrollTrigger } from "@mui/material";
+import { Grid, Link, Popover, Slide, styled, useScrollTrigger } from "@mui/material";
 import { fetchAPI } from "@/lib/api";
 import { useEffect, useState } from "react";
 import Header from "./Header";
+import { Container } from "@mui/system";
 
 // export async function getServerSideProps() {
 //   const navItemsRespose = await fetchAPI("/navigation/render/main-navigation", {
@@ -142,8 +143,11 @@ function Navbar({ navItems }) {
   };
   return (
     < >
-      <CssBaseline />
+      <Container>
       <AppBar className={styles.navbar} color="transparent" elevation={0}>
+      <Toolbar>
+        <Header/>
+      </Toolbar>
         <Toolbar>
           <Box
             sx={{
@@ -272,6 +276,7 @@ function Navbar({ navItems }) {
           </Box>
         </Toolbar>
       </AppBar>
+      </Container>
     </>
   );
 }
