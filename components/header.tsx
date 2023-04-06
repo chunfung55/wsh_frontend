@@ -13,9 +13,6 @@ import Image from "mui-image";
 import Link from "next/link";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import Navbar from "./navbar";
-
-
 
 const StyledLink = styled(Link)({
   color: "#564C4A",
@@ -23,47 +20,57 @@ const StyledLink = styled(Link)({
   textDecoration: "none",
 });
 
+// const useStyles = makeStyles({
+//   link: {
+//     color: "#564C4A",
+//     textshadow: "0px 0px 10px black",
+//     textDecoration: "none",
+//   },
+// });
+
 export default function Header(props: any) {
   return (
     <>
-        <Container maxWidth="lg" >
-          <Grid container>
-            <Box className={styles.left}>
-              <Box sx={{ pt: "20px", pb: "20px" }}>
-                <StyledLink href="">中</StyledLink> |{" "}
-                <StyledLink href="">Eng</StyledLink>
-              </Box>
-              <Box>
+      <Link href={"/zh"}>中</Link>
+      <Container maxWidth="lg">
+        <Grid container>
+          <Box className={styles.left}>
+            <Box sx={{ pt: "20px", pb: "20px" }}>
+              {/* <StyledLink href={"/zh"}>中</StyledLink> | */}
+              <Link href={"/zh"}>中</Link>
+              <StyledLink href="/en">Eng</StyledLink>
+            </Box>
+            <Box>
+              <GlobalButton
+                content="MIGRATION MAP"
+                cssName={styles.comButton}
+                url={""}
+              ></GlobalButton>
+            </Box>
+          </Box>
+          <Box className={styles.center}>
+            <Image src={logo.src} height="110px" width="114px"></Image>
+          </Box>
+          <Box className={styles.right}>
+            <Box sx={{ pt: "20px", pb: "20px" }}>
+              <b>
                 <GlobalButton
-                  content="MIGRATION MAP"
+                  content="CONTACT US"
                   cssName={styles.comButton}
                   url={""}
                 ></GlobalButton>
-              </Box>
+              </b>
             </Box>
-            <Box className={styles.center}>
-              <Image src={logo.src} height="110px" width="114px"></Image>
+            <Box>
+              <InstagramIcon fontSize="small" />{" "}
+              <FacebookIcon fontSize="small" />
+              <Typography className={styles.lowFontCol1}>
+                (852) - 2813 8778
+              </Typography>
             </Box>
-            <Box className={styles.right}>
-              <Box sx={{ pt: "20px", pb: "20px" }}>
-                <b>
-                  <GlobalButton
-                    content="CONTACT US"
-                    cssName={styles.comButton}
-                    url={""}
-                  ></GlobalButton>
-                </b>
-              </Box>
-              <Box>
-                <InstagramIcon fontSize="small" />{" "}
-                <FacebookIcon fontSize="small" />
-                <Typography className={styles.lowFontCol1}>
-                  (852) - 2813 8778
-                </Typography>
-              </Box>
-            </Box>
-            </Grid>
-        </Container>    
-        </>
+          </Box>
+        </Grid>
+      </Container>
+    </>
   );
 }

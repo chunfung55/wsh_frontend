@@ -1,37 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import Container from "@mui/material/Container";
-import {
-  BottomNavigation,
-  BottomNavigationAction,
-  Box,
-  Button,
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Divider,
-  Grid,
-  ImageList,
-  ImageListItem,
-  List,
-  ListItem,
-  ListItemText,
-  Paper,
-  Typography,
-} from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import styles from "@/styles/Home.module.css";
 import BigTitle from "@/components/BigTitle";
 import FooterCard from "@/components/FooterCard";
 import Image from "mui-image";
-import BigDivider from "@/components/BigDivider";
-import slogan1 from "@/components/img/slogan_about1_en.png";
-import slogan2 from "@/components/img/slogan_about2_en.png";
-import slogan3 from "@/components/img/slogan_about3_en.png";
+// import slogan1 from "/images/slogan_about1_en.png";
+// import slogan2 from "/images/slogan_about2_en.png";
+// import slogan3 from "/images/slogan_about3_en.png";
 export default function WhoWeAre() {
   return (
     <Box>
       <Image
-        src={slogan1.src}
+        src={"/images/slogan_about1_en.png"}
         width="100%"
         height="auto"
         vertical-align="middle"
@@ -45,7 +26,7 @@ export default function WhoWeAre() {
             <Grid md={12} item>
               <Box className={styles.item15}>
                 <Image
-                  src={slogan2.src}
+                  src={"/images/slogan_about2_en.png"}
                   width="100%"
                   height="auto"
                   vertical-align="middle"
@@ -63,13 +44,23 @@ export default function WhoWeAre() {
             <Grid md={12} item>
               <Box className={styles.item15}>
                 <Image
-                  src={slogan3.src}
+                  src={"/images/slogan_about3_en.png"}
                   width="100%"
                   height="auto"
                   vertical-align="middle"
                   style={{ maxWidth: "1200px" }}
+                  priority={true}
                 ></Image>
               </Box>
+              {/* <Box
+                component="img"
+                sx={{
+                  height: 78,
+                  width: 100,
+                }}
+                alt="The house from the offer."
+                src={"/images/slogan_about3_en.png"}
+              /> */}
             </Grid>
           </Grid>
         </Container>

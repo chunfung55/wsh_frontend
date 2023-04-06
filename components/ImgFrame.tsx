@@ -6,10 +6,10 @@ import { styled } from "@mui/material/styles";
 import { useState } from "react";
 import Typography from "@mui/material/Typography";
 
-interface imgFrameItem {
-  img: string;
-  title: string;
-}
+// interface imgFrameItem {
+//   img: string;
+//   title: string;
+// }
 
 // const ImgFrame = (props: imgFrameItem) => {};
 
@@ -27,10 +27,10 @@ const ImgFrame = (props: any) => {
         onMouseLeave={() => setIsShown(false)}
       />
       {isShown && (
-      <Box className={styles.imgFrame_backgrd}>
-        <Typography className={styles.imgFrame_text}>
-        {props.title}
-        </Typography>
+        <Box className={styles.imgFrame_backgrd}>
+          <Typography className={styles.imgFrame_text}>
+            {props.title}
+          </Typography>
         </Box>
       )}
     </ImageListItem>

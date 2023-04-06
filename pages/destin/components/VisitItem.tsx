@@ -19,14 +19,7 @@ import {
 } from "@mui/material";
 import styles from "@/styles/Home.module.css";
 import GlobalButton from "@/components/GlobalButton";
-
-interface visitItem {
-  url: string;
-  title: string;
-  img: string;
-  content: string;
-  style: string;
-}
+import { visitItem } from "@/interfaces/ui";
 
 const VisitItem = (obj: visitItem) => {
   const [isShown, setIsShown] = useState(false);

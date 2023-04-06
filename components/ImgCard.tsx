@@ -15,16 +15,17 @@ import GlobalButton from "./GlobalButton";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { padding } from "@mui/system";
 import { useState } from "react";
+import { imgCardItem } from "@/interfaces/ui";
 
-interface cardItem {
-  imgLink: string;
-  title: string;
-  content: string;
-  location?: string;
-  night?: string;
-  price?: string;
-  href: string;
-}
+// interface cardItem {
+//   imgLink: string;
+//   title: string;
+//   content: string;
+//   location?: string;
+//   night?: string;
+//   price?: string;
+//   href: string;
+// }
 
 const CardContentNoPadding = styled(CardContent)(`
   padding: 0;
@@ -33,7 +34,7 @@ const CardContentNoPadding = styled(CardContent)(`
   }
 `);
 
-export default function ImgCard(cardObj: cardItem) {
+export default function ImgCard(cardObj: imgCardItem) {
   return (
     <Box className={styles.item}>
       <Card

@@ -6,7 +6,7 @@ import Navbar from "./navbar";
 import { Box } from "@mui/system";
 import ImgSlider from "./slider";
 
-export default function Layout({ children, navItems }) {
+export default function Layout({ children, navItems }: CommonPageProps) {
   return (
     <>
       <Box sx={{ position: "fixed", zIndex: "100000" }}>

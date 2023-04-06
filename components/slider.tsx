@@ -12,22 +12,22 @@ import styles from "../styles/Home.module.css";
 import Header from "./Header";
 import Image from "mui-image";
 
-interface imgObj {
-  imgLink: string;
-  title: string;
-  content: string;
-  href: string;
-}
+// interface imgObj {
+//   imgLink: string;
+//   title: string;
+//   content: string;
+//   href: string;
+// }
 
-interface cardObj {
-  imgLink: string;
-  title: string;
-  content: string;
-  location?: string;
-  night?: string;
-  price?: string;
-  href: string;
-}
+// interface cardObj {
+//   imgLink: string;
+//   title: string;
+//   content: string;
+//   location?: string;
+//   night?: string;
+//   price?: string;
+//   href: string;
+// }
 
 export default function ImgSlider() {
   const items = [
@@ -53,7 +53,13 @@ export default function ImgSlider() {
 function ImgItem(props: any) {
   return (
     <Paper>
-      <Card sx={{ borderRadius: "0", position: "relative",backgroundColor:'hsl(189, 58%, 62%)' }}>
+      <Card
+        sx={{
+          borderRadius: "0",
+          position: "relative",
+          backgroundColor: "hsl(189, 58%, 62%)",
+        }}
+      >
         <CardActionArea href={props.item.href}>
           <CardMedia>
             <Image
