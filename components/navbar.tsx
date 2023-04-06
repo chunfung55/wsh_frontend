@@ -141,7 +141,7 @@ function Navbar({ navItems }) {
     setAnchorEl(null);
   };
   return (
-    < >
+    <>
       <CssBaseline />
       <AppBar className={styles.navbar} color="transparent" elevation={0}>
         <Toolbar>
