@@ -7,7 +7,7 @@ import Layout from "@/components/layout";
 import { getDestinationCategories, getMenu } from "@/services/common";
 import WhoWeAre from "./WhoWeAre";
 
-const AboutUs = ({ navItems, destinationCategories }) => {
+const AboutUs = ({ navItems }) => {
   const router = useRouter();
   const { t } = useTranslation("common");
   return (
@@ -18,14 +18,10 @@ const AboutUs = ({ navItems, destinationCategories }) => {
 };
 
 export async function getStaticProps({ locale }) {
-  const [mainMeuns, destinationCategories] = await Promise.all([
-    getMenu(locale),
-    getDestinationCategories(),
-  ]);
+  const [mainMeuns] = await Promise.all([getMenu(locale)]);
   return {
     props: {
       navItems: mainMeuns,
-      destinationCategories: destinationCategories,
     },
   };
 }

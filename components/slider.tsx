@@ -9,7 +9,7 @@ import {
   CardActionArea,
 } from "@mui/material";
 import styles from "../styles/Home.module.css";
-import Header from "./Header";
+import Header from "./header";
 import Image from "mui-image";
 
 // interface imgObj {

@@ -17,7 +17,8 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { Link, Popover, Slide, styled, useScrollTrigger } from "@mui/material";
 import { fetchAPI } from "@/lib/api";
 import { useEffect, useState } from "react";
-import Header from "./Header";
+import Header from "./header";
+import { navBarProps } from "@/interfaces/common";
 
 // export async function getServerSideProps() {
 //   const navItemsRespose = await fetchAPI("/navigation/render/main-navigation", {
@@ -80,7 +81,7 @@ import Header from "./Header";
 //   // ...
 // ];
 
-function Navbar({ navItems }) {
+function Navbar({ navItems }: navBarProps) {
   // const [navItems, setNavItems] = useState([]);
   // useEffect(() => {
   //   async function fetchData() {
@@ -199,7 +200,7 @@ function Navbar({ navItems }) {
           >
             {navItems?.map((navItem, index) => {
               console.log("navItem", navItem);
-              if (navItem.submenu.length > 0) {
+              if (navItem?.submenu?.length > 0) {
                 return (
                   <Box key={navItem.title}>
                     <Button>

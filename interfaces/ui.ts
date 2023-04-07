@@ -1,13 +1,3 @@
-export interface cardObj {
-  imgLink: string;
-  title: string;
-  content: string;
-  location?: string;
-  night?: string;
-  price?: string;
-  href: string;
-}
-
 export interface termAConItem {
   img: string;
   title?: string;
@@ -34,7 +24,7 @@ export interface visitItem {
 export interface cardItem {
   title: string;
   content: string;
-  location: string;
+  location?: string;
 }
 
 export interface momentCardItem extends cardItem {
@@ -45,10 +35,12 @@ export interface momentCardItem extends cardItem {
 
 export interface imgCardItem extends cardItem {
   imgLink: string;
-  night: string;
-  price: string;
+  night?: string;
+  price?: string;
   href: string;
 }
+
+export type cardObjs = imgCardItem[];
 
 export interface buttonItem {
   cssName: string;
