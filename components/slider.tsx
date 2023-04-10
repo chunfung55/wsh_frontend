@@ -62,11 +62,14 @@ function ImgItem(props: any) {
       >
         <CardActionArea href={props.item.href}>
           <CardMedia>
-            <Image
+
+            <img
               src={props.item.imglink}
               height="100%"
+              width="100%"
+              loading="lazy"
               key={props.key}
-            ></Image>
+            />
             <Box
               sx={{
                 position: "absolute",

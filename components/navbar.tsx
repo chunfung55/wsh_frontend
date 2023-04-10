@@ -6,15 +6,12 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import NavMenu from "./navMenu";
-
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-
-import CssBaseline from "@mui/material/CssBaseline";
 import styles from "../styles/Home.module.css";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import {
+  Fade,
   Grid,
   Link,
   Popover,
@@ -89,7 +86,24 @@ import { Container } from "@mui/system";
 //   // ...
 // ];
 
+function ScrollHide(props: Props) {
+  const { children, window } = props;
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 100,
+  });
+
+  return (
+    <Fade  appear={false} in={!trigger} unmountOnExit >
+      <Toolbar>
+        {children}
+      </Toolbar>
+    </Fade>
+  );
+}
+
 function Navbar({ navItems }: navBarProps) {
+
   // const [navItems, setNavItems] = useState([]);
   // useEffect(() => {
   //   async function fetchData() {
@@ -149,14 +163,20 @@ function Navbar({ navItems }: navBarProps) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 100,
+  });
+
   return (
     <>
       <Container>
         <AppBar className={styles.navbar} color="transparent" elevation={0}>
-          <Toolbar>
+          <ScrollHide  {...navItems}>
             <Header />
-          </Toolbar>
-          <Toolbar>
+          </ScrollHide>
+          <Toolbar sx={{bgcolor:"#ffffff40"}}>
             <Box
               sx={{
                 flexGrow: 1,

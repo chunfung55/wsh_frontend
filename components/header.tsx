@@ -38,6 +38,7 @@ const StyledLink = styled(Link)({
 // });
 
 export default function Header(props: any) {
+
   return (
     <>
       <Container sx={{ maxWidth: "85%" }}>
@@ -54,18 +55,22 @@ export default function Header(props: any) {
                 url={""}
               ></GlobalButton>
             </Box>
-            </Grid>
-            <Grid item md={1.5}>
-              </Grid>
-            <Grid item md={1}>
-            <Image src={logo.src} height="110px" width="114px"></Image>
-            </Grid>
-            <Grid item md={1.5}>
-            </Grid>
-            <Grid item md={2.5}>
-              </Grid>
-<Grid item md={1.5}>
-            <Box sx={{ pt: "20px", pb: "20px" }}>
+          </Grid>
+          
+          <Grid item md={4} >
+            <Box  display="flex" justifyContent="center">
+            <img
+              className={styles.imgFrame}
+              src={logo.src}
+              loading="lazy"
+              height="110px" width="130px"
+            />
+            </Box>
+          </Grid>
+         
+          <Grid item md={4}>
+       
+            <Box sx={{ pt: "20px", pb: "20px" }}  display="flex" justifyContent="flex-end">
               <b>
                 <GlobalButton
                   content="CONTACT US"
@@ -73,17 +78,18 @@ export default function Header(props: any) {
                   url={""}
                 ></GlobalButton>
               </b>
-              <Box>
-                <InstagramIcon fontSize="small" />
-                <FacebookIcon fontSize="small" />
+              
+            </Box>
+            <Box  display="flex" justifyContent="flex-end">
                 <Typography className={styles.lowFontCol1}>
-                  (852) - 2813 8778
+                <Typography ><InstagramIcon fontSize="medium"/>
+                <FacebookIcon fontSize="medium"/></Typography>
+                   (852) - 2813 8778
                 </Typography>
               </Box>
-            </Box>
-            </Grid>
           </Grid>
-      
+        </Grid>
+
       </Container>
     </>
   );
