@@ -7,12 +7,21 @@ import styles from "../styles/Home.module.css";
 import styled from "@emotion/styled";
 import Typography from "@mui/material/Typography";
 
-import { CssBaseline, Slide, useScrollTrigger } from "@mui/material";
+import {
+  AppBar,
+  CssBaseline,
+  Paper,
+  Slide,
+  Toolbar,
+  useScrollTrigger,
+} from "@mui/material";
 import logo from "./img/logo.png";
 import Image from "mui-image";
 import Link from "next/link";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
+import Navbar from "./navbar";
+import { parentPort } from "worker_threads";
 
 const StyledLink = styled(Link)({
   color: "#564C4A",
@@ -31,14 +40,12 @@ const StyledLink = styled(Link)({
 export default function Header(props: any) {
   return (
     <>
-      <Link href={"/zh"}>中</Link>
-      <Container maxWidth="lg">
-        <Grid container>
-          <Box className={styles.left}>
+      <Container sx={{ maxWidth: "85%" }}>
+        <Grid container md={12} lg={12} xl={12}>
+          <Grid item={true} md={12}>
             <Box sx={{ pt: "20px", pb: "20px" }}>
-              {/* <StyledLink href={"/zh"}>中</StyledLink> | */}
-              <Link href={"/zh"}>中</Link>
-              <StyledLink href="/en">Eng</StyledLink>
+              <StyledLink href="">中</StyledLink> |{" "}
+              <StyledLink href="">Eng</StyledLink>
             </Box>
             <Box>
               <GlobalButton
@@ -47,11 +54,7 @@ export default function Header(props: any) {
                 url={""}
               ></GlobalButton>
             </Box>
-          </Box>
-          <Box className={styles.center}>
             <Image src={logo.src} height="110px" width="114px"></Image>
-          </Box>
-          <Box className={styles.right}>
             <Box sx={{ pt: "20px", pb: "20px" }}>
               <b>
                 <GlobalButton
@@ -60,15 +63,15 @@ export default function Header(props: any) {
                   url={""}
                 ></GlobalButton>
               </b>
+              <Box>
+                <InstagramIcon fontSize="small" />
+                <FacebookIcon fontSize="small" />
+                <Typography className={styles.lowFontCol1}>
+                  (852) - 2813 8778
+                </Typography>
+              </Box>
             </Box>
-            <Box>
-              <InstagramIcon fontSize="small" />{" "}
-              <FacebookIcon fontSize="small" />
-              <Typography className={styles.lowFontCol1}>
-                (852) - 2813 8778
-              </Typography>
-            </Box>
-          </Box>
+          </Grid>
         </Grid>
       </Container>
     </>

@@ -5,15 +5,14 @@ import Header from "./header";
 import Navbar from "./navbar";
 import { Box } from "@mui/system";
 import ImgSlider from "./slider";
+import { CssBaseline } from "@mui/material";
 
 export default function Layout({ children, navItems }: CommonPageProps) {
   return (
     <>
-      <Box sx={{ position: "fixed", zIndex: "100000" }}>
-        <Header />
-        <Box sx={{ position: "absolute" }}>
-          <Navbar navItems={navItems} />
-        </Box>
+      <CssBaseline />
+      <Box sx={{ position: "sticky", zIndex: "100000" }}>
+        <Navbar navItems={navItems} />
       </Box>
       <Box sx={{ top: "0", zIndex: "1" }}>
         <ImgSlider></ImgSlider>
