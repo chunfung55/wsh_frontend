@@ -40,6 +40,8 @@ import Image from "mui-image";
 import CardSlider from "@/components/CardSlider";
 import { useRouter } from "next/router";
 import Layout from "@/components/layout";
+import { getDestinationCategories, getMenu } from "@/services/common";
+import { commonGetStaticProps } from "@/interfaces/common";
 
 const itemData = [
   {
@@ -164,7 +166,7 @@ type Props = {
   // Add custom props here
 };
 
-const Home = ({ navItems }) =>
+const Home = ({ navItems, destinationCategories }) =>
   // _props: InferGetStaticPropsType<typeof getStaticProps>
   {
     const router = useRouter();
@@ -318,32 +320,16 @@ const Home = ({ navItems }) =>
 //   },
 // });
 
-export async function getStaticProps() {
-  const [navItemsRespose] = await Promise.all([
-    fetchAPI("/navigation/render/main-navigation", {
-      populate: "*",
-    }),
+export async function getStaticProps({ locale }: commonGetStaticProps) {
+  const [mainMeuns, destinationCategories] = await Promise.all([
+    getMenu(locale),
+    getDestinationCategories(),
   ]);
-  let mainMeuns = navItemsRespose.filter((obj) => obj?.parent == null);
-  mainMeuns = mainMeuns.map((obj) => ({ ...obj, submenu: [] }));
-  navItemsRespose.forEach((element) => {
-    console.log(element);
-    if (element?.parent) {
-      let index = 0;
-      mainMeuns.forEach((mainMeun) => {
-        if (mainMeun.id == element.parent.id) {
-          mainMeuns[index].submenu.push(element);
-        }
-        index++;
-      });
-    }
-  });
-  console.log("mainMeuns", mainMeuns);
   return {
     props: {
       navItems: mainMeuns,
+      destinationCategories: destinationCategories,
     },
   };
 }
-
 export default Home;

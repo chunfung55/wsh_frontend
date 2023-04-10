@@ -2,13 +2,7 @@ import GlobalButton from "@/components/GlobalButton";
 import { Box, Grid, Typography } from "@mui/material";
 import styles from "@/styles/Home.module.css";
 import Image from "mui-image";
-
-interface termAConItem {
-  img: string;
-  title?: string;
-  content?: string;
-  url: string;
-}
+import { termAConItem } from "@/interfaces/ui";
 
 const TermAConItem = (item: termAConItem) => {
   return (

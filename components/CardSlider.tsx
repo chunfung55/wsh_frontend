@@ -4,18 +4,9 @@ import Carousel from "react-material-ui-carousel";
 import "../styles/Home.module.css";
 import styles from "../styles/Home.module.css";
 import ImgCard from "./ImgCard";
+import { imgCardItem, cardObjs } from "@/interfaces/ui";
 
-interface cardObj {
-  imgLink: string;
-  title: string;
-  content: string;
-  location?: string;
-  night?: string;
-  price?: string;
-  href: string;
-}
-
-export default function CardSlider(cardObjs: any) {
+export default function CardSlider(cardObjs: cardObjs) {
   return (
     <Carousel className={styles.cardSlide} animation="slide">
       <Grid
@@ -28,7 +19,7 @@ export default function CardSlider(cardObjs: any) {
         justifyContent="center"
         sx={{ padding: "0px 15px" }}
       >
-        {cardObjs.map((cardObj: cardObj) => (
+        {cardObjs.map((cardObj: imgCardItem) => (
           <Grid md={4}>
             <ImgCard
               imgLink={cardObj.imgLink}

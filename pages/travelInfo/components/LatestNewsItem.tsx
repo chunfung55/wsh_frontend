@@ -8,6 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import styles from "@/styles/Home.module.css";
+import { LatesNewsItem } from "@/interfaces/ui";
 const journeys = [
   {
     url: "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
@@ -28,14 +29,6 @@ const journeys = [
     btnContent: "From HKD 47,780/adult",
   },
 ];
-
-interface LatesNewsItem {
-  url: string;
-  title: string;
-  img: string;
-  content: string;
-  style: string;
-}
 
 const LatestNewsItem = (obj: LatesNewsItem) => {
   const [isShown, setIsShown] = useState(false);

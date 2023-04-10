@@ -7,7 +7,14 @@ import styles from "../styles/Home.module.css";
 import styled from "@emotion/styled";
 import Typography from "@mui/material/Typography";
 
-import { AppBar, CssBaseline, Paper, Slide, Toolbar, useScrollTrigger } from "@mui/material";
+import {
+  AppBar,
+  CssBaseline,
+  Paper,
+  Slide,
+  Toolbar,
+  useScrollTrigger,
+} from "@mui/material";
 import logo from "./img/logo.png";
 import Image from "mui-image";
 import Link from "next/link";
@@ -16,13 +23,19 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import Navbar from "./navbar";
 import { parentPort } from "worker_threads";
 
-
-
 const StyledLink = styled(Link)({
   color: "#564C4A",
   textshadow: "0px 0px 10px black",
   textDecoration: "none",
 });
+
+// const useStyles = makeStyles({
+//   link: {
+//     color: "#564C4A",
+//     textshadow: "0px 0px 10px black",
+//     textDecoration: "none",
+//   },
+// });
 
 export default function Header(props: any) {
   return (

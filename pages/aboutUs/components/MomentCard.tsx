@@ -9,16 +9,8 @@ import {
 } from "@mui/material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import styles from "@/../styles/Home.module.css";
-interface cardItem {
-  title: string;
-  content: string;
-  location: string;
-  author: string;
-  date: string;
-  img: string;
-}
-
-export default function MomentCard(obj: cardItem) {
+import { cardItem, momentCardItem } from "@/interfaces/ui";
+export default function MomentCard(obj: momentCardItem) {
   return (
     <Grid item md={4}>
       <Box className={styles.item15}>

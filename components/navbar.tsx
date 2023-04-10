@@ -14,10 +14,18 @@ import MenuItem from "@mui/material/MenuItem";
 import CssBaseline from "@mui/material/CssBaseline";
 import styles from "../styles/Home.module.css";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import { Grid, Link, Popover, Slide, styled, useScrollTrigger } from "@mui/material";
+import {
+  Grid,
+  Link,
+  Popover,
+  Slide,
+  styled,
+  useScrollTrigger,
+} from "@mui/material";
 import { fetchAPI } from "@/lib/api";
 import { useEffect, useState } from "react";
-import Header from "./Header";
+import Header from "./header";
+import { navBarProps } from "@/interfaces/common";
 import { Container } from "@mui/system";
 
 // export async function getServerSideProps() {
@@ -81,7 +89,7 @@ import { Container } from "@mui/system";
 //   // ...
 // ];
 
-function Navbar({ navItems }) {
+function Navbar({ navItems }: navBarProps) {
   // const [navItems, setNavItems] = useState([]);
   // useEffect(() => {
   //   async function fetchData() {
@@ -142,140 +150,140 @@ function Navbar({ navItems }) {
     setAnchorEl(null);
   };
   return (
-    < >
+    <>
       <Container>
-      <AppBar className={styles.navbar} color="transparent" elevation={0}>
-      <Toolbar>
-        <Header/>
-      </Toolbar>
-        <Toolbar>
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: { xs: "flex", md: "none" },
-              opacity: [0.9, 0.8, 0.3],
-            }}
-          >
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            {/* mobile menu */}
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+        <AppBar className={styles.navbar} color="transparent" elevation={0}>
+          <Toolbar>
+            <Header />
+          </Toolbar>
+          <Toolbar>
+            <Box
               sx={{
-                display: { xs: "block", md: "none" },
+                flexGrow: 1,
+                display: { xs: "flex", md: "none" },
+                opacity: [0.9, 0.8, 0.3],
               }}
             >
-              {navItems?.map((navItem) => (
-                <MenuItem
-                  key={navItem.title}
-                  onClick={handleCloseNavMenu}
-                  sx={{ p: "8px", width: "100%" }}
-                >
-                  <Typography textAlign="center">{navItem.title}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
+              {/* mobile menu */}
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: "block", md: "none" },
+                }}
+              >
+                {navItems?.map((navItem) => (
+                  <MenuItem
+                    key={navItem.title}
+                    onClick={handleCloseNavMenu}
+                    sx={{ p: "8px", width: "100%" }}
+                  >
+                    <Typography textAlign="center">{navItem.title}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
 
-          <Box
-            sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
-            justifyContent="center"
-          >
-            {navItems?.map((navItem, index) => {
-              console.log("navItem", navItem);
-              if (navItem.submenu.length > 0) {
-                return (
-                  <Box key={navItem.title}>
+            <Box
+              sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
+              justifyContent="center"
+            >
+              {navItems?.map((navItem, index) => {
+                console.log("navItem", navItem);
+                if (navItem?.submenu?.length > 0) {
+                  return (
+                    <Box key={navItem.title}>
+                      <Button>
+                        <Link
+                          id="basic-button"
+                          // aria-controls={open ? "basic-menu" : undefined}
+                          aria-haspopup="true"
+                          // aria-expanded={open ? "true" : undefined}
+                          onClick={(e) => handleClick(index, e)}
+                          onClose={handleClose}
+                          className={styles.navbar_button}
+                          underline="none"
+                        >
+                          {navItem.title}
+                          <ArrowDropDownIcon
+                            fontSize="small"
+                            className={styles.dropDownIcon}
+                          />
+                        </Link>
+                      </Button>
+                      <SubMenu
+                        id="basic-menu"
+                        anchorEl={anchorEl && anchorEl[index]}
+                        keepMounted
+                        open={Boolean(anchorEl && anchorEl[index])}
+                        onClose={handleClose}
+                        MenuListProps={{
+                          "aria-labelledby": "basic-button",
+                          sx: { py: "0px", boxShadow: 0 },
+                        }}
+                      >
+                        <Box className={styles.navbar_subMenu}>
+                          {navItem.submenu.map((submenu, submenuindex) => {
+                            return (
+                              <MenuItem
+                                className={styles.navbar_subMenu}
+                                key={submenuindex}
+                                onClick={handleClose}
+                              >
+                                {" "}
+                                {submenu.title}
+                              </MenuItem>
+                            );
+                          })}
+                        </Box>
+                      </SubMenu>
+                    </Box>
+                  );
+                } else {
+                  return (
                     <Button>
                       <Link
                         id="basic-button"
-                        // aria-controls={open ? "basic-menu" : undefined}
+                        // aria-controls={
+                        //   open ? "basic-menu" : undefined
+                        // }
                         aria-haspopup="true"
-                        // aria-expanded={open ? "true" : undefined}
-                        onClick={(e) => handleClick(index, e)}
-                        onClose={handleClose}
+                        // aria-expanded={
+                        //   open ? "true" : undefined
+                        // }
                         className={styles.navbar_button}
                         underline="none"
                       >
                         {navItem.title}
-                        <ArrowDropDownIcon
-                          fontSize="small"
-                          className={styles.dropDownIcon}
-                        />
                       </Link>
                     </Button>
-                    <SubMenu
-                      id="basic-menu"
-                      anchorEl={anchorEl && anchorEl[index]}
-                      keepMounted
-                      open={Boolean(anchorEl && anchorEl[index])}
-                      onClose={handleClose}
-                      MenuListProps={{
-                        "aria-labelledby": "basic-button",
-                        sx: { py: "0px", boxShadow: 0 },
-                      }}
-                    >
-                      <Box className={styles.navbar_subMenu}>
-                        {navItem.submenu.map((submenu, submenuindex) => {
-                          return (
-                            <MenuItem
-                              className={styles.navbar_subMenu}
-                              key={submenuindex}
-                              onClick={handleClose}
-                            >
-                              {" "}
-                              {submenu.title}
-                            </MenuItem>
-                          );
-                        })}
-                      </Box>
-                    </SubMenu>
-                  </Box>
-                );
-              } else {
-                return (
-                  <Button>
-                    <Link
-                      id="basic-button"
-                      // aria-controls={
-                      //   open ? "basic-menu" : undefined
-                      // }
-                      aria-haspopup="true"
-                      // aria-expanded={
-                      //   open ? "true" : undefined
-                      // }
-                      className={styles.navbar_button}
-                      underline="none"
-                    >
-                      {navItem.title}
-                    </Link>
-                  </Button>
-                );
-              }
-            })}
-          </Box>
-        </Toolbar>
-      </AppBar>
+                  );
+                }
+              })}
+            </Box>
+          </Toolbar>
+        </AppBar>
       </Container>
     </>
   );
