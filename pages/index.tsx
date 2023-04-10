@@ -41,6 +41,7 @@ import CardSlider from "@/components/CardSlider";
 import { useRouter } from "next/router";
 import Layout from "@/components/layout";
 import { getDestinationCategories, getMenu } from "@/services/common";
+import { commonGetStaticProps } from "@/interfaces/common";
 
 const itemData = [
   {
@@ -319,7 +320,7 @@ const Home = ({ navItems, destinationCategories }) =>
 //   },
 // });
 
-export async function getStaticProps({ locale }) {
+export async function getStaticProps({ locale }: commonGetStaticProps) {
   const [mainMeuns, destinationCategories] = await Promise.all([
     getMenu(locale),
     getDestinationCategories(),

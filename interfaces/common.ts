@@ -5,6 +5,8 @@ export type CommonPageProps = {
 
 export type navBarProps = { navItems: navItem[] };
 
+export type navItems = navItem[];
+
 export interface navItem {
   order: number;
   id: number;
@@ -23,3 +25,5 @@ export interface navItem {
   items: any[] | null;
   submenu: navItem[] | null;
 }
+
+export type commonGetStaticProps = { locale: string };
