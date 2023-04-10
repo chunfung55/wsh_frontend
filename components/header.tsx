@@ -29,7 +29,7 @@ export default function Header(props: any) {
     <>
       <Container sx={{ maxWidth: "85%" }}>
         <Grid container md={12} lg={12} xl={12}>
-          <Grid item={true} md={12}>
+          <Grid item md={4}>
             <Box sx={{ pt: "20px", pb: "20px" }}>
               <StyledLink href="">中</StyledLink> |{" "}
               <StyledLink href="">Eng</StyledLink>
@@ -41,7 +41,17 @@ export default function Header(props: any) {
                 url={""}
               ></GlobalButton>
             </Box>
+            </Grid>
+            <Grid item md={1.5}>
+              </Grid>
+            <Grid item md={1}>
             <Image src={logo.src} height="110px" width="114px"></Image>
+            </Grid>
+            <Grid item md={1.5}>
+            </Grid>
+            <Grid item md={2.5}>
+              </Grid>
+<Grid item md={1.5}>
             <Box sx={{ pt: "20px", pb: "20px" }}>
               <b>
                 <GlobalButton
@@ -58,8 +68,9 @@ export default function Header(props: any) {
                 </Typography>
               </Box>
             </Box>
+            </Grid>
           </Grid>
-        </Grid>
+      
       </Container>
     </>
   );

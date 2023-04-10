@@ -1,7 +1,6 @@
 import Footer from "@/components/footer";
 import { CommonPageProps } from "@/interfaces/common";
 import React from "react";
-import Header from "./header";
 import Navbar from "./navbar";
 import { Box } from "@mui/system";
 import ImgSlider from "./slider";
