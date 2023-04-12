@@ -62,7 +62,6 @@ function ImgItem(props: any) {
       >
         <CardActionArea href={props.item.href}>
           <CardMedia>
-
             <img
               src={props.item.imglink}
               height="100%"

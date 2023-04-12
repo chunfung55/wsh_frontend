@@ -3,6 +3,6 @@ import "../styles/Home.module.css";
 import styles from "../styles/Home.module.css";
 
 const StickyButton = (props: any) => {
-  return ;
+  return;
 };
 export default StickyButton;
