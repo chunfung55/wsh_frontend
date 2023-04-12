@@ -14,8 +14,10 @@ export default function Layout({ children, navItems }: CommonPageProps) {
       <Box sx={{ position: "sticky", zIndex: "100000" }}>
         <Navbar navItems={navItems} />
       </Box>
-      <Box sx={{ position: "fixed", zIndex: "100001" ,top:"30%",right:"0%"}}>
-      <Button className={styles.comButton_sticky}>content us</Button>
+      <Box
+        sx={{ position: "fixed", zIndex: "100001", top: "30%", right: "0%" }}
+      >
+        <Button className={styles.comButton_sticky}>content us</Button>
       </Box>
       <Box sx={{ top: "0", zIndex: "1" }}>
         <ImgSlider></ImgSlider>

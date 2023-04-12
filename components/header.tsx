@@ -79,18 +79,23 @@ export default function Header(props: any) {
               ></GlobalButton>
             </Box>
           </Grid>
-          <Grid item md={4} >
-            <Box  display="flex" justifyContent="center">
-            <img
-              className={styles.imgFrame}
-              src={logo.src}
-              loading="lazy"
-              height="110px" width="130px"
-            />
-            </Box>
-          </Grid> 
           <Grid item md={4}>
-            <Box sx={{ pt: "20px", pb: "20px" }}  display="flex" justifyContent="flex-end">
+            <Box display="flex" justifyContent="center">
+              <img
+                className={styles.imgFrame}
+                src={logo.src}
+                loading="lazy"
+                height="110px"
+                width="130px"
+              />
+            </Box>
+          </Grid>
+          <Grid item md={4}>
+            <Box
+              sx={{ pt: "20px", pb: "20px" }}
+              display="flex"
+              justifyContent="flex-end"
+            >
               <b>
                 <GlobalButton
                   content="CONTACT US"
@@ -99,13 +104,17 @@ export default function Header(props: any) {
                 ></GlobalButton>
               </b>
             </Box>
-            <Box  display="flex" justifyContent="flex-end">
-                <Typography className={styles.lowFontCol1}>
-                <Typography ><InstagramIcon fontSize="medium"/>
-                <FacebookIcon fontSize="medium"/></Typography>
-                   (852) - 2813 8778
-                </Typography>
-              </Box>
+            <Box display="flex" justifyContent="flex-end">
+              <Typography className={styles.lowFontCol1}>
+                {/* <Typography>
+                  <InstagramIcon fontSize="medium" />
+                  <FacebookIcon fontSize="medium" />
+                </Typography> */}
+                <InstagramIcon fontSize="medium" />
+                <FacebookIcon fontSize="medium" />
+                (852) - 2813 8778
+              </Typography>
+            </Box>
           </Grid>
         </Grid>
       </Container>

@@ -94,16 +94,13 @@ function ScrollHide(props: Props) {
   });
 
   return (
-    <Fade  appear={false} in={!trigger} unmountOnExit >
-      <Toolbar>
-        {children}
-      </Toolbar>
+    <Fade appear={false} in={!trigger} unmountOnExit>
+      <Toolbar>{children}</Toolbar>
     </Fade>
   );
 }
 
 function Navbar({ navItems }: navBarProps) {
-
   // const [navItems, setNavItems] = useState([]);
   // useEffect(() => {
   //   async function fetchData() {
@@ -173,10 +170,10 @@ function Navbar({ navItems }: navBarProps) {
     <>
       <Container>
         <AppBar className={styles.navbar} color="transparent" elevation={0}>
-          <ScrollHide  {...navItems}>
+          <ScrollHide {...navItems}>
             <Header />
           </ScrollHide>
-          <Toolbar sx={{bgcolor:"#ffffff40"}}>
+          <Toolbar sx={{ bgcolor: "#ffffff40" }}>
             <Box
               sx={{
                 flexGrow: 1,
