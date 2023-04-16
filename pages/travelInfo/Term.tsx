@@ -22,7 +22,7 @@ import styles from "../../styles/Home.module.css";
 import BigTitle from "@/components/BigTitle";
 import FooterCard from "@/components/FooterCard";
 import JourneyCard from "@/components/JourneyCard";
-import TermAConItem from "./components/TermAConItem";
+import TermAConItem from "../news/components/TermAConItem";
 import BigDivider from "@/components/BigDivider";
 const journeys = [
   {

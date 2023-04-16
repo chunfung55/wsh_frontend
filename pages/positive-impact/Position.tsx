@@ -1,24 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import Container from "@mui/material/Container";
-import {
-  BottomNavigation,
-  BottomNavigationAction,
-  Box,
-  Button,
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Divider,
-  Grid,
-  ImageList,
-  ImageListItem,
-  List,
-  ListItem,
-  ListItemText,
-  Paper,
-  Typography,
-} from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import styles from "@/styles/Home.module.css";
 import BigTitle from "@/components/BigTitle";
 import FooterCard from "@/components/FooterCard";
@@ -56,12 +38,12 @@ export default function Position() {
             </Grid>
             <Grid item md={6}>
               <Box className={styles.item15}>
-                <Image src={image1.src}></Image>
+                <img src={image1.src}></img>
               </Box>
             </Grid>
             <Grid item md={6}>
               <Box className={styles.item15}>
-                <Image src={image1.src}></Image>
+                <img src={image1.src}></img>
               </Box>
             </Grid>
           </Grid>

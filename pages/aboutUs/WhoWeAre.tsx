@@ -25,13 +25,14 @@ export default function WhoWeAre() {
           <Grid md={12} container>
             <Grid md={12} item>
               <Box className={styles.item15}>
-                <Image
+                <img
                   src={"/images/slogan_about2_en.png"}
                   width="100%"
                   height="auto"
                   vertical-align="middle"
                   style={{ maxWidth: "1200px" }}
-                ></Image>
+                  loading="lazy"
+                ></img>
               </Box>
             </Grid>
           </Grid>
@@ -43,14 +44,15 @@ export default function WhoWeAre() {
           <Grid md={12} container>
             <Grid md={12} item>
               <Box className={styles.item15}>
-                <Image
+                <img
                   src={"/images/slogan_about3_en.png"}
                   width="100%"
                   height="auto"
                   vertical-align="middle"
                   style={{ maxWidth: "1200px" }}
-                  priority={true}
-                ></Image>
+                  // priority={true}
+                  loading="lazy"
+                ></img>
               </Box>
               {/* <Box
                 component="img"

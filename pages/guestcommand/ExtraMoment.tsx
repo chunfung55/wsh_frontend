@@ -25,7 +25,7 @@ import BigTitle from "@/components/BigTitle";
 import FooterCard from "@/components/FooterCard";
 import JourneyCard from "@/components/JourneyCard";
 import BigDivider from "@/components/BigDivider";
-import MomentCard from "./components/momentCard";
+import MomentCard from "./components/MomentCard";
 const journeys = [
   {
     url: "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
@@ -93,7 +93,10 @@ export default function ExtraMoment() {
           <Grid container md={12} sx={{ pb: "50px" }}>
             {journeys.map((jou) => (
               <Grid item md={4}>
-                <Box className={styles.item15}>
+                {/* <Box className={styles.item15}>
+
+                </Box> */}
+                <div className={styles.item15}>
                   <JourneyCard
                     url={jou.url}
                     imgLink={jou.imgLink}
@@ -101,7 +104,7 @@ export default function ExtraMoment() {
                     btnContent={jou.btnContent}
                     styleClass={""}
                   ></JourneyCard>
-                </Box>
+                </div>
               </Grid>
             ))}
           </Grid>

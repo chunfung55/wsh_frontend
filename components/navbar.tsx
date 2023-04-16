@@ -216,7 +216,9 @@ function Navbar({ navItems }: navBarProps) {
                     onClick={handleCloseNavMenu}
                     sx={{ p: "8px", width: "100%" }}
                   >
-                    <Typography textAlign="center">{navItem.title}</Typography>
+                    <Typography textAlign="center">
+                      <Link href={"/"}>{navItem.title}</Link>
+                    </Typography>
                   </MenuItem>
                 ))}
               </Menu>
@@ -268,8 +270,13 @@ function Navbar({ navItems }: navBarProps) {
                                 key={submenuindex}
                                 onClick={handleClose}
                               >
-                                {" "}
-                                {submenu.title}
+                                <Link
+                                  href={submenu.path}
+                                  underline="none"
+                                  className={styles.navbar_button}
+                                >
+                                  {submenu.title}
+                                </Link>
                               </MenuItem>
                             );
                           })}
