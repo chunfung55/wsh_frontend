@@ -1,23 +1,6 @@
 import React, { useState } from "react";
 import Container from "@mui/material/Container";
-import {
-  BottomNavigation,
-  BottomNavigationAction,
-  Box,
-  Button,
-  Card,
-  CardActionArea,
-  CardMedia,
-  Divider,
-  Grid,
-  ImageList,
-  ImageListItem,
-  List,
-  ListItem,
-  ListItemText,
-  Paper,
-  Typography,
-} from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import styles from "../../styles/Home.module.css";
 import BigTitle from "@/components/BigTitle";
 import FooterCard from "@/components/FooterCard";

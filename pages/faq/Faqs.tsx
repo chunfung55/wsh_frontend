@@ -1,28 +1,10 @@
 import React, { useState } from "react";
 import Container from "@mui/material/Container";
-import {
-  BottomNavigation,
-  BottomNavigationAction,
-  Box,
-  Button,
-  Card,
-  CardActionArea,
-  CardMedia,
-  Divider,
-  Grid,
-  ImageList,
-  ImageListItem,
-  List,
-  ListItem,
-  ListItemText,
-  Paper,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Divider, Grid, Typography } from "@mui/material";
 import styles from "../../styles/Home.module.css";
 import PageFrame from "@/components/PageFrame";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import BigTitle from "@/components/BigTitle";
-import BigDivider from "@/components/BigDivider";
 import FooterCard from "@/components/FooterCard";
 import JourneyCard from "@/components/JourneyCard";
 
@@ -58,7 +40,7 @@ const journeys = [
     btnContent: "From HKD 47,780/adult",
   },
 ];
-export default function Faq() {
+export default function Faqs() {
   const [show, setShow] = useState(false);
   return (
     <Box>
