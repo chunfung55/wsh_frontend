@@ -10,6 +10,7 @@ import styles from "../styles/Home.module.css";
 export default function Layout({
   children,
   navItems,
+  sliderImgs,
 }: CommonPagePropsNChildren) {
   return (
     <>
@@ -23,7 +24,7 @@ export default function Layout({
         <Button className={styles.comButton_sticky}>content us</Button>
       </Box>
       <Box sx={{ top: "0", zIndex: "1" }}>
-        <ImgSlider></ImgSlider>
+        <ImgSlider sliderImgs={sliderImgs} />
         <main>{children}</main>
       </Box>
     </>

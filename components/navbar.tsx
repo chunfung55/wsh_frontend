@@ -229,7 +229,7 @@ function Navbar({ navItems }: navBarProps) {
               justifyContent="center"
             >
               {navItems?.map((navItem, index) => {
-                console.log("navItem", navItem);
+                // console.log("navItem", navItem);
                 if (navItem?.submenu?.length > 0) {
                   return (
                     <Box key={navItem.title}>

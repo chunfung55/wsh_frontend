@@ -1,5 +1,5 @@
 import { navItem, navItems } from "@/interfaces/common";
-import { fetchAPI } from "@/lib/api";
+import { fetchAPI, getStrapiURL } from "@/lib/api";
 
 const changeLanguage = (locale: string) => {
   if (locale === "zh") {
@@ -31,6 +31,23 @@ export async function getMenu(locale: string) {
   });
   return mainMeuns;
 }
+export async function getBanner(locale: string) {
+  locale = changeLanguage(locale);
+  const bannerRespose = await fetchAPI("/banners", {
+    locale: locale,
+    populate: "*",
+  });
+  const banners: { href: string; imglink: string }[] = [];
+  bannerRespose.data.forEach((element: any) => {
+    const banner = {
+      href: element?.attributes?.Url,
+      imglink:
+        getStrapiURL() + element?.attributes?.Photo?.data?.attributes?.url,
+    };
+    banners.push(banner);
+  });
+  return banners;
+}
 
 export async function getDestinationCategories() {
   const destinationCategories = await fetchAPI("/destination-categories", {
@@ -45,6 +62,19 @@ export async function getDestinationCategories() {
       },
     },
   });
-  console.log("destinationCategories", destinationCategories.data);
+  // console.log("destinationCategories", destinationCategories.data);
   return destinationCategories.data;
+}
+
+export async function commonGetStaticPropsContext(locale: string) {
+  const menu = await getMenu(locale);
+  const banner = await getBanner(locale);
+  const destinationCategories = await getDestinationCategories();
+  return {
+    props: {
+      menu,
+      banner,
+      destinationCategories,
+    },
+  };
 }

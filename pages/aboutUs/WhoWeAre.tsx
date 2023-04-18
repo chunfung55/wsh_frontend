@@ -12,12 +12,12 @@ import { CommonComponentProps } from "@/interfaces/common";
 export default function WhoWeAre({ locale }: CommonComponentProps) {
   return (
     <Box>
-      <Image
+      <img
         src={"/images/slogan_about1_" + locale + ".png"}
         width="100%"
         height="auto"
         vertical-align="middle"
-      ></Image>
+      ></img>
       {locale == "en" && (
         <Box sx={{ pt: "100px" }}>
           <BigTitle content="OUR DESTINATIONS"></BigTitle>

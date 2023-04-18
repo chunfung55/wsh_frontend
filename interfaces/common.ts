@@ -1,11 +1,13 @@
 export type CommonPagePropsNChildren = {
   children: JSX.Element;
   navItems: navItems;
+  sliderImgs: sliderImgs;
 };
 
 export type CommonPageProps = {
   navItems: navItems;
   locale: string;
+  sliderImgs: sliderImgs;
 };
 
 export type CommonComponentProps = {
@@ -14,7 +16,15 @@ export type CommonComponentProps = {
 
 export type navBarProps = { navItems: navItem[] };
 
+export type imageSliderProps = { sliderImgs: sliderImgs };
+
 export type navItems = navItem[];
+export type sliderImgs = sliderImg[];
+
+export interface sliderImg {
+  imglink: string;
+  url: string;
+}
 
 export interface navItem {
   order: number;

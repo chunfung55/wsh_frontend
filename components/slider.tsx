@@ -9,8 +9,7 @@ import {
   CardActionArea,
 } from "@mui/material";
 import styles from "../styles/Home.module.css";
-import Header from "./header";
-import Image from "mui-image";
+import { imageSliderProps } from "@/interfaces/common";
 
 // interface imgObj {
 //   imgLink: string;
@@ -29,19 +28,20 @@ import Image from "mui-image";
 //   href: string;
 // }
 
-export default function ImgSlider() {
-  const items = [
-    {
-      imglink: "/images/1.jpeg",
-      name: "Random Name #1",
-      description: "Probably the most random thing you have ever seen!",
-    },
-    {
-      imglink: "/images/2.jpeg",
-      name: "Random Name #2",
-      description: "Hello World!",
-    },
-  ];
+export default function ImgSlider({ sliderImgs }: imageSliderProps) {
+  // const items = [
+  //   {
+  //     imglink: "/images/1.jpeg",
+  //     name: "Random Name #1",
+  //     description: "Probably the most random thing you have ever seen!",
+  //   },
+  //   {
+  //     imglink: "/images/2.jpeg",
+  //     name: "Random Name #2",
+  //     description: "Hello World!",
+  //   },
+  // ];
+  const items = sliderImgs;
   return (
     <Carousel className={styles.slide} animation="slide">
       {items.map((item, i) => (
@@ -78,7 +78,7 @@ function ImgItem(props: any) {
                 transform: "translateX(-50%)",
               }}
             >
-              <center>
+              {/* <center>
                 {" "}
                 <Typography className={styles.slider_title}>
                   {props.item.name}
@@ -86,7 +86,7 @@ function ImgItem(props: any) {
                 <Typography className={styles.slider_title}>
                   {props.item.description}
                 </Typography>
-              </center>
+              </center> */}
             </Box>
           </CardMedia>
         </CardActionArea>
