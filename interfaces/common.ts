@@ -1,6 +1,15 @@
-export type CommonPageProps = {
+export type CommonPagePropsNChildren = {
   children: JSX.Element;
   navItems: navItems;
+};
+
+export type CommonPageProps = {
+  navItems: navItems;
+  locale: string;
+};
+
+export type CommonComponentProps = {
+  locale: string;
 };
 
 export type navBarProps = { navItems: navItem[] };

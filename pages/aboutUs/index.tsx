@@ -6,14 +6,14 @@ import { useRouter } from "next/router";
 import Layout from "@/components/layout";
 import { getDestinationCategories, getMenu } from "@/services/common";
 import WhoWeAre from "./WhoWeAre";
-import { commonGetStaticProps, navBarProps } from "@/interfaces/common";
+import { CommonPageProps, commonGetStaticProps } from "@/interfaces/common";
 
-const AboutUs = ({ navItems }: navBarProps) => {
+const AboutUs = ({ navItems, locale }: CommonPageProps) => {
   const router = useRouter();
   const { t } = useTranslation("common");
   return (
     <Layout navItems={navItems}>
-      <WhoWeAre />
+      <WhoWeAre locale={locale} />
     </Layout>
   );
 };
@@ -23,6 +23,7 @@ export async function getStaticProps({ locale }: commonGetStaticProps) {
   return {
     props: {
       navItems: mainMeuns,
+      locale: locale,
     },
   };
 }

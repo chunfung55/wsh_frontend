@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import styles from "@/styles/Home.module.css";
 import FooterCard from "@/components/FooterCard";
-import { CommonPageProps } from "@/interfaces/common";
+import { CommonPagePropsNChildren } from "@/interfaces/common";
 import BigDivider from "./BigDivider";
 
 const cats = ["FAQ"];
@@ -26,7 +26,7 @@ const style = {
   bgcolor: "background.paper",
 };
 
-const PageFrame = ({ children }: CommonPageProps) => {
+const PageFrame = ({ children }: CommonPagePropsNChildren) => {
   return (
     <>
       <Box sx={{ flexgrow: 1 }}>

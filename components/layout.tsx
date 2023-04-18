@@ -1,5 +1,5 @@
 import Footer from "@/components/footer";
-import { CommonPageProps } from "@/interfaces/common";
+import { CommonPagePropsNChildren } from "@/interfaces/common";
 import React from "react";
 import Navbar from "./navbar";
 import { Box } from "@mui/system";
@@ -7,7 +7,10 @@ import ImgSlider from "./slider";
 import { Button, CssBaseline } from "@mui/material";
 import styles from "../styles/Home.module.css";
 
-export default function Layout({ children, navItems }: CommonPageProps) {
+export default function Layout({
+  children,
+  navItems,
+}: CommonPagePropsNChildren) {
   return (
     <>
       <CssBaseline />

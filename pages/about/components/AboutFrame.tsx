@@ -2,7 +2,7 @@ import SubMenu from "@/components/subMenu";
 import { Box, Container, Grid, List, Typography } from "@mui/material";
 import styles from "@/styles/Home.module.css";
 import FooterCard from "@/components/FooterCard";
-import { CommonPageProps } from "@/interfaces/common";
+import { CommonPagePropsNChildren } from "@/interfaces/common";
 
 const pages = [
   "A Day At Safari",
@@ -16,7 +16,7 @@ const style = {
   bgcolor: "background.paper",
 };
 
-const AboutFrame = ({ children }: CommonPageProps) => {
+const AboutFrame = ({ children }: CommonPagePropsNChildren) => {
   return (
     <>
       <Box className={styles.row} sx={{ flexgrow: 1 }}>
