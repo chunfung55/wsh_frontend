@@ -65,16 +65,3 @@ export async function getDestinationCategories() {
   // console.log("destinationCategories", destinationCategories.data);
   return destinationCategories.data;
 }
-
-export async function commonGetStaticPropsContext(locale: string) {
-  const menu = await getMenu(locale);
-  const banner = await getBanner(locale);
-  const destinationCategories = await getDestinationCategories();
-  return {
-    props: {
-      menu,
-      banner,
-      destinationCategories,
-    },
-  };
-}

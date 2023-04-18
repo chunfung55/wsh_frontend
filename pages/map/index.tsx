@@ -4,21 +4,21 @@ import { useTranslation } from "next-i18next";
 
 import { useRouter } from "next/router";
 import Layout from "@/components/layout";
-import { getDestinationCategories, getMenu } from "@/services/common";
-import { commonGetStaticProps, navBarProps } from "@/interfaces/common";
+import { getMenu } from "@/services/common";
+import { CommonPageProps, commonGetStaticProps } from "@/interfaces/common";
+import { commonGetStaticPropsContext } from "@/lib/api";
 
-const Map = ({ navItems }: navBarProps) => {
+const Map = (props: CommonPageProps) => {
   const router = useRouter();
   const { t } = useTranslation("common");
-  return <Layout navItems={navItems}></Layout>;
+  return (
+    <Layout {...props}>
+      <></>
+    </Layout>
+  );
 };
 
 export async function getStaticProps({ locale }: commonGetStaticProps) {
-  const [mainMeuns] = await Promise.all([getMenu(locale)]);
-  return {
-    props: {
-      navItems: mainMeuns,
-    },
-  };
+  return commonGetStaticPropsContext(locale);
 }
 export default Map;

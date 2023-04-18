@@ -1,3 +1,5 @@
+import { commonGetStaticProps } from "@/interfaces/common";
+import { getBanner, getMenu } from "@/services/common";
 import qs from "qs";
 
 /**
@@ -47,4 +49,18 @@ export async function fetchAPI(
   }
   const data = await response.json();
   return data;
+}
+
+export async function commonGetStaticPropsContext(locale: string) {
+  const [mainMeuns, banner] = await Promise.all([
+    getMenu(locale),
+    getBanner(locale),
+  ]);
+  return {
+    props: {
+      navItems: mainMeuns,
+      locale: locale,
+      sliderImgs: banner,
+    },
+  };
 }

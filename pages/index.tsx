@@ -8,7 +8,7 @@ import { useTranslation } from "next-i18next";
 import type { GetStaticProps, InferGetStaticPropsType } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-import { fetchAPI } from "@/lib/api";
+import { commonGetStaticPropsContext, fetchAPI } from "@/lib/api";
 import HomePage from "./home/HomePage";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -41,7 +41,7 @@ import CardSlider from "@/components/CardSlider";
 import { useRouter } from "next/router";
 import Layout from "@/components/layout";
 import { getDestinationCategories, getMenu } from "@/services/common";
-import { commonGetStaticProps } from "@/interfaces/common";
+import { CommonPageProps, commonGetStaticProps } from "@/interfaces/common";
 
 const itemData = [
   {
@@ -150,121 +150,146 @@ const Table = dynamic(() => import("@/components/ImgCard"), {
   ssr: false,
 });
 
-// export const getStaticProps: GetStaticProps = async () => {
-//   // 在這裡獲取數據，並返回給 Layout 元件使用
-//   const data = { title: "Hello, world!" };
-//   const navItemsRespose = await fetchAPI("/navigation/render/main-navigation", {
-//     populate: "*",
-//   });
-//   console.log(navItemsRespose);
-//   return {
-//     props: { navItemsRespose },
-//   };
-// };
-
-type Props = {
-  // Add custom props here
-};
-
-const Home = ({ navItems, destinationCategories }) =>
+const Home = (props: CommonPageProps) =>
   // _props: InferGetStaticPropsType<typeof getStaticProps>
   {
     const router = useRouter();
     const { t } = useTranslation("common");
     return (
-      <Layout navItems={navItems}>
-        <div className={styles.frame}>
-          <div>
-            <div className={styles.row}>
+      <Layout {...props}>
+        <>
+          <div className={styles.frame}>
+            <div>
+              <div className={styles.row}>
+                <Container maxWidth="lg">
+                  <Grid container>
+                    <Grid md={2}></Grid>
+                    <Grid md={8}>
+                      <Image src={slogan.src}></Image>
+                    </Grid>
+                    <Grid md={2}></Grid>
+                  </Grid>
+                </Container>
+              </div>
               <Container maxWidth="lg">
                 <Grid container>
-                  <Grid md={2}></Grid>
-                  <Grid md={8}>
-                    <Image src={slogan.src}></Image>
+                  <Grid md={4} className={styles.item15}>
+                    <center>
+                      <Image
+                        src={africa.src}
+                        height="80px"
+                        width="80px"
+                      ></Image>
+                      <Typography className={styles.h3}>Knowledge</Typography>
+                      <Typography className={styles.p}>
+                        Every journey is designed by our Travel Specialists with
+                        comprehensive knowledge of Africa
+                      </Typography>
+                    </center>
                   </Grid>
-                  <Grid md={2}></Grid>
+                  <Grid md={4} className={styles.item15}>
+                    <center>
+                      {" "}
+                      <Image
+                        src={helicopter.src}
+                        height="80px"
+                        width="160px"
+                      ></Image>
+                      <Typography className={styles.h3}>Knowledge</Typography>
+                      <Typography className={styles.p}>
+                        Every journey is designed by our Travel Specialists with
+                        comprehensive knowledge of Africa
+                      </Typography>
+                    </center>
+                  </Grid>
+                  <Grid md={4} className={styles.item15}>
+                    <center>
+                      {" "}
+                      <Image src={phone.src} height="80px" width="68px"></Image>
+                      <Typography className={styles.h3}>Knowledge</Typography>
+                      <Typography className={styles.p}>
+                        Every journey is designed by our Travel Specialists with
+                        comprehensive knowledge of Africa
+                      </Typography>
+                    </center>
+                  </Grid>
                 </Grid>
               </Container>
             </div>
-            <Container maxWidth="lg">
-              <Grid container>
-                <Grid md={4} className={styles.item15}>
-                  <center>
-                    <Image src={africa.src} height="80px" width="80px"></Image>
-                    <Typography className={styles.h3}>Knowledge</Typography>
-                    <Typography className={styles.p}>
-                      Every journey is designed by our Travel Specialists with
-                      comprehensive knowledge of Africa
-                    </Typography>
-                  </center>
-                </Grid>
-                <Grid md={4} className={styles.item15}>
-                  <center>
-                    {" "}
-                    <Image
-                      src={helicopter.src}
-                      height="80px"
-                      width="160px"
-                    ></Image>
-                    <Typography className={styles.h3}>Knowledge</Typography>
-                    <Typography className={styles.p}>
-                      Every journey is designed by our Travel Specialists with
-                      comprehensive knowledge of Africa
-                    </Typography>
-                  </center>
-                </Grid>
-                <Grid md={4} className={styles.item15}>
-                  <center>
-                    {" "}
-                    <Image src={phone.src} height="80px" width="68px"></Image>
-                    <Typography className={styles.h3}>Knowledge</Typography>
-                    <Typography className={styles.p}>
-                      Every journey is designed by our Travel Specialists with
-                      comprehensive knowledge of Africa
-                    </Typography>
-                  </center>
-                </Grid>
-              </Grid>
-            </Container>
           </div>
-        </div>
-        <Box className={styles.frame_grey}>
-          <Box className={styles.container_fluid}>
-            <Container>
-              <BigTitle content="TRAVEL IDEAS BY MONTHS"></BigTitle>
-            </Container>
-            <center>
-              {" "}
-              <NavLink labels={months}></NavLink>
-            </center>
-            <Box className={styles.row}>
-              <Container
-                sx={{ padding: "0px 15px" }}
-                maxWidth={false}
-              ></Container>
+          <Box className={styles.frame_grey}>
+            <Box className={styles.container_fluid}>
+              <Container>
+                <BigTitle content="TRAVEL IDEAS BY MONTHS"></BigTitle>
+              </Container>
+              <center>
+                {" "}
+                <NavLink labels={months}></NavLink>
+              </center>
+              <Box className={styles.row}>
+                <Container
+                  sx={{ padding: "0px 15px" }}
+                  maxWidth={false}
+                ></Container>
+              </Box>
             </Box>
           </Box>
-        </Box>
-        <BigTitle content="OUR DESTINATIONS"></BigTitle>
-        <Container maxWidth="xl">
-          <Grid
-            xs={12}
-            sm={12}
-            container
-            spacing={0}
-            alignItems="center"
-            justifyContent="center"
-          >
-            <Typography
-              sx={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}
-              className={styles.pic_title}
+          <BigTitle content="OUR DESTINATIONS"></BigTitle>
+          <Container maxWidth="xl">
+            <Grid
+              xs={12}
+              sm={12}
+              container
+              spacing={0}
+              alignItems="center"
+              justifyContent="center"
             >
-              <ArrowRightIcon fontSize="large" sx={{ color: orange[500] }} />
-              AFRICA
-            </Typography>
-          </Grid>
-        </Container>
-        <Container>
+              <Typography
+                sx={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}
+                className={styles.pic_title}
+              >
+                <ArrowRightIcon fontSize="large" sx={{ color: orange[500] }} />
+                AFRICA
+              </Typography>
+            </Grid>
+          </Container>
+          <Container>
+            <ImageList cols={4} gap={0}>
+              {itemData.map((item) => (
+                <ImgFrame
+                  key={item.id}
+                  img={item.img}
+                  title={item.title}
+                ></ImgFrame>
+              ))}
+            </ImageList>
+          </Container>
+          <div className={styles.frame_grey}>
+            <div className={styles.container_fluid}>
+              <Container>
+                <BigTitle content="LATEST NEWS"></BigTitle>
+              </Container>
+              <div className={styles.row}>
+                <Container sx={{ padding: "0px 15px" }} maxWidth={false}>
+                  <Grid
+                    xs={12}
+                    sm={12}
+                    container
+                    spacing={0}
+                    alignItems="center"
+                    justifyContent="center"
+                    sx={{ padding: "0px 15px" }}
+                  >
+                    {travelIdeas.map((travelIdea) => (
+                      <Grid md={4}></Grid>
+                    ))}
+                  </Grid>
+                </Container>
+              </div>
+            </div>
+          </div>
+          <BigTitle content="INSTA MOMENTS"></BigTitle>
+          <br></br>
           <ImageList cols={4} gap={0}>
             {itemData.map((item) => (
               <ImgFrame
@@ -274,42 +299,7 @@ const Home = ({ navItems, destinationCategories }) =>
               ></ImgFrame>
             ))}
           </ImageList>
-        </Container>
-        <div className={styles.frame_grey}>
-          <div className={styles.container_fluid}>
-            <Container>
-              <BigTitle content="LATEST NEWS"></BigTitle>
-            </Container>
-            <div className={styles.row}>
-              <Container sx={{ padding: "0px 15px" }} maxWidth={false}>
-                <Grid
-                  xs={12}
-                  sm={12}
-                  container
-                  spacing={0}
-                  alignItems="center"
-                  justifyContent="center"
-                  sx={{ padding: "0px 15px" }}
-                >
-                  {travelIdeas.map((travelIdea) => (
-                    <Grid md={4}></Grid>
-                  ))}
-                </Grid>
-              </Container>
-            </div>
-          </div>
-        </div>
-        <BigTitle content="INSTA MOMENTS"></BigTitle>
-        <br></br>
-        <ImageList cols={4} gap={0}>
-          {itemData.map((item) => (
-            <ImgFrame
-              key={item.id}
-              img={item.img}
-              title={item.title}
-            ></ImgFrame>
-          ))}
-        </ImageList>
+        </>
       </Layout>
     );
   };
@@ -321,15 +311,6 @@ const Home = ({ navItems, destinationCategories }) =>
 // });
 
 export async function getStaticProps({ locale }: commonGetStaticProps) {
-  const [mainMeuns, destinationCategories] = await Promise.all([
-    getMenu(locale),
-    getDestinationCategories(),
-  ]);
-  return {
-    props: {
-      navItems: mainMeuns,
-      destinationCategories: destinationCategories,
-    },
-  };
+  return commonGetStaticPropsContext(locale);
 }
 export default Home;
