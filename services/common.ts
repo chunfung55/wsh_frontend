@@ -65,3 +65,7 @@ export async function getDestinationCategories() {
   // console.log("destinationCategories", destinationCategories.data);
   return destinationCategories.data;
 }
+export async function getDestinationCategorieDetail(id: string) {
+  const destinationCategories = await fetchAPI("/destination-categories/" + id);
+  return destinationCategories.data.attributes;
+}

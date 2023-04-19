@@ -1,51 +1,26 @@
 import React, { useEffect } from "react";
 import {
-  BottomNavigation,
-  BottomNavigationAction,
   Box,
   Button,
   Card,
-  CardContent,
-  CardHeader,
   CardMedia,
-  Divider,
   Grid,
   ImageList,
   ImageListItem,
-  List,
-  ListItem,
-  ListItemText,
-  Paper,
   Typography,
 } from "@mui/material";
 import styles from "@/styles/Home.module.css";
 import DistinFrame from "./components/DistinFrame";
 import BigTitle from "@/components/BigTitle";
 import Image from "mui-image";
-import { fontSize } from "@mui/system";
 import QuestCard from "./components/QuestCard";
 import QuestSubTitle from "./components/QuestSubTitle";
 
-const contents = [
-  {
-    title: "Morning Game Drive",
-    content:
-      "As dawn breaks over the African bush, a gentle tap on your door will wake you to the pleasures of a new day. Your ranger will discuss what you hope to see that day over fragrant tea or coffee and morning biscuits or muffins. Set out in an open 4x4 safari vehicle in the company of a ranger and tracker team, who will attempt to track your favorite animals.",
-    imgUrl: "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
-  },
-  {
-    title: "Morning Game Drive",
-    content:
-      "As dawn breaks over the African bush, a gentle tap on your door will wake you to the pleasures of a new day. Your ranger will discuss what you hope to see that day over fragrant tea or coffee and morning biscuits or muffins. Set out in an open 4x4 safari vehicle in the company of a ranger and tracker team, who will attempt to track your favorite animals.",
-    imgUrl: "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
-  },
-];
-
-// const el = document.getElementById("container");
-
-// const btn = document.getElementById("btn");
-
-export default function Kenya() {
+export default function Country({
+  country,
+}: {
+  country: DestinationCategorie[];
+}) {
   useEffect(() => {
     const el = document.getElementById("container");
     const btn = document.getElementById("btn");
@@ -64,8 +39,6 @@ export default function Kenya() {
         }
       });
     }
-
-    // Any additional code that requires the 'document' object should go here
   }, []);
   return (
     <Box>

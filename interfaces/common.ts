@@ -13,6 +13,9 @@ export type CommonPageProps = {
   locale: string;
   sliderImgs: sliderImgs;
 };
+export type DestinationsCountryPageProps = {
+  destinationCategories: DestinationCategorie[];
+} & CommonPageProps;
 
 export type CommonComponentProps = {
   locale: string;
@@ -49,9 +52,9 @@ export interface NavItem {
   submenu: NavItem[] | null;
 }
 
-export type CommonGetStaticProps = { locale: string };
+export type CommonGetStaticProps = { locale: string; params: any };
 
-export interface DestinationCategories {
+export interface DestinationCategorie {
   Name: string;
   Detail: string;
   Why_Visit: string;

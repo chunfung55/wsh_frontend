@@ -5,24 +5,32 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import Layout from "@/components/layout";
 import { commonGetStaticPropsContext } from "@/lib/api";
-import { CommonPageProps, CommonGetStaticProps } from "@/interfaces/common";
-import Kenya from "./Kenya";
+import {
+  CommonGetStaticProps,
+  DestinationsCountryPageProps,
+} from "@/interfaces/common";
+import Country from "./Country";
+import { getDestinationCategorieDetail } from "@/services/common";
 
-const DestinationsCountry = (props: CommonPageProps) => {
-  const router = useRouter();
-  const { nid } = router.query;
-  const { t } = useTranslation("common");
+const DestinationsCountry = (props: DestinationsCountryPageProps) => {
   return (
     <Layout {...props}>
       <>
-        {nid}
-        <Kenya></Kenya>
+        <Country country={props.destinationCategories}></Country>
       </>
     </Layout>
   );
 };
 
-export async function getStaticProps({ locale }: CommonGetStaticProps) {
-  return commonGetStaticPropsContext(locale);
+export async function getStaticProps({ locale, params }: CommonGetStaticProps) {
+  // const router = useRouter();
+  // const { nid } = router.query;
+  const props = commonGetStaticPropsContext(locale);
+  console.log("props: ", props);
+  // props.props["DestinationCategories"] = await getDestinationCategorieDetail(
+  //   "6" as string
+  // );
+
+  return { ...props };
 }
 export default DestinationsCountry;
