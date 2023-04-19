@@ -15,11 +15,12 @@ import BigTitle from "@/components/BigTitle";
 import Image from "mui-image";
 import QuestCard from "./components/QuestCard";
 import QuestSubTitle from "./components/QuestSubTitle";
+import { DestinationCategorie } from "@/interfaces/common";
 
 export default function Country({
   country,
 }: {
-  country: DestinationCategorie[];
+  country: DestinationCategorie;
 }) {
   useEffect(() => {
     const el = document.getElementById("container");
@@ -42,7 +43,7 @@ export default function Country({
   }, []);
   return (
     <Box>
-      <BigTitle content="KENYA"></BigTitle>
+      <BigTitle content={country.Name}></BigTitle>
       <DistinFrame>
         <>
           <Box className={styles.item15}>
@@ -59,6 +60,7 @@ export default function Country({
                   </Typography>
                 </Grid>
               </Box>
+              <Box dangerouslySetInnerHTML={{ __html: country.Detail }}></Box>
               <Grid>
                 <Box className={styles.h1_about}>
                   <ImageList cols={2}>
