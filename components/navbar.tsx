@@ -266,7 +266,7 @@ function Navbar({ navItems }: navBarProps) {
                           {navItem.submenu.map((submenu, submenuindex) => {
                             return (
                               <MenuItem
-                                className={styles.navbar_subMenu}
+                                className={styles.navbar_subMenu_font}
                                 key={submenuindex}
                                 onClick={handleClose}
                               >
