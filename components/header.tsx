@@ -100,8 +100,8 @@ export default function Header(props: any) {
                 <GlobalButton
                   content="CONTACT US"
                   cssName={styles.comButton}
-                  url={""}
-                ></GlobalButton>
+                  url={"/contact"}
+                />
               </b>
             </Box>
             <Box display="flex" justifyContent="flex-end">

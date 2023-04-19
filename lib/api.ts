@@ -1,4 +1,4 @@
-import { commonGetStaticProps } from "@/interfaces/common";
+import { CommonGetStaticProps } from "@/interfaces/common";
 import { getBanner, getMenu } from "@/services/common";
 import qs from "qs";
 

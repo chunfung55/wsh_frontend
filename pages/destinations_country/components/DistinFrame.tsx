@@ -1,7 +1,7 @@
 import { Box, Container, Grid, List, Typography } from "@mui/material";
 import styles from "@/styles/Home.module.css";
 import FooterCard from "@/components/FooterCard";
-import { CommonPagePropsNChildren } from "@/interfaces/common";
+import { SampleProps } from "@/interfaces/common";
 import DistinSubMenu from "./DistinSubMenu";
 
 const cats = ["AFRICA", "REST OF WORLD"];
@@ -17,7 +17,7 @@ const style = {
   bgcolor: "background.paper",
 };
 
-const DistinFrame = ({ children }: CommonPagePropsNChildren) => {
+const DistinFrame = ({ children }: SampleProps) => {
   return (
     <>
       <Box className={styles.row} sx={{ flexgrow: 1 }}>

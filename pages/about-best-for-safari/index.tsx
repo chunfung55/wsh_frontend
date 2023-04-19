@@ -4,7 +4,7 @@ import { useTranslation } from "next-i18next";
 
 import { useRouter } from "next/router";
 import Layout from "@/components/layout";
-import { CommonPageProps, commonGetStaticProps } from "@/interfaces/common";
+import { CommonPageProps, CommonGetStaticProps } from "@/interfaces/common";
 import { commonGetStaticPropsContext } from "@/lib/api";
 
 const AboutBestForSafari = (props: CommonPageProps) => {
@@ -17,7 +17,7 @@ const AboutBestForSafari = (props: CommonPageProps) => {
   );
 };
 
-export async function getStaticProps({ locale }: commonGetStaticProps) {
+export async function getStaticProps({ locale }: CommonGetStaticProps) {
   return commonGetStaticPropsContext(locale);
 }
 export default AboutBestForSafari;

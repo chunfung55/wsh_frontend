@@ -1,32 +1,39 @@
+export type SampleProps = {
+  children: JSX.Element;
+};
+
 export type CommonPagePropsNChildren = {
   children: JSX.Element;
-  navItems: navItems;
+  navItems: NavItems;
   sliderImgs: sliderImgs;
 };
 
 export type CommonPageProps = {
-  navItems: navItems;
+  navItems: NavItems;
   locale: string;
   sliderImgs: sliderImgs;
 };
+export type DestinationsCountryPageProps = {
+  destinationCategories: DestinationCategorie;
+} & CommonPageProps;
 
 export type CommonComponentProps = {
   locale: string;
 };
 
-export type navBarProps = { navItems: navItem[] };
+export type NavBarProps = { navItems: NavItem[] };
 
-export type imageSliderProps = { sliderImgs: sliderImgs };
+export type ImageSliderProps = { sliderImgs: sliderImgs };
 
-export type navItems = navItem[];
-export type sliderImgs = sliderImg[];
+export type NavItems = NavItem[];
+export type sliderImgs = SliderImg[];
 
-export interface sliderImg {
+export interface SliderImg {
   imglink: string;
   url: string;
 }
 
-export interface navItem {
+export interface NavItem {
   order: number;
   id: number;
   title: string;
@@ -39,10 +46,22 @@ export interface navItem {
   createdAt: string;
   updatedAt: string;
   audience: any[];
-  parent: navItem | null;
+  parent: NavItem | null;
   related: any[] | null;
   items: any[] | null;
-  submenu: navItem[] | null;
+  submenu: NavItem[] | null;
 }
 
-export type commonGetStaticProps = { locale: string };
+export type CommonGetStaticProps = { locale: string };
+
+export type DestinationsStaticProps = {
+  params: { nid: string };
+} & CommonGetStaticProps;
+
+export interface DestinationCategorie {
+  Name: string;
+  Detail: string;
+  Why_Visit: string;
+  Best_Time_to_Visit: string;
+  Capture: string;
+}
