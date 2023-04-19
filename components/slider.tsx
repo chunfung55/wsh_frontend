@@ -9,7 +9,7 @@ import {
   CardActionArea,
 } from "@mui/material";
 import styles from "../styles/Home.module.css";
-import { imageSliderProps } from "@/interfaces/common";
+import { ImageSliderProps } from "@/interfaces/common";
 
 // interface imgObj {
 //   imgLink: string;
@@ -28,7 +28,7 @@ import { imageSliderProps } from "@/interfaces/common";
 //   href: string;
 // }
 
-export default function ImgSlider({ sliderImgs }: imageSliderProps) {
+export default function ImgSlider({ sliderImgs }: ImageSliderProps) {
   // const items = [
   //   {
   //     imglink: "/images/1.jpeg",

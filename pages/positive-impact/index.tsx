@@ -7,8 +7,8 @@ import Layout from "@/components/layout";
 import { getMenu } from "@/services/common";
 import {
   CommonPageProps,
-  commonGetStaticProps,
-  navBarProps,
+  CommonGetStaticProps,
+  NavBarProps,
 } from "@/interfaces/common";
 import Position from "./Position";
 import { commonGetStaticPropsContext } from "@/lib/api";
@@ -23,7 +23,7 @@ const PositiveImpact = (props: CommonPageProps) => {
   );
 };
 
-export async function getStaticProps({ locale }: commonGetStaticProps) {
+export async function getStaticProps({ locale }: CommonGetStaticProps) {
   return commonGetStaticPropsContext(locale);
 }
 export default PositiveImpact;

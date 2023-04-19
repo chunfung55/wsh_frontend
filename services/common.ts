@@ -1,4 +1,4 @@
-import { navItem, navItems } from "@/interfaces/common";
+import { NavItem, NavItems } from "@/interfaces/common";
 import { fetchAPI, getStrapiURL } from "@/lib/api";
 
 const changeLanguage = (locale: string) => {
@@ -14,14 +14,14 @@ export async function getMenu(locale: string) {
     locale: locale,
     populate: "*",
   });
-  let mainMeuns: navItems = navItemsRespose.filter(
-    (obj: navItem) => obj?.parent == null
+  let mainMeuns: NavItems = navItemsRespose.filter(
+    (obj: NavItem) => obj?.parent == null
   );
   mainMeuns = mainMeuns.map((obj) => ({ ...obj, submenu: [] }));
-  navItemsRespose.forEach((element: navItem) => {
+  navItemsRespose.forEach((element: NavItem) => {
     if (element?.parent) {
       let index = 0;
-      mainMeuns.forEach((mainMeun: navItem) => {
+      mainMeuns.forEach((mainMeun: NavItem) => {
         if (mainMeun?.id == element?.parent?.id) {
           mainMeuns[index]?.submenu?.push(element);
         }

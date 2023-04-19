@@ -5,7 +5,7 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import Layout from "@/components/layout";
 import { commonGetStaticPropsContext } from "@/lib/api";
-import { CommonPageProps, commonGetStaticProps } from "@/interfaces/common";
+import { CommonPageProps, CommonGetStaticProps } from "@/interfaces/common";
 
 const DestinationsCountryDetail = (props: CommonPageProps) => {
   const router = useRouter();
@@ -13,7 +13,7 @@ const DestinationsCountryDetail = (props: CommonPageProps) => {
   return <Layout {...props}></Layout>;
 };
 
-export async function getStaticProps({ locale }: commonGetStaticProps) {
+export async function getStaticProps({ locale }: CommonGetStaticProps) {
   return commonGetStaticPropsContext(locale);
 }
 export default DestinationsCountryDetail;

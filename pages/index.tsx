@@ -41,7 +41,7 @@ import CardSlider from "@/components/CardSlider";
 import { useRouter } from "next/router";
 import Layout from "@/components/layout";
 import { getDestinationCategories, getMenu } from "@/services/common";
-import { CommonPageProps, commonGetStaticProps } from "@/interfaces/common";
+import { CommonPageProps, CommonGetStaticProps } from "@/interfaces/common";
 
 const itemData = [
   {
@@ -310,7 +310,7 @@ const Home = (props: CommonPageProps) =>
 //   },
 // });
 
-export async function getStaticProps({ locale }: commonGetStaticProps) {
+export async function getStaticProps({ locale }: CommonGetStaticProps) {
   return commonGetStaticPropsContext(locale);
 }
 export default Home;

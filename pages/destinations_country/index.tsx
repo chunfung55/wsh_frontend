@@ -5,7 +5,7 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import Layout from "@/components/layout";
 import { commonGetStaticPropsContext } from "@/lib/api";
-import { CommonPageProps, commonGetStaticProps } from "@/interfaces/common";
+import { CommonPageProps, CommonGetStaticProps } from "@/interfaces/common";
 import Kenya from "./Kenya";
 
 const DestinationsCountry = (props: CommonPageProps) => {
@@ -22,7 +22,7 @@ const DestinationsCountry = (props: CommonPageProps) => {
   );
 };
 
-export async function getStaticProps({ locale }: commonGetStaticProps) {
+export async function getStaticProps({ locale }: CommonGetStaticProps) {
   return commonGetStaticPropsContext(locale);
 }
 export default DestinationsCountry;

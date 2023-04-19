@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import Layout from "@/components/layout";
 import { commonGetStaticPropsContext } from "@/lib/api";
 import WhoWeAre from "./WhoWeAre";
-import { CommonPageProps, commonGetStaticProps } from "@/interfaces/common";
+import { CommonPageProps, CommonGetStaticProps } from "@/interfaces/common";
 
 const ItineraiesDetail = (props: CommonPageProps) => {
   const router = useRouter();
@@ -14,7 +14,7 @@ const ItineraiesDetail = (props: CommonPageProps) => {
   return <Layout {...props}></Layout>;
 };
 
-export async function getStaticProps({ locale }: commonGetStaticProps) {
+export async function getStaticProps({ locale }: CommonGetStaticProps) {
   return commonGetStaticPropsContext(locale);
 }
 export default ItineraiesDetail;

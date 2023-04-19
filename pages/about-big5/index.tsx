@@ -5,7 +5,7 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import Layout from "@/components/layout";
 import { getDestinationCategories, getMenu } from "@/services/common";
-import { CommonPageProps, commonGetStaticProps } from "@/interfaces/common";
+import { CommonPageProps, CommonGetStaticProps } from "@/interfaces/common";
 import { commonGetStaticPropsContext } from "@/lib/api";
 
 const AboutBig5 = (props: CommonPageProps) => {
@@ -18,7 +18,7 @@ const AboutBig5 = (props: CommonPageProps) => {
   );
 };
 
-export async function getStaticProps({ locale }: commonGetStaticProps) {
+export async function getStaticProps({ locale }: CommonGetStaticProps) {
   return commonGetStaticPropsContext(locale);
 }
 export default AboutBig5;

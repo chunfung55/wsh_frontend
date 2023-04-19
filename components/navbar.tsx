@@ -22,7 +22,7 @@ import {
 import { fetchAPI } from "@/lib/api";
 import { useEffect, useState } from "react";
 import Header from "./header";
-import { navBarProps } from "@/interfaces/common";
+import { NavBarProps } from "@/interfaces/common";
 import { Container } from "@mui/system";
 
 // export async function getServerSideProps() {
@@ -100,7 +100,7 @@ function ScrollHide(props: Props) {
   );
 }
 
-function Navbar({ navItems }: navBarProps) {
+function Navbar({ navItems }: NavBarProps) {
   // const [navItems, setNavItems] = useState([]);
   // useEffect(() => {
   //   async function fetchData() {

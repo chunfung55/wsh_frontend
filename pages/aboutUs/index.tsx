@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import Layout from "@/components/layout";
 import { commonGetStaticPropsContext } from "@/lib/api";
 import WhoWeAre from "./WhoWeAre";
-import { CommonPageProps, commonGetStaticProps } from "@/interfaces/common";
+import { CommonPageProps, CommonGetStaticProps } from "@/interfaces/common";
 
 const AboutUs = (props: CommonPageProps) => {
   const router = useRouter();
@@ -18,7 +18,7 @@ const AboutUs = (props: CommonPageProps) => {
   );
 };
 
-export async function getStaticProps({ locale }: commonGetStaticProps) {
+export async function getStaticProps({ locale }: CommonGetStaticProps) {
   return commonGetStaticPropsContext(locale);
 }
 export default AboutUs;

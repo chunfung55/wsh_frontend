@@ -5,7 +5,7 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import Layout from "@/components/layout";
 import { getDestinationCategories, getMenu } from "@/services/common";
-import { commonGetStaticProps, navBarProps } from "@/interfaces/common";
+import { CommonGetStaticProps, NavBarProps } from "@/interfaces/common";
 import { commonGetStaticPropsContext } from "@/lib/api";
 
 const AboutGreatMigration = (props: CommonPageProps) => {
@@ -18,7 +18,7 @@ const AboutGreatMigration = (props: CommonPageProps) => {
   );
 };
 
-export async function getStaticProps({ locale }: commonGetStaticProps) {
+export async function getStaticProps({ locale }: CommonGetStaticProps) {
   return commonGetStaticPropsContext(locale);
 }
 export default AboutGreatMigration;
