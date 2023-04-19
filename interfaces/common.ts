@@ -1,3 +1,7 @@
+export type sampleProps = {
+  children: JSX.Element;
+};
+
 export type CommonPagePropsNChildren = {
   children: JSX.Element;
   navItems: navItems;
