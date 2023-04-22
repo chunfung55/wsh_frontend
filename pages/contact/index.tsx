@@ -81,22 +81,24 @@ const Contact = (props: CommonPageProps) => {
         <Divider sx={{ backgroundColor: "#564C4A", m: "16px 0px", borderBottomWidth: 2 }} />
 
         <Grid container sx={{ p: "20px 15px 0px" }}>
-        <Grid md={12} sx={{ p: "0px 15px" }} container
-          spacing={0}
-          direction="column"
-          alignItems="center"
-          justifyContent="center">
-          <Grid item md={12}>
-            <Box className={styles.contact_header} >
-              <Typography className={styles.contact_font}>Get in touch with Us</Typography>
-            </Box>
-          </Grid>
+          <Grid md={12} sx={{ p: "0px 15px" }} container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            justifyContent="center">
+            <Grid item md={12}>
+              <Box className={styles.contact_header} >
+                <Typography className={styles.contact_font}>Get in touch with Us</Typography>
+              </Box>
+            </Grid>
           </Grid>
         </Grid>
         <ContactCard></ContactCard>
       </Box>
     </Container>
-    <FooterCard></FooterCard>
+    <Box sx={{ m: "50px 0px 0px" }}>
+      <FooterCard></FooterCard>
+    </Box>
   </Layout>;
 };
 
