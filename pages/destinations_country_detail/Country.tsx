@@ -117,14 +117,14 @@ export default function Country({
                       content={tmpCountry.Best_Time_to_Visit}
                     ></QuestCard>
                   </Grid>
-                  <Grid md={12}>
+                  {/* <Grid md={12}>
                     <Box sx={{ p: "0px 15px" }}>
                       <Box sx={{ p: "60px 0px 16px 0px" }}>
                         <hr className={styles.subpage_hr}></hr>
                       </Box>
                     </Box>
-                  </Grid>
-                  <Grid md={12}>
+                  </Grid> */}
+                  {/* <Grid md={12}>
                     <QuestSubTitle
                       title={t("placesYouMayVisit")}
                     ></QuestSubTitle>
@@ -178,7 +178,7 @@ export default function Country({
                       </Box>
                     </Grid>
                     <Grid item md={6}></Grid>
-                  </Grid>
+                  </Grid> */}
                 </Box>
               </Grid>
             </Box>

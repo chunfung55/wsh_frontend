@@ -49,8 +49,9 @@ export async function getBanner(locale: string) {
   return banners;
 }
 
-export async function getDestinationCategories() {
+export async function getDestinationCategories(locale: string) {
   const destinationCategories = await fetchAPI("/destination-categories", {
+    locale: locale,
     filters: {
       Name: {
         $eq: "ALL",
