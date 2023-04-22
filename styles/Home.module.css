@@ -180,6 +180,7 @@
 
 .navbar_button {
     text-transform: uppercase;
+    font-size: 12px;
     padding: 8px;
     display: block;
     color: #564C4A;
@@ -188,7 +189,6 @@
 .navbar_button:hover {
     color: #d0c19A;
 }
-
 .navbar_subMenu{
     background-color: #D0C19A;
     font-family: sans-serif;
@@ -375,6 +375,24 @@
     padding: 0px 0px 55px;
 }
 
+.contact_header{
+    margin: 0px 0px 8px;
+    padding: 0px 0px 20px;
+}
+
+.contact_font{
+    color: #654D02;
+    font-size: 28px;
+    font-family: sans-serif;
+}
+
+.contact_card_col{
+    color: #564C4A;
+    font-family: sans-serif;
+    font-size: 13px;
+    margin: 10px 0px 0px;
+}
+
 .frame {
     padding: 45px;
 }
@@ -389,6 +407,21 @@
 
 .item15 {
     padding: 0px 15px;
+}
+
+.contact_right_p{
+    padding: 10px 0px;
+    color: #564C4A;
+    font-size: 13px;
+    font-family: sans-serif;
+}
+
+.contact_remark{
+    padding: 0px 15px;
+    margin-top: 40px;
+    color: #564C4A;
+    font-size: 12px;
+    font-family: sans-serif;
 }
 
 .card_img {
