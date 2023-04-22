@@ -13,7 +13,7 @@ import { getDestinationCategorieDetail } from "@/services/common";
 import { commonGetStaticPropsContext } from "@/lib/api";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-const DestinationsCountry = (props: DestinationsCountryPageProps) => {
+const DestinationsCountryDetail = (props: DestinationsCountryPageProps) => {
   return (
     <Layout {...props}>
       <Country country={props.destinationCategories} />
@@ -45,4 +45,4 @@ export async function getStaticPaths() {
     fallback: true,
   };
 }
-export default DestinationsCountry;
+export default DestinationsCountryDetail;

@@ -44,7 +44,7 @@ export default function ImgSlider({ sliderImgs }: ImageSliderProps) {
   const items = sliderImgs;
   return (
     <Carousel className={styles.slide} animation="slide">
-      {items.map((item, i) => (
+      {items?.map((item, i) => (
         <ImgItem key={i} item={item} />
       ))}
     </Carousel>
