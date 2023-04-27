@@ -67,6 +67,11 @@ export async function getDestinationCategories(locale: string) {
   return destinationCategories.data;
 }
 export async function getDestinationCategorieDetail(id: string) {
-  const destinationCategories = await fetchAPI("/destination-categories/" + id);
+  const destinationCategories = await fetchAPI(
+    "/destination-categories/" + id,
+    {
+      populate: "*",
+    }
+  );
   return destinationCategories.data.attributes;
 }

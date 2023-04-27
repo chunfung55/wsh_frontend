@@ -64,4 +64,20 @@ export interface DestinationCategorie {
   Why_Visit: string;
   Best_Time_to_Visit: string;
   Capture: string;
+  Destinations: { data: Destination[] };
+}
+
+export interface Destination {
+  id: number;
+  attributes: {
+    Ranking: number;
+    Title: string;
+    Capture: string;
+    Detail: string;
+    Detail2: string;
+    Detail3: string;
+    Why_Visit: string;
+    Best_Time_to_Visit: string;
+    Title2: string;
+  };
 }
