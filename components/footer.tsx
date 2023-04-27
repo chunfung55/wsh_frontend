@@ -70,12 +70,11 @@ export default function Footer() {
     >
       <Container className={styles.footer_background}>
         <Grid
-        xl={12}
+          xl={12}
           lg={12}
           md={12}
           sm={12}
           container
-        
           className={styles.footer_top}
         >
           <Grid md={2}></Grid>

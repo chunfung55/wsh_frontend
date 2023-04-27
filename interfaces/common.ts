@@ -81,3 +81,8 @@ export interface Destination {
     Title2: string;
   };
 }
+
+export type PlacesYouMayVisitProps = {
+  imageLink: string;
+  destinationsTitle: string;
+};
