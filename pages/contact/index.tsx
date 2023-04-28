@@ -86,7 +86,8 @@ const Contact = (props: CommonPageProps) => {
                 <Grid item md={9.5}>
                   <Typography className={styles.contact_right_p}>
                     {" "}
-                    Mon - Fri : 10:30am - 6:00pm (Lunch Hour 1:30pm - <br></br>
+                    Mon - Fri : 10:30am - 6:00pm (Lunch Hour 1:30pm
+                    <br></br>
                     2:30pm)<br></br>
                     <br></br>
                     Sat : 12pm - 3pm (**By Appointment Only) <br></br>
@@ -138,10 +139,11 @@ const Contact = (props: CommonPageProps) => {
               </Grid>
             </Grid>
           </Grid>
-          <ContactCard></ContactCard>
+
+          <ContactCard />
         </Box>
       </Container>
-      <FooterCard></FooterCard>
+      <FooterCard />
     </Layout>
   );
 };
@@ -149,4 +151,5 @@ const Contact = (props: CommonPageProps) => {
 export async function getStaticProps({ locale }: CommonGetStaticProps) {
   return commonGetStaticPropsContext(locale);
 }
+
 export default Contact;
