@@ -70,7 +70,11 @@ export async function getDestinationCategorieDetail(id: string) {
   const destinationCategories = await fetchAPI(
     "/destination-categories/" + id,
     {
-      populate: "*",
+      populate: {
+        Destinations: {
+          populate: "*",
+        },
+      },
     }
   );
   return destinationCategories.data.attributes;

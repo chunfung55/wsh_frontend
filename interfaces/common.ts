@@ -79,6 +79,7 @@ export interface Destination {
     Why_Visit: string;
     Best_Time_to_Visit: string;
     Title2: string;
+    List_Photo: { data: { attributes: { url: string } } };
   };
 }
 
