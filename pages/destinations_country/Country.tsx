@@ -15,7 +15,7 @@ import BigTitle from "@/components/BigTitle";
 import Image from "mui-image";
 import QuestCard from "./components/QuestCard";
 import QuestSubTitle from "./components/QuestSubTitle";
-import { DestinationCategorie } from "@/interfaces/common";
+import { Destination, DestinationCategorie } from "@/interfaces/common";
 import { getStrapiURL } from "@/lib/api";
 import { useTranslation } from "react-i18next";
 
@@ -31,7 +31,9 @@ export default function Country({
     Why_Visit: "",
     Best_Time_to_Visit: "",
     Capture: "",
+    Destinations: { data: [] },
   });
+  const [destinations, setDestinations] = useState<Destination[]>([]);
   useEffect(() => {
     const el = document.getElementById("container");
     const btn = document.getElementById("btn");
@@ -63,6 +65,7 @@ export default function Country({
       );
       console.log("tmpCountry2", tmpCountry2);
       setTempCountry(tmpCountry2);
+      setDestinations(tmpCountry2.Destinations.data);
     }
   }, []);
   return (
@@ -73,7 +76,7 @@ export default function Country({
           <Box className={styles.item15}>
             <Box className={styles.item15}>
               <Box className={styles.h1_title}></Box>
-              <Box className={styles.h1_about}>
+              {/* <Box className={styles.h1_about}>
                 <Grid justifyContent="top">
                   {" "}
                   <Typography className={styles.p3} fontSize="16px">
@@ -83,7 +86,7 @@ export default function Country({
                     to be in a safari camp.
                   </Typography>
                 </Grid>
-              </Box>
+              </Box> */}
               <Box
                 dangerouslySetInnerHTML={{ __html: tmpCountry.Detail }}
               ></Box>
