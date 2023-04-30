@@ -35,7 +35,7 @@ const Contact = (props: CommonPageProps) => {
             </Grid>
             <Grid container md={12}>
               <Grid item md={2}>
-                <Typography><EmailIcon fontSize="medium" />:</Typography>
+                <Typography><EmailIcon fontSize="medium" /> :</Typography>
               </Grid>
               <Grid item md={0.5}></Grid>
               <Grid item md={9.5}>

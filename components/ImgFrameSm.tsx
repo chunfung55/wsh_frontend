@@ -13,11 +13,11 @@ import Typography from "@mui/material/Typography";
 
 // const ImgFrame = (props: imgFrameItem) => {};
 
-const ImgFrame = (props: any) => {
+const ImgFrameSm = (props: any) => {
   const [isShown, setIsShown] = useState(false);
   return (
-    <center>
     <ImageListItem key={props.img}>
+      <Box >
       <img
         className={styles.imgFrame}
         src={`${props.img}?w=164&h=164&fit=crop&auto=format`}
@@ -26,7 +26,9 @@ const ImgFrame = (props: any) => {
         loading="lazy"
         onMouseEnter={() => setIsShown(true)}
         onMouseLeave={() => setIsShown(false)}
+       
       />
+      </Box>
       {isShown && (
         <Box className={styles.imgFrame_backgrd}>
           <Typography className={styles.imgFrame_text}>
@@ -35,8 +37,7 @@ const ImgFrame = (props: any) => {
         </Box>
       )}
     </ImageListItem>
-    </center>
   );
 };
 
-export default ImgFrame;
+export default ImgFrameSm;

@@ -63,7 +63,7 @@ const ContactCard = () => {
       <Grid container md={12} sx={{ p: "20px", backgroundColor: "#D0C09A" }}>
         <Grid item md={6} className={styles.item15}>
           <Grid container md={12} className={styles.item15}>
-            <Grid item md={12} >
+            <Grid item md={12}>
               <Typography className={styles.contact_card_col}>Name *:</Typography>
             </Grid>
             <Grid item md={12}>
@@ -71,7 +71,7 @@ const ContactCard = () => {
                 <TextField id="Name" variant="outlined" autoFocus sx={{ width: "380px" }} />
               </Box>
             </Grid>
-            <Grid item md={12} >
+            <Grid item md={12}>
               <Typography className={styles.contact_card_col}>Email *:</Typography>
             </Grid>
             <Grid item md={12}>
