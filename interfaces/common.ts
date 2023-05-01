@@ -13,8 +13,11 @@ export type CommonPageProps = {
   locale: string;
   sliderImgs: sliderImgs;
 };
+export type StaticPathsProps = {
+  locale: string;
+};
 export type DestinationsCountryPageProps = {
-  destinationCategories: DestinationCategorie;
+  destinationCategorieDetail: DestinationCategorie;
 } & CommonPageProps;
 
 export type CommonComponentProps = {
@@ -86,4 +89,9 @@ export interface Destination {
 export type PlacesYouMayVisitProps = {
   imageLink: string;
   destinationsTitle: string;
+};
+
+export type idProps = {
+  id: string;
+  attributes: null;
 };

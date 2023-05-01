@@ -16,7 +16,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 const DestinationsCountryDetail = (props: DestinationsCountryPageProps) => {
   return (
     <Layout {...props}>
-      <Country country={props.destinationCategories} />
+      <Country country={props.destinationCategorieDetail} />
     </Layout>
   );
 };

@@ -79,3 +79,12 @@ export async function getDestinationCategorieDetail(id: string) {
   );
   return destinationCategories.data.attributes;
 }
+
+export async function getDestinationCategorieId(locale: string) {
+  locale = changeLanguage(locale);
+  const destinationCategories = await fetchAPI("/destination-categories", {
+    fields: ["id"],
+    locale: locale,
+  });
+  return destinationCategories.data;
+}

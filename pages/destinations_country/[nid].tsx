@@ -7,16 +7,22 @@ import Layout from "@/components/layout";
 import {
   DestinationsCountryPageProps,
   DestinationsStaticProps,
+  StaticPathsProps,
+  idProps,
 } from "@/interfaces/common";
 import Country from "./Country";
-import { getDestinationCategorieDetail } from "@/services/common";
+import {
+  getDestinationCategorieDetail,
+  getDestinationCategorieId,
+  getDestinationCategories,
+} from "@/services/common";
 import { commonGetStaticPropsContext } from "@/lib/api";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const DestinationsCountry = (props: DestinationsCountryPageProps) => {
   return (
     <Layout {...props}>
-      <Country country={props.destinationCategories} />
+      <Country country={props.destinationCategorieDetail} />
     </Layout>
   );
 };
@@ -27,21 +33,23 @@ export async function getStaticProps({
 }: DestinationsStaticProps) {
   const props = await commonGetStaticPropsContext(locale);
   const tmpProps = props.props;
-  const destinationCategories = await getDestinationCategorieDetail(
+  const destinationCategorieDetail = await getDestinationCategorieDetail(
     params.nid as string
   );
   return {
     props: {
       ...tmpProps,
-      destinationCategories: destinationCategories,
+      destinationCategorieDetail: destinationCategorieDetail,
       ...(await serverSideTranslations(locale, ["common"])),
     },
   };
 }
 
-export async function getStaticPaths() {
+export async function getStaticPaths({ locale }: StaticPathsProps) {
+  let ids = await getDestinationCategorieId(locale);
+  ids = ids.map(({ id }: idProps) => ({ params: { nid: "" + id } }));
   return {
-    paths: [{ params: { nid: "6" } }],
+    paths: ids,
     fallback: true,
   };
 }
