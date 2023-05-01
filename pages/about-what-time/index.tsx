@@ -1,31 +1,29 @@
 import React from "react";
-import Container from "@mui/material/Container";
-import {
-  BottomNavigation,
-  BottomNavigationAction,
-  Box,
-  Button,
-  Divider,
-  Grid,
-  ImageList,
-  ImageListItem,
-  List,
-  ListItem,
-  ListItemText,
-  Paper,
-  Typography,
-} from "@mui/material";
-import styles from "../../styles/Home.module.css";
-import MorningGameDrive from "./img/MorningGameDrive.jpg";
+import "@/styles/Home.module.css";
+import { useTranslation } from "next-i18next";
+
+import { useRouter } from "next/router";
+import Layout from "@/components/layout";
+import { CommonPageProps, CommonGetStaticProps } from "@/interfaces/common";
+import { commonGetStaticPropsContext } from "@/lib/api";
+import { Box, Container, Grid, List, Typography } from "@mui/material";
+import styles from "@/styles/Home.module.css";
+import AboutFrame from "../about/components/AboutFrame";
 import Image from "mui-image";
-import SubMenu from "@/components/subMenu";
-import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
-import BookmarksIcon from "@mui/icons-material/Bookmarks";
-import Bookmarks from "@mui/icons-material/Bookmarks";
-import ImgContent from "@/pages/about/components/ImgContent";
-import enquiry_ban from "./img/enquiry_ban.png";
-import AboutFrame from "./components/AboutFrame";
-import WhatTimeContent from "./components/WhatTimeContent";
+import WhatTimeContent from "../about/components/WhatTimeContent";
+
+
+const pages = [
+  "A Day At Safari",
+  "What time of year is the best for African safari",
+  "what is the Big 5?",
+  "The Great Migration",
+];
+const style = {
+  width: "100%",
+  maxWidth: 360,
+  bgcolor: "background.paper",
+};
 
 const contents = [
   {
@@ -36,10 +34,12 @@ const contents = [
   },
 ];
 
-export default function WhatTimeOfYear() {
+const AboutWhatTime = (props: CommonPageProps) => {
+  const router = useRouter();
+  const { t } = useTranslation("common");
   return (
-    <Box>
-      <AboutFrame>
+    <Layout {...props}>
+       <AboutFrame>
         <Box className={styles.item15}>
           <Box className={styles.p_right}>
             <Box className={styles.h1_title}>
@@ -100,6 +100,11 @@ export default function WhatTimeOfYear() {
           </Box>
         </Box>
       </AboutFrame>
-    </Box>
+    </Layout>
   );
+};
+
+export async function getStaticProps({ locale }: CommonGetStaticProps) {
+  return commonGetStaticPropsContext(locale);
 }
+export default AboutWhatTime;

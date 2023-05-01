@@ -55,7 +55,7 @@ export default function Header(props: any) {
   return (
     <>
       <Container sx={{ maxWidth: "85%" }}>
-        <Grid container md={12} lg={12} xl={12}>
+        <Grid container md={12} lg={12} xl={12} sx={{mt:"5px",mb:"16px"}}>
           <Grid item md={4}>
             <Box sx={{ pt: "20px", pb: "20px" }}>
               <LanguageButton
