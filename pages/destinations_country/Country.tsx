@@ -1,14 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  Box,
-  Button,
-  Card,
-  CardMedia,
-  Grid,
-  ImageList,
-  ImageListItem,
-  Typography,
-} from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import styles from "@/styles/Home.module.css";
 import DistinFrame from "./components/DistinFrame";
 import BigTitle from "@/components/BigTitle";
@@ -18,6 +9,7 @@ import QuestSubTitle from "./components/QuestSubTitle";
 import { Destination, DestinationCategorie } from "@/interfaces/common";
 import { getStrapiURL } from "@/lib/api";
 import { useTranslation } from "react-i18next";
+import PlacesYouMayVist from "./components/PlacesYouMayVist";
 
 export default function Country({
   country,
@@ -140,48 +132,19 @@ export default function Country({
                     <Grid item></Grid>
                   </Grid>
                   <Box className={styles.row}></Box>
-                  <Grid container md={12}>
-                    <Grid item md={6}>
-                      <Box className={styles.item15}>
-                        <Card elevation={0}>
-                          <Box style={{ position: "relative" }}>
-                            <CardMedia
-                              component="img"
-                              alt="green iguana"
-                              width="100%"
-                              image="https://images.unsplash.com/photo-1516802273409-68526ee1bdd6"
-                              sx={{
-                                ":hover": {
-                                  opacity: 0.7,
-                                },
-                              }}
-                            />
-
-                            <Box
-                              style={{
-                                position: "absolute",
-                                bottom: "5%",
-                                right: "-130px",
-                                transform: "translateX(-50%)",
-                              }}
-                            >
-                              <Typography
-                                className={styles.img_content_title}
-                                sx={{ p: "10px" }}
-                              >
-                                Chobe National Park
-                              </Typography>
-                              <hr className={styles.card_img}></hr>
-                              <Button className={styles.img_content_button}>
-                                Read More
-                              </Button>
-                            </Box>
-                          </Box>
-                        </Card>
-                      </Box>
-                    </Grid>
-                    <Grid item md={6}></Grid>
-                  </Grid>
+                  {destinations &&
+                    destinations.map((destination) => (
+                      <Grid container md={12}>
+                        <PlacesYouMayVist
+                          imageLink={
+                            getStrapiURL() +
+                            destination.attributes.List_Photo.data.attributes
+                              .url
+                          }
+                          destinationsTitle={destination.attributes.Title}
+                        />
+                      </Grid>
+                    ))}
                 </Box>
               </Grid>
             </Box>

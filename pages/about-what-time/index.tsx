@@ -12,7 +12,6 @@ import AboutFrame from "../about/components/AboutFrame";
 import Image from "mui-image";
 import WhatTimeContent from "../about/components/WhatTimeContent";
 
-
 const pages = [
   "A Day At Safari",
   "What time of year is the best for African safari",
@@ -39,7 +38,7 @@ const AboutWhatTime = (props: CommonPageProps) => {
   const { t } = useTranslation("common");
   return (
     <Layout {...props}>
-       <AboutFrame>
+      <AboutFrame>
         <Box className={styles.item15}>
           <Box className={styles.p_right}>
             <Box className={styles.h1_title}>

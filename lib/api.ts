@@ -56,7 +56,7 @@ export async function fetchAPI(
 }
 
 export async function commonGetStaticPropsContext(locale: string) {
-  const [mainMeuns, banner] = await Promise.all([
+  const [mainMeuns, banner, destinationCategories] = await Promise.all([
     getMenu(locale),
     getBanner(locale),
     getDestinationCategories(locale),
@@ -66,6 +66,7 @@ export async function commonGetStaticPropsContext(locale: string) {
       navItems: mainMeuns,
       locale: locale,
       sliderImgs: banner,
+      destinationCategories: destinationCategories,
     },
   };
 }

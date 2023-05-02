@@ -70,8 +70,21 @@ export async function getDestinationCategorieDetail(id: string) {
   const destinationCategories = await fetchAPI(
     "/destination-categories/" + id,
     {
-      populate: "*",
+      populate: {
+        Destinations: {
+          populate: "*",
+        },
+      },
     }
   );
   return destinationCategories.data.attributes;
+}
+
+export async function getDestinationCategorieId(locale: string) {
+  locale = changeLanguage(locale);
+  const destinationCategories = await fetchAPI("/destination-categories", {
+    fields: ["id"],
+    locale: locale,
+  });
+  return destinationCategories.data;
 }
