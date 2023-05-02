@@ -106,10 +106,6 @@ export default function Header(props: any) {
             </Box>
             <Box display="flex" justifyContent="flex-end">
               <Typography className={styles.lowFontCol1}>
-                {/* <Typography>
-                  <InstagramIcon fontSize="medium" />
-                  <FacebookIcon fontSize="medium" />
-                </Typography> */}
                 <InstagramIcon fontSize="medium" />
                 <FacebookIcon fontSize="medium" />
                 (852) - 2813 8778
