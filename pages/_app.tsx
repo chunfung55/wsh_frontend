@@ -1,20 +1,19 @@
-import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import React from "react";
 import { appWithTranslation } from "next-i18next";
-import Layout from "@/components/layout";
+import { Box } from "@mui/system";
+import Footer from "@/components/footer";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
-    <React.Fragment>
+    <Box>
       <Head>
-        <title>Wild Senses</title>
+        <title>Wild Senses - Home</title>
       </Head>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </React.Fragment>
+      <Component {...pageProps} />
+      <Footer />
+    </Box>
   );
 };
 

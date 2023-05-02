@@ -6,17 +6,131 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
+import styles from "../styles/Home.module.css";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import {
+  Fade,
+  Grid,
+  Link,
+  Popover,
+  Slide,
+  styled,
+  useScrollTrigger,
+} from "@mui/material";
+import { fetchAPI } from "@/lib/api";
+import { useEffect, useState } from "react";
+import Header from "./header";
+import { NavBarProps } from "@/interfaces/common";
+import { Container } from "@mui/system";
 
-const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+// export async function getServerSideProps() {
+//   const navItemsRespose = await fetchAPI("/navigation/render/main-navigation", {
+//     populate: "*",
+//   });
+//   console.log("navItemsRespose", navItemsRespose);
+//   const mainMeun = navItemsRespose.filter((obj) => obj?.parent == null);
+//   console.log(mainMeun);
+//   return {
+//     props: {
+//       navItems: mainMeun,
+//     },
+//   };
+// }
 
-function Navbar() {
+// const navItems = [
+//   {
+//     title: "Home",
+//     url: "@/HomePage.tsx",
+//     submenu: [],
+//   },
+//   {
+//     title: "ABOUT SAFARI",
+//     url: "",
+//     submenu: [
+//       {
+//         subTitle: "a day at safari",
+//         subUrl: "web-design",
+//       },
+//       {
+//         subTitle: "what time of year is the best for african",
+//         subUrl: "web-dev",
+//       },
+//       {
+//         subTitle: "what is the big 5?",
+//         subUrl: "seo",
+//       },
+//     ],
+//   },
+//   {
+//     title: "DESTINATIONS",
+//     url: "@/HomePage.tsx",
+//     submenu: [],
+//   },
+//   {
+//     title: "ITINERARIES",
+//     url: "@/HomePage.tsx",
+//     submenu: [],
+//   },
+//   {
+//     title: "TRAVEL INFO",
+//     url: "@/HomePage.tsx",
+//     submenu: [],
+//   },
+//   {
+//     title: "ABOUT US",
+//     url: "@/HomePage.tsx",
+//     submenu: [],
+//   },
+//   // ...
+// ];
+
+function ScrollHide(props: Props) {
+  const { children, window } = props;
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 100,
+  });
+
+  return (
+    <Fade appear={false} in={!trigger} unmountOnExit>
+      <Toolbar>{children}</Toolbar>
+    </Fade>
+  );
+}
+
+function Navbar({ navItems }: NavBarProps) {
+  // const [navItems, setNavItems] = useState([]);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const navItemsRespose = await await fetchAPI(
+  //       "/navigation/render/main-navigation",
+  //       {
+  //         populate: "*",
+  //       }
+  //     );
+  //     console.log("navItemsRespose", navItemsRespose);
+  //     let mainMeuns = navItemsRespose.filter((obj) => obj?.parent == null);
+  //     mainMeuns = mainMeuns.map((obj) => ({ ...obj, submenu: [] }));
+  //     console.log("mainMeun", mainMeuns);
+  //     navItemsRespose.forEach((element) => {
+  //       console.log(element);
+  //       if (element?.parent) {
+  //         let index = 0;
+  //         mainMeuns.forEach((mainMeun) => {
+  //           if (mainMeun.id == element.parent.id) {
+  //             mainMeuns[index].submenu.push(element);
+  //           }
+  //           index++;
+  //         });
+  //       }
+  //     });
+  //     console.log("mainMeun2", mainMeuns);
+  //     setNavItems(mainMeuns);
+  //   }
+  //   fetchData();
+  // }, []);
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -35,135 +149,175 @@ function Navbar() {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  // Instead of tracking a single element, set the element according to
+  // the menu item's index.
+  const handleClick = (index, event) => {
+    setAnchorEl({ [index]: event.currentTarget });
   };
 
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 100,
+  });
+
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            LOGO
-          </Typography> */}
-
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+    <>
+      <Container>
+        <AppBar className={styles.navbar} color="transparent" elevation={0}>
+          <ScrollHide {...navItems}>
+            <Header />
+          </ScrollHide>
+          <Toolbar sx={{ bgcolor: "#ffffff40" }}>
+            <Box
               sx={{
-                display: { xs: "block", md: "none" },
+                flexGrow: 1,
+                display: { xs: "flex", md: "none" },
+                opacity: [0.9, 0.8, 0.3],
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            LOGO
-          </Typography> */}
-          <Box
-            sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
-            justifyContent="center"
-          >
-            {pages.map((page) => (
-              <Button
-                key={page}
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
                 onClick={handleOpenNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                color="inherit"
               >
-                {page}
-              </Button>
-            ))}
-          </Box>
-
-          {/* <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <MenuIcon />
               </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
+              {/* mobile menu */}
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: "block", md: "none" },
+                }}
+              >
+                {navItems?.map((navItem) => (
+                  <MenuItem
+                    key={navItem.title}
+                    onClick={handleCloseNavMenu}
+                    sx={{ p: "8px", width: "100%" }}
+                  >
+                    <Typography textAlign="center">
+                      <Link href={"/"}>{navItem.title}</Link>
+                    </Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+
+            <Box
+              sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
+              justifyContent="center"
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box> */}
-        </Toolbar>
+              {navItems?.map((navItem, index) => {
+                // console.log("navItem", navItem);
+                if (navItem?.submenu?.length > 0) {
+                  return (
+                    <Box key={navItem.title}>
+                      <Button>
+                        <Link
+                          id="basic-button"
+                          // aria-controls={open ? "basic-menu" : undefined}
+                          aria-haspopup="true"
+                          // aria-expanded={open ? "true" : undefined}
+                          onClick={(e) => handleClick(index, e)}
+                          onClose={handleClose}
+                          className={styles.navbar_button}
+                          underline="none"
+                        >
+                          {navItem.title}
+                          <ArrowDropDownIcon
+                            fontSize="small"
+                            className={styles.dropDownIcon}
+                          />
+                        </Link>
+                      </Button>
+                      <SubMenu
+                        id="basic-menu"
+                        anchorEl={anchorEl && anchorEl[index]}
+                        keepMounted
+                        open={Boolean(anchorEl && anchorEl[index])}
+                        onClose={handleClose}
+                        MenuListProps={{
+                          "aria-labelledby": "basic-button",
+                          sx: { py: "0px", boxShadow: 0 },
+                        }}
+                      >
+                        <Box className={styles.navbar_subMenu}>
+                          {navItem.submenu.map((submenu, submenuindex) => {
+                            return (
+                              <MenuItem
+                                className={styles.navbar_subMenu_font}
+                                key={submenuindex}
+                                onClick={handleClose}
+                              >
+                                <Link
+                                  href={submenu.path}
+                                  underline="none"
+                                  className={styles.navbar_button}
+                                >
+                                  {submenu.title}
+                                </Link>
+                              </MenuItem>
+                            );
+                          })}
+                        </Box>
+                      </SubMenu>
+                    </Box>
+                  );
+                } else {
+                  return (
+                    <Button>
+                      <Link
+                        id="basic-button"
+                        // aria-controls={
+                        //   open ? "basic-menu" : undefined
+                        // }
+                        aria-haspopup="true"
+                        // aria-expanded={
+                        //   open ? "true" : undefined
+                        // }
+                        className={styles.navbar_button}
+                        underline="none"
+                      >
+                        {navItem.title}
+                      </Link>
+                    </Button>
+                  );
+                }
+              })}
+            </Box>
+          </Toolbar>
+        </AppBar>
       </Container>
-    </AppBar>
+    </>
   );
 }
 export default Navbar;
+
+const SubMenu = styled(Menu)({
+  menu: {
+    "& .MuiPaper-root": {
+      backgroundColor: "lightblue",
+    },
+  },
+});

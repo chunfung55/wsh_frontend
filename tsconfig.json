@@ -6,7 +6,8 @@
       "@/config/*": ["config/*"],
       "@/styles/*": ["styles/*"],
       "@/*": ["*"],
-      "@/interfaces/*": ["interfaces/*"]
+      "@/interfaces/*": ["interfaces/*"],
+      "@/services/*": ["services/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext", "es6"],
