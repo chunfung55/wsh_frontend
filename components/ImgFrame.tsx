@@ -17,24 +17,24 @@ const ImgFrame = (props: any) => {
   const [isShown, setIsShown] = useState(false);
   return (
     <center>
-    <ImageListItem key={props.img}>
-      <img
-        className={styles.imgFrame}
-        src={`${props.img}?w=164&h=164&fit=crop&auto=format`}
-        srcSet={`${props.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-        alt={props.title}
-        loading="lazy"
-        onMouseEnter={() => setIsShown(true)}
-        onMouseLeave={() => setIsShown(false)}
-      />
-      {isShown && (
-        <Box className={styles.imgFrame_backgrd}>
-          <Typography className={styles.imgFrame_text}>
-            {props.title}
-          </Typography>
-        </Box>
-      )}
-    </ImageListItem>
+      <ImageListItem key={props.img}>
+        <img
+          className={styles.imgFrame}
+          src={`${props.img}?w=164&h=164&fit=crop&auto=format`}
+          srcSet={`${props.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+          alt={props.title}
+          loading="lazy"
+          onMouseEnter={() => setIsShown(true)}
+          onMouseLeave={() => setIsShown(false)}
+        />
+        {isShown && (
+          <Box className={styles.imgFrame_backgrd}>
+            <Typography className={styles.imgFrame_text}>
+              {props.title}
+            </Typography>
+          </Box>
+        )}
+      </ImageListItem>
     </center>
   );
 };

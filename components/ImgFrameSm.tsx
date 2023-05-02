@@ -17,17 +17,16 @@ const ImgFrameSm = (props: any) => {
   const [isShown, setIsShown] = useState(false);
   return (
     <ImageListItem key={props.img}>
-      <Box >
-      <img
-        className={styles.imgFrame}
-        src={`${props.img}?w=164&h=164&fit=crop&auto=format`}
-        srcSet={`${props.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-        alt={props.title}
-        loading="lazy"
-        onMouseEnter={() => setIsShown(true)}
-        onMouseLeave={() => setIsShown(false)}
-       
-      />
+      <Box>
+        <img
+          className={styles.imgFrame}
+          src={`${props.img}?w=164&h=164&fit=crop&auto=format`}
+          srcSet={`${props.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+          alt={props.title}
+          loading="lazy"
+          onMouseEnter={() => setIsShown(true)}
+          onMouseLeave={() => setIsShown(false)}
+        />
       </Box>
       {isShown && (
         <Box className={styles.imgFrame_backgrd}>

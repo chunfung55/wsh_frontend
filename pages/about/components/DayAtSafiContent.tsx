@@ -12,13 +12,14 @@ const DayAtSafiContent = ({
   content: string;
 }) => {
   return (
-    <Grid container sx={{ flexgrow: 1 }} maxWidth="1926px" >
+    <Grid container sx={{ flexgrow: 1 }} maxWidth="1926px">
       <Grid item={true} sm={6} md={6} className={styles.item15}>
-      <img
-        className={styles.imgFrame}
-        src={img} width="100%"
-        loading="lazy"
-      />
+        <img
+          className={styles.imgFrame}
+          src={img}
+          width="100%"
+          loading="lazy"
+        />
       </Grid>
       <Grid item={true} sm={6} md={6} className={styles.item15}>
         <Box>
