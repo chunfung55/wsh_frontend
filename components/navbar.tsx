@@ -22,7 +22,7 @@ import {
 import { fetchAPI } from "@/lib/api";
 import { useEffect, useState } from "react";
 import Header from "./header";
-import { NavBarProps } from "@/interfaces/common";
+import { NavBarProps, SampleProps, onClickProps } from "@/interfaces/common";
 import { Container } from "@mui/system";
 
 // export async function getServerSideProps() {
@@ -86,8 +86,9 @@ import { Container } from "@mui/system";
 //   // ...
 // ];
 
-function ScrollHide(props: Props) {
-  const { children, window } = props;
+function ScrollHide(props: SampleProps) {
+  // const { children, window } = props;
+  const { children } = props;
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 100,
@@ -149,16 +150,27 @@ function Navbar({ navItems }: NavBarProps) {
     setAnchorElNav(null);
   };
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = React.useState<
+    | (EventTarget[] & HTMLButtonElement[])
+    | (EventTarget[] & HTMLSpanElement[])
+    | []
+  >([]);
 
   // Instead of tracking a single element, set the element according to
   // the menu item's index.
-  const handleClick = (index, event) => {
-    setAnchorEl({ [index]: event.currentTarget });
+  const handleClick = (
+    index: number,
+    event:
+      | React.MouseEvent<HTMLButtonElement>
+      | React.MouseEvent<HTMLSpanElement, MouseEvent>
+  ) => {
+    const tmpAnchorEl = [...anchorEl];
+    tmpAnchorEl[index] = event.currentTarget;
+    setAnchorEl(tmpAnchorEl);
   };
 
   const handleClose = () => {
-    setAnchorEl(null);
+    setAnchorEl([]);
   };
 
   const trigger = useScrollTrigger({
@@ -240,7 +252,9 @@ function Navbar({ navItems }: NavBarProps) {
                           aria-haspopup="true"
                           // aria-expanded={open ? "true" : undefined}
                           onClick={(e) => handleClick(index, e)}
-                          onClose={handleClose}
+                          // onClose={(e) => {
+                          //   handleClose(e);
+                          // }}
                           className={styles.navbar_button}
                           underline="none"
                         >
