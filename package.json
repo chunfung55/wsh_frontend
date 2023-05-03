@@ -1,6 +1,6 @@
 {
   "name": "wsh_frontend",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "@types/mui-image": "^1.0.1",
+    "@types/qs": "^6.9.7",
     "@typescript-eslint/eslint-plugin": "^5.48.0",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.6.0",

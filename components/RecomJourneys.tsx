@@ -21,6 +21,7 @@ function RecomJourneys({
         imgLink={imgLink}
         name={name}
         btnContent={btnContent}
+        styleClass={""}
       ></JourneyCard>
     </Box>
   );

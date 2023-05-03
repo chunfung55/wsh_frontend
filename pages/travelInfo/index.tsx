@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import Layout from "@/components/layout";
 import { getMenu } from "@/services/common";
 import { CommonPageProps, CommonGetStaticProps } from "@/interfaces/common";
+import { commonGetStaticPropsContext } from "@/lib/api";
 
 const travelInfo = (props: CommonPageProps) => {
   const router = useRouter();

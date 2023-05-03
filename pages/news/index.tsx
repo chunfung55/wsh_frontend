@@ -11,6 +11,7 @@ import {
   NavBarProps,
 } from "@/interfaces/common";
 import LatestNews from "./LatestNews";
+import { commonGetStaticPropsContext } from "@/lib/api";
 
 const GuestCommand = (props: CommonPageProps) => {
   const router = useRouter();
