@@ -274,7 +274,6 @@ function Navbar({ navItems }: NavBarProps) {
                         MenuListProps={{
                           "aria-labelledby": "basic-button",
                           sx: { py: "0px", boxShadow: 0 },
-                          
                         }}
                       >
                         <Box className={styles.navbar_subMenu}>
