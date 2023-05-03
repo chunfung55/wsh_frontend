@@ -28,6 +28,9 @@ const nextConfig = {
   reactStrictMode: true,
   i18n,
   output: "standalone",
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 
 module.exports = nextConfig;

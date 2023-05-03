@@ -52,7 +52,7 @@ export interface NavItem {
   parent: NavItem | null;
   related: any[] | null;
   items: any[] | null;
-  submenu: NavItem[] | null;
+  submenu: NavItem[];
 }
 
 export type CommonGetStaticProps = { locale: string };
@@ -94,4 +94,11 @@ export type PlacesYouMayVisitProps = {
 export type idProps = {
   id: string;
   attributes: null;
+};
+
+export type onClickProps = {
+  index: number;
+  event:
+    | React.MouseEvent<HTMLButtonElement>
+    | React.MouseEvent<HTMLSpanElement, MouseEvent>;
 };
