@@ -5,6 +5,7 @@ import styles from "@/styles/Home.module.css";
 import BigTitle from "@/components/BigTitle";
 import FooterCard from "@/components/FooterCard";
 import Image from "mui-image";
+//
 import { CommonComponentProps } from "@/interfaces/common";
 // import slogan1 from "/images/slogan_about1_en.png";
 // import slogan2 from "/images/slogan_about2_en.png";
