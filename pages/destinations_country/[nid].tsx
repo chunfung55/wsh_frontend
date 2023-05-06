@@ -42,6 +42,7 @@ export async function getStaticProps({
       destinationCategorieDetail: destinationCategorieDetail,
       ...(await serverSideTranslations(locale, ["common"])),
     },
+    revalidate: props.revalidate,
   };
 }
 
@@ -49,7 +50,7 @@ export async function getStaticPaths({ locale }: StaticPathsProps) {
   let ids = await getDestinationCategorieId(locale);
   ids = ids.map(({ id }: idProps) => ({ params: { nid: "" + id } }));
   console.log(ids);
-  // const ids = [{ params: { nid: "1" } }];
+  // const ids = [{ params: { nid: "6" } }];
   return {
     paths: ids,
     fallback: true,

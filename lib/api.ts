@@ -68,5 +68,6 @@ export async function commonGetStaticPropsContext(locale: string) {
       sliderImgs: banner,
       destinationCategories: destinationCategories,
     },
+    revalidate: 10, // In seconds
   };
 }
