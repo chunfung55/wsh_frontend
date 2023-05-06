@@ -1,4 +1,4 @@
-import SubMenu from "@/components/subMenu";
+import SubMenu from "@/components/SubMenu";
 import { Box, Container, Grid, List, Typography } from "@mui/material";
 import styles from "@/styles/Home.module.css";
 import FooterCard from "@/components/FooterCard";

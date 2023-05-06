@@ -48,6 +48,8 @@ export async function getStaticProps({
 export async function getStaticPaths({ locale }: StaticPathsProps) {
   let ids = await getDestinationCategorieId(locale);
   ids = ids.map(({ id }: idProps) => ({ params: { nid: "" + id } }));
+  console.log(ids);
+  // const ids = [{ params: { nid: "1" } }];
   return {
     paths: ids,
     fallback: true,
