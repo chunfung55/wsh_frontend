@@ -5,7 +5,12 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import Layout from "@/components/layout";
 import { commonGetStaticPropsContext } from "@/lib/api";
-import { CommonPageProps, CommonGetStaticProps } from "@/interfaces/common";
+import {
+  CommonPageProps,
+  CommonGetStaticProps,
+  ContactInfo,
+  ContextPageProps,
+} from "@/interfaces/common";
 import { Box, Container, Divider, Grid, Typography } from "@mui/material";
 import styles from "@/styles/Home.module.css";
 import FooterCard from "@/components/FooterCard";
@@ -14,8 +19,10 @@ import EmailIcon from "@mui/icons-material/Email";
 import NearMeIcon from "@mui/icons-material/NearMe";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import ContactCard from "@/components/ContactCard";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { getContactInfo } from "@/services/common";
 
-const Contact = (props: CommonPageProps) => {
+const Contact = (props: ContextPageProps) => {
   const router = useRouter();
   const { t } = useTranslation("common");
   return (
@@ -39,8 +46,7 @@ const Contact = (props: CommonPageProps) => {
                   <Grid item md={0.5}></Grid>
                   <Grid item md={9.5}>
                     <Typography className={styles.contact_right_p}>
-                      {" "}
-                      852 - 2813 8778
+                      {props?.contact?.attributes?.Tel}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -53,8 +59,7 @@ const Contact = (props: CommonPageProps) => {
                   <Grid item md={0.5}></Grid>
                   <Grid item md={9.5}>
                     <Typography className={styles.contact_right_p}>
-                      {" "}
-                      enquiry@wildsensesholidays.com
+                      {props?.contact?.attributes?.Email}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -67,13 +72,7 @@ const Contact = (props: CommonPageProps) => {
                   <Grid item md={0.5}></Grid>
                   <Grid item md={9.5}>
                     <Typography className={styles.contact_right_p}>
-                      {" "}
-                      Our office is relocated and will re-open at new location
-                      in late 2022. Appointment can be arranged at our meeting
-                      room in Causeway Bay during the process. （In view of the
-                      latest situation of the COVID-19 epidemic, we implement
-                      Work-from-home arrangement for our staffs, kindly make an
-                      appointment with us before you visit, thank you）
+                      {props?.contact?.attributes?.Address}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -86,14 +85,13 @@ const Contact = (props: CommonPageProps) => {
                   <Grid item md={0.5}></Grid>
                   <Grid item md={9.5}>
                     <Typography className={styles.contact_right_p}>
-                      {" "}
-                      Mon - Fri : 10:30am - 6:00pm (Lunch Hour 1:30pm -{" "}
+                      {props.contact.attributes.Office_Hour}
                       <br></br>
-                      2:30pm)<br></br>
                       <br></br>
-                      Sat : 12pm - 3pm (**By Appointment Only) <br></br>
+                      {props.contact.attributes.Office_Hour2}
                       <br></br>
-                      Sun & Public Holidays : Closed
+                      <br></br>
+                      {props.contact.attributes.Office_Hour3}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -260,7 +258,17 @@ const Contact = (props: CommonPageProps) => {
 };
 
 export async function getStaticProps({ locale }: CommonGetStaticProps) {
-  return commonGetStaticPropsContext(locale);
+  const props = await commonGetStaticPropsContext(locale);
+  const tmpProps = props.props;
+  const contact: ContactInfo = await getContactInfo(locale);
+  return {
+    props: {
+      ...tmpProps,
+      contact,
+      ...(await serverSideTranslations(locale, ["common"])),
+    },
+    revalidate: props.revalidate,
+  };
 }
 
 export default Contact;

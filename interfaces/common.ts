@@ -20,6 +20,10 @@ export type DestinationsCountryPageProps = {
   destinationCategorieDetail: DestinationCategorie;
 } & CommonPageProps;
 
+export type ContextPageProps = {
+  contact: ContactInfo;
+} & CommonPageProps;
+
 export type CommonComponentProps = {
   locale: string;
 };
@@ -102,3 +106,20 @@ export type onClickProps = {
     | React.MouseEvent<HTMLButtonElement>
     | React.MouseEvent<HTMLSpanElement, MouseEvent>;
 };
+
+export interface ContactInfo {
+  id: number;
+  attributes: {
+    Tel: string;
+    Email: string;
+    Address: string;
+    Office_Hour: string;
+    Office_Hour2: string;
+    Office_Hour3: string;
+    Google_Map: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+    locale: string;
+  };
+}

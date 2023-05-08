@@ -1,0 +1,17 @@
+{
+  "wildSensesHolidays": "非悦假日",
+  "teamInfo": "計畫你夢寐以求的非洲探索之旅，請即致電我們的旅遊顧問，為你設計最別出心裁的旅程。 或者填寫以下資料，我們會於24小時內儘快給你回覆",
+  "getInTouch": "聯繫我們",
+  "name": "姓名 *:",
+  "nameOfNight": "行程晚數?",
+  "email": "電郵 *:",
+  "numberOfPeople": "同行人數",
+  "adults": "Adults*",
+  "children": "Children",
+  "telephoneNumber": "Telephone Number *:",
+  "enquiry": "Enquiry",
+  "travelsPeriod": "Travels period",
+  "destinationOfInterest": "Destination(s) of interest*",
+  "send": "Send",
+  "reset": "Reset"
+}
