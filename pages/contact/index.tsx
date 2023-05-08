@@ -131,7 +131,7 @@ const Contact = (props: CommonPageProps) => {
                 alignItems="center"
                 justifyContent="center"
               >
-                <Grid item md={12}>
+                {/* <Grid item md={12}>
                   <Box className={styles.contact_header}>
                     <Typography className={styles.contact_font}>
                       Get in touch with Us
@@ -205,8 +205,8 @@ const Contact = (props: CommonPageProps) => {
                       </Typography>
                     </Grid>
                   </Grid>
-                </Grid>
-                <Grid item md={6} sx={{ p: "0px 15px" }}>
+                </Grid> */}
+                {/* <Grid item md={6} sx={{ p: "0px 15px" }}>
                   <Box>Map</Box>
                 </Grid>
                 <Grid container md={12} sx={{ p: "0px 15px" }}>
@@ -220,7 +220,7 @@ const Contact = (props: CommonPageProps) => {
                       lifetime. Be in touch with us:
                     </Typography>
                   </Grid>
-                </Grid>
+                </Grid> */}
               </Grid>
               <Divider
                 sx={{

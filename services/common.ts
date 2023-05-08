@@ -88,3 +88,11 @@ export async function getDestinationCategorieId(locale: string) {
   });
   return destinationCategories.data;
 }
+
+export async function getContactInfo(locale: string) {
+  locale = changeLanguage(locale);
+  const contactInfo = await fetchAPI("/contact-info", {
+    locale: locale,
+  });
+  return contactInfo.data;
+}
