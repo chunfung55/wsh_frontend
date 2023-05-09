@@ -8,11 +8,13 @@
 import "i18next";
 
 import type common from "../public/locales/en/common.json";
+import type contact from "../public/locales/en/contact.json";
 // import type footer from "../public/locales/en/footer.json";
 // import type secondPage from "../public/locales/en/second-page.json";
 
 interface I18nNamespaces {
   common: typeof common;
+  contact: typeof contact;
   //   footer: typeof footer;
   //   "second-page": typeof secondPage;
 }

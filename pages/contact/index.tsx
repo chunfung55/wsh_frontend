@@ -24,7 +24,7 @@ import { getContactInfo } from "@/services/common";
 
 const Contact = (props: ContextPageProps) => {
   const router = useRouter();
-  const { t } = useTranslation("common");
+  const { t } = useTranslation("contact");
   return (
     <Layout {...props}>
       <>
@@ -34,7 +34,7 @@ const Contact = (props: ContextPageProps) => {
               <Grid item md={6} sx={{ p: "0px 15px" }}>
                 <Box>
                   <Typography className={styles.contact_header}>
-                    Wild Senses Holidays
+                    {t("wildSensesHolidays")}
                   </Typography>
                 </Box>
                 <Grid container md={12}>
@@ -102,11 +102,8 @@ const Contact = (props: ContextPageProps) => {
               <Grid container md={12} sx={{ p: "0px 15px" }}>
                 <Grid item md={12}>
                   <Typography className={styles.contact_remark}>
-                    Our team of passionate and experienced staffs with in-depth
-                    Africa knowledge are always here to understand your dreams
-                    <br></br>
-                    and tailor-made the most inspirational safari of a lifetime.
-                    Be in touch with us:
+                    t{"teamInfo"}
+                    <br></br>t{"teamInfo2"}
                   </Typography>
                 </Grid>
               </Grid>
@@ -265,7 +262,7 @@ export async function getStaticProps({ locale }: CommonGetStaticProps) {
     props: {
       ...tmpProps,
       contact,
-      ...(await serverSideTranslations(locale, ["common"])),
+      ...(await serverSideTranslations(locale, ["contact"])),
     },
     revalidate: props.revalidate,
   };
