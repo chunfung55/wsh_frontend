@@ -1,0 +1,52 @@
+{
+    "aDaytitle": "A day at Safari",
+    "aDaySubtitle": "Your days are well-designed to thrill you with intimate wildlife encounters and ensure that guests enjoy a comfortable experience. Here is what you shall expect a day to be in a safari camp.",
+    "aDayP1": "Morning Game Drive",
+    "aDayContent1": "As dawn breaks over the African bush, a gentle tap on your door will wake you to the pleasures of a new day. Your ranger will discuss what you hope to see that day over fragrant tea or coffee and morning biscuits or muffins. Set out in an open 4x4 safari vehicle in the company of a ranger and tracker team, who will attempt to track your favorite animals.",
+    "aDayP2": "Breakfast / Lunch",
+    "aDayContent2": "Return to the camp for a delicious late breakfast, with platters of fruit and cheese followed by a selection of hot dishes. Choose from eggs, oats, waffles or a number of other options. If you prefer, take a packed breakfast and prolong your morning game drive.",
+    "aDayP3": "Lunch",
+    "aDayContent3": "If you wish, you can walk off your breakfast on a short walk near your lodge, accompanied by your ranger, who will share his insight into the smaller animals and vegetation in the area. Return to the lodge in time for a delicious lunch.",
+    "aDayP4": "Leisure & Afternoon Tea",
+    "aDayContent4": "Cool off with a refreshing dip in the pool or a nap in an afternoon siesta. Over a late afternoon tea, your ranger will discuss what you hope to see during the afternoon game drive.",
+    "aDayP5": "Afternoon/ Evening Game Drive",
+    "aDayContent5": "This game drive begins in the late afternoon and lasts until after dark, when spotlights are used for a glimpse into the nocturnal bush life. Enjoy sundowners in a scenic location as the sun slowly sinks beneath the horizon.",
+    "aDayP6": "Dinner",
+    "aDayContent6": "Return to your lodge for a mouthwatering dinner around campfire or in your lodge's dining area, exchanging safari stories of the day with camp managers as well as other guests.",
+
+    "whatTimetitle": "What time of year is the best for African safari?",
+    "whatTimeP1": "Southern African safari countries (Botswana, Zimbabwe, Zambia and South Africa)",
+    "whatTimeC1": "Summer Nov - Mar </br> Winter May - September </br> Rainfall Nov – Mar",
+    "whatTimeP2": "Eastern Africa (Kenya and Tanzania)",
+    "whatTimeC2": "Summer Jan – Apr </br> Winter Jun – Oct </br> Rainfall Mainly Apr - May, lighter rainy season Oct - Dec",
+    "whatTimeP3": "The rainy or “green” season offers benefits such as herbivores having their babies, lush green landscapes and dramatic skies. Most predators also switch to hunting the young animals at this time, for those who want to see the predator-prey interactions, the summer months might be your ideal option and it’s generally also a better season for bird watching. However, there is always a risk of a missed game drive in rainy season, you could drive right past a sleeping pride of seven Lions in the bush and fail to spot them.",
+    "whatTimeP4": "Summary by Seasons",
+    "whatTimeP5": "Winter (Eastern Africa Jun-Oct, Southern Africa May-Sep)",
+    "whatTimeC5": "• Very few rainfalls • Less and smaller waterholes, wildlife are more concentrated •Easier to spot animals with less vegetation  • Higher rates• Landscape is more yellowish in dry months",
+    "whatTimeP6": "Summer (Eastern Africa Jan-Apr, Southern Africa Nov-Mar)",
+    "whatTimeC6": "• Greens of summer provides superb photographic opportunity • Season of giving birth, great for calves sighting and predator-prey interactions •Lower Rates • Occasional heavy rainfalls • When bush is tall and thick it is more difficult to spot animals",
+
+    "bigFivetitle": "What is the Big 5?",
+    "bigFiveP1": "The big five is a term originally used by the \"Great White Hunters \" in Africa during the 19th century to refer to the five most dangerous prey animals to hunt: Lion, Leopard, Elephant, Buffalo, and Rhinoceros.",
+    "bigFiveP2": "The ‘Big 5’ could be a must-see on everyone’s list but African safaris are about more than checking off the Big Five. There are so many other incredible animals in Africa, each with interesting behaviors of their own.",
+
+    "greatMigTitle": "The Great Migration", 
+    "greatMigP1": "One of nature's biggest wildlife spectacles is the wildebeest migration, over two million animals migrate from the Serengeti National Park in Tanzania to the greener pastures of the Masai Mara National Reserve in Kenya during June through to October. The principle players are the 1.5 millions wildebeests, with supporting roles from some 350,000 Thomson’s gazelle, 200,000 zebra and 12,000 eland.",
+    "greatMigP2": "The migration has to cross the Mara River in the Masai Mara. This is one of the highlights as the animals try and cross the Mara River and contend with hungry crocodiles.The lions, hyenas, leopards, cheetahs and lesser predators await the annual coming of the migration with eager anticipation. </br> The wildebeest migration follows the year’s annual rainfall so its appearance in Tanzania and Kenya is weather dependent.",
+    "greatMigP3": "Top moments",
+    "greatMigp3.5": "December: Two millions wildebeest, zebra and gazelle spread over on the short-grass plains on the Ngorongoro border during this rainy season for couple of months</br></br>February: An incredible shows of the natural world is on, the peak of breeding season. Thousands of birth taken place on the plain around Lake Ndutu in the Southern part of Serengeti. For about 3 weeks, an average of 8000 wildebeest are born each day. These calves are on their feet in minutes and running at full speed within an hour, to avoid the predators.</br></br></br>A spectacular bird migration is also happening at the time of the year. More than 530 species of birds are recorded, with a quarter of which migrate annually to or through the park.",
+    "greatMigP4": "May/June: Hundreds of thousands of wildebeest are preparing the movement from southern plain to the North. In early June, great chance of seeing large numbers of predator- prey interaction. Lions, spotted hyenas, cheetah and leopard and so on fill the concentration in the Seronera Valley. Lions and spotted hyenas kills daily, while leopard drag the young wildebeest up into the trees, along the south bank of the Grumeti as it runs through the western corridor in late June.",
+    "greatMigP5": "June/July: Wildebeest mating season begins and the major part of the migration will be seen in a stretch of land towards Lake Victoria, called the Western Corridor. The brave wildebeests cross the Grumeti River dramatically, that Nile crocodiles hide or leap out of the water and finally capture its prey.",
+    "greatMigP6": "August-November: The herds continue toward the Mara River, which is the only permanent water source in the Serengeti-Mara ecosystem. At this time, some animals are desperately in need of water and fresh pastures. However, some young ones would die on route of thirst, starvation and exhaustion. Thousands of others will plunge into the river or crossing into Kenya’s Masai Mara Reserve for a period of around four months.",
+
+    "safariAccTitle": "Safari Accommodation",
+    "safariAccP1" : "Whether travelling as a couple, a family or on your own and to satisfy individual needs, our recommended properties range from luxury to more affordable options.",
+    "safariAccP2" : "Premier Camps </br> These camps combine exclusive luxury and superbly designed architecture with the warm comforts of home and personal service.",
+    "safariAccP3" : "Classic Camps </br> Luxury tented camps, all offering stylish and spacious accommodation, with superb facilities. All bedrooms have en-suite bathrooms and private decks overlooking the wild and remote surroundings.",
+    "safariAccP4" : "Adventure Camps </br> Generally tented, extremely comfortable with en-suite bathrooms, with close proximity to wildlife adventure camps are favorite for safari lovers."
+
+
+
+
+}
+  

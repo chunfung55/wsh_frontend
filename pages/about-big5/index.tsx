@@ -63,7 +63,7 @@ const itemData = [
 
 const AboutBig5 = (props: CommonPageProps) => {
   const router = useRouter();
-  const { t } = useTranslation("common");
+  const { t } = useTranslation("safari");
   return (
     <Layout {...props}>
       <AboutFrame>
@@ -74,26 +74,20 @@ const AboutBig5 = (props: CommonPageProps) => {
                 <Grid justifyContent="top" md={12}>
                   {" "}
                   <Typography className={styles.big_title_font}>
-                    What is the Big 5?
+                  {t("bigFivetitle")}
                   </Typography>
                 </Grid>
               </Box>
               <Box className={styles.h1_about}>
                 <Grid justifyContent="top" md={12}>
                   <Typography className={styles.p_right}>
-                    The big five is a term originally used by the "Great White
-                    Hunters" in Africa during the 19th century to refer to the
-                    five most dangerous prey animals to hunt: Lion, Leopard,
-                    Elephant, Buffalo, and Rhinoceros.
+                  {t("bigFiveP1")}
                   </Typography>
                   <br></br>
                 </Grid>
                 <Grid justifyContent="top" md={12}>
                   <Typography className={styles.p_right}>
-                    The ‘Big 5’ could be a must-see on everyone’s list but
-                    African safaris are about more than checking off the Big
-                    Five. There are so many other incredible animals in Africa,
-                    each with interesting behaviors of their own.
+                  {t("bigFiveP2")}
                   </Typography>
                 </Grid>
                 <Grid container alignItems="center" justifyContent="center">
