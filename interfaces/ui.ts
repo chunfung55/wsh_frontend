@@ -46,4 +46,5 @@ export interface buttonItem {
   cssName: string;
   content: string;
   url: string;
+  type?: string | null;
 }

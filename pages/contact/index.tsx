@@ -97,13 +97,23 @@ const Contact = (props: ContextPageProps) => {
                 </Grid>
               </Grid>
               <Grid item md={6} sx={{ p: "0px 15px" }}>
-                <Box>Map</Box>
+                <Box>
+                  {" "}
+                  <iframe
+                    width="600"
+                    height="300"
+                    style={{ border: "0" }}
+                    src={props.contact.attributes.Google_Map}
+                    allowFullScreen
+                  ></iframe>
+                </Box>
               </Grid>
               <Grid container md={12} sx={{ p: "0px 15px" }}>
                 <Grid item md={12}>
                   <Typography className={styles.contact_remark}>
-                    t{"teamInfo"}
-                    <br></br>t{"teamInfo2"}
+                    {t("teamInfo")}
+                    <br></br>
+                    {t("teamInfo2")}
                   </Typography>
                 </Grid>
               </Grid>
@@ -238,7 +248,7 @@ const Contact = (props: ContextPageProps) => {
                 <Grid item md={12}>
                   <Box className={styles.contact_header}>
                     <Typography className={styles.contact_font}>
-                      Get in touch with Us
+                      {t("getInTouch")}
                     </Typography>
                   </Box>
                 </Grid>

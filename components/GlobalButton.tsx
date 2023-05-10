@@ -11,7 +11,11 @@ import styles from "../styles/Home.module.css";
 
 const GlobalButton = (butObj: buttonItem) => {
   return (
-    <Button href={butObj.url} className={butObj.cssName}>
+    <Button
+      href={butObj.url}
+      className={butObj.cssName}
+      type={butObj.type as string | undefined}
+    >
       {butObj.content}
     </Button>
   );
