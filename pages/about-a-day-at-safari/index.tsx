@@ -33,7 +33,8 @@ const contents = [
 
 const AboutADayAtSafari = (props: CommonPageProps) => {
   const router = useRouter();
-  const { t } = useTranslation("common");
+  const { t} = useTranslation('safari');
+ 
   return (
     <Layout {...props}>
       <AboutFrame>
@@ -41,7 +42,7 @@ const AboutADayAtSafari = (props: CommonPageProps) => {
           <Grid justifyContent="top" md={12}>
             {" "}
             <Typography className={styles.big_title_font}>
-              A day at Safari
+             {t('aDaytitle')}
             </Typography>
           </Grid>
         </Box>
@@ -49,9 +50,7 @@ const AboutADayAtSafari = (props: CommonPageProps) => {
           <Grid justifyContent="top" md={12}>
             {" "}
             <Typography className={styles.p2}>
-              Your days are well-designed to thrill you with intimate wildlife
-              encounters and ensure that guests enjoy a comfortable experience.
-              Here is what you shall expect a day to be in a safari camp.
+            {t('aDaySubtitle')}
             </Typography>
           </Grid>
         </Box>

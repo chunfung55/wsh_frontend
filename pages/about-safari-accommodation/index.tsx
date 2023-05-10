@@ -25,7 +25,7 @@ const style = {
 
 const AboutSafariAccommodation = (props: CommonPageProps) => {
   const router = useRouter();
-  const { t } = useTranslation("common");
+  const { t } = useTranslation("safari");
   return (
     <Layout {...props}>
       <AboutFrame>
@@ -33,7 +33,7 @@ const AboutSafariAccommodation = (props: CommonPageProps) => {
           <Grid justifyContent="top" md={12}>
             {" "}
             <Typography className={styles.big_title_font}>
-              Safari Accommodation
+            {t("safariAccTitle")}
             </Typography>
           </Grid>
         </Box>
@@ -41,9 +41,7 @@ const AboutSafariAccommodation = (props: CommonPageProps) => {
           <Grid justifyContent="top" md={12}>
             {" "}
             <Typography className={styles.p}>
-              Whether travelling as a couple, a family or on your own and to
-              satisfy individual needs, our recommended properties range from
-              luxury to more affordable options.
+            {t("safariAccP1")}
             </Typography>
           </Grid>
         </Box>
@@ -60,7 +58,7 @@ const AboutSafariAccommodation = (props: CommonPageProps) => {
           <Grid item md={3.5}>
             <Box className={styles.h1_title}>
               <Typography className={styles.small_title_font}>
-                Premier Camps
+              {t("safariAccP2")}
               </Typography>
             </Box>
             <Typography className={styles.p_right}>
@@ -84,7 +82,7 @@ const AboutSafariAccommodation = (props: CommonPageProps) => {
             <Grid item md={3.5}>
               <Box className={styles.h1_title}>
                 <Typography className={styles.small_title_font}>
-                  Premier Camps
+                {t("safariAccP3")}
                 </Typography>
               </Box>
               <Typography className={styles.p_right}>
