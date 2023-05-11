@@ -43,6 +43,8 @@ export interface imgCardItem extends cardItem {
 export type cardObjs = imgCardItem[];
 
 export interface buttonItem {
+  style?: React.CSSProperties | undefined;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement> | undefined;
   cssName: string;
   content: string;
   url: string;

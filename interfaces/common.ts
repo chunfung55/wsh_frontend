@@ -141,3 +141,7 @@ export interface FormInputState {
   PleaseTickWhichCountry: string;
   IsThereAnythingYoudLikeToKetUsKnow: string;
 }
+
+export interface ButtonStates {
+  [key: string]: boolean;
+}

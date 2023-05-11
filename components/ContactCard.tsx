@@ -11,8 +11,12 @@ import "../styles/Home.module.css";
 import styles from "@/styles/Home.module.css";
 import GlobalButton from "./GlobalButton";
 import { useTranslation } from "next-i18next";
-import React, { useReducer } from "react";
-import { DestinationCategorie, FormInputState } from "@/interfaces/common";
+import React, { useReducer, useState } from "react";
+import {
+  ButtonStates,
+  DestinationCategorie,
+  FormInputState,
+} from "@/interfaces/common";
 
 const currencies = [
   {
@@ -90,6 +94,13 @@ const ContactCard = ({
 }) => {
   const { t } = useTranslation("contact");
   const [formInput, setFormInput] = useReducer(formInputReducer, initialState);
+  const [buttonStates, setButtonStates] = useState<ButtonStates>({});
+  const handleButtonClick = (buttonName: string) => {
+    setButtonStates((prevStates) => ({
+      ...prevStates,
+      [buttonName]: !prevStates[buttonName],
+    }));
+  };
   const handleInput = (
     evt: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -313,6 +324,18 @@ const ContactCard = ({
                                         <GlobalButton
                                           content={destination.attributes.Name}
                                           cssName={styles.circleButton}
+                                          onClick={() =>
+                                            handleButtonClick(
+                                              destination.attributes.Name
+                                            )
+                                          }
+                                          style={{
+                                            backgroundColor: buttonStates[
+                                              destination.attributes.Name
+                                            ]
+                                              ? "green"
+                                              : "red",
+                                          }}
                                           url={""}
                                         ></GlobalButton>
                                       )
@@ -325,42 +348,6 @@ const ContactCard = ({
                       )}
                   </>
                 ))}
-              {/* <Grid item md={2} sx={{ mb: "30px" }}>
-                <Typography className={styles.contact_font_sm}>
-                  AFRICA:
-                </Typography>
-              </Grid>
-              <Grid item md={10} sx={{ mb: "30px" }}>
-                <Typography className={styles.contact_card_col}>
-                  <GlobalButton
-                    content="Kenya"
-                    cssName={styles.circleButton}
-                    url={""}
-                  ></GlobalButton>
-                  <GlobalButton
-                    content="Kenya"
-                    cssName={styles.circleButton}
-                    url={""}
-                  ></GlobalButton>
-                  <GlobalButton
-                    content="Kenya"
-                    cssName={styles.circleButton}
-                    url={""}
-                  ></GlobalButton>
-                </Typography>
-              </Grid> */}
-              {/* <Grid item md={2} sx={{ mb: "30px" }}>
-            <Typography className={styles.contact_font_sm}>
-              REST OF WORLD:
-            </Typography>
-          </Grid>
-          <Grid item md={10} sx={{ mb: "30px" }}>
-            <GlobalButton
-              content="Kenya"
-              cssName={styles.circleButton}
-              url={""}
-            ></GlobalButton>
-          </Grid> */}
             </Grid>
             <Grid container md={12} alignItems="center" justifyContent="center">
               <Box sx={{ pr: "15px" }}>

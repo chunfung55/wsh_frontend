@@ -1,20 +1,20 @@
 import { buttonItem } from "@/interfaces/ui";
 import Button from "@mui/material/Button";
 import "../styles/Home.module.css";
-import styles from "../styles/Home.module.css";
-
-// interface buttonItem {
-//   cssName: string;
-//   content: string;
-//   url: string;
-// }
 
 const GlobalButton = (butObj: buttonItem) => {
+  const style = butObj.style
+    ? (butObj.style as React.CSSProperties)
+    : undefined;
   return (
     <Button
       href={butObj.url}
       className={butObj.cssName}
       type={butObj.type as string | undefined}
+      onClick={
+        butObj.onClick as React.MouseEventHandler<HTMLAnchorElement> | undefined
+      }
+      style={style}
     >
       {butObj.content}
     </Button>
