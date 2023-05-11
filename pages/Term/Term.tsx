@@ -70,6 +70,7 @@ export default function Term() {
                   imgLink={jou.imgLink}
                   name={jou.name}
                   btnContent={jou.btnContent}
+                  styleClass={""}
                 ></JourneyCard>
               </Box>
             </Grid>

@@ -18,12 +18,16 @@ export default function Country({
 }) {
   const { t } = useTranslation("common");
   const [tmpCountry, setTempCountry] = useState<DestinationCategorie>({
-    Name: "",
-    Detail: "",
-    Why_Visit: "",
-    Best_Time_to_Visit: "",
-    Capture: "",
-    Destinations: { data: [] },
+    id: 0,
+    attributes: {
+      Name: "",
+      Detail: "",
+      Why_Visit: "",
+      Best_Time_to_Visit: "",
+      Capture: "",
+      Destinations: { data: [] },
+      Child_Destination: { data: [] },
+    },
   });
   const [destinations, setDestinations] = useState<Destination[]>([]);
   useEffect(() => {
@@ -47,22 +51,22 @@ export default function Country({
 
     if (country != null) {
       const tmpCountry2 = country;
-      tmpCountry2.Detail = tmpCountry2.Detail.replaceAll(
+      tmpCountry2.attributes.Detail = tmpCountry2.attributes.Detail.replaceAll(
         getStrapiURL() + "/uploads",
         "/uploads"
       );
-      tmpCountry2.Detail = tmpCountry2.Detail.replaceAll(
+      tmpCountry2.attributes.Detail = tmpCountry2.attributes.Detail.replaceAll(
         "/uploads",
         getStrapiURL() + "/uploads"
       );
       console.log("tmpCountry2", tmpCountry2);
       setTempCountry(tmpCountry2);
-      setDestinations(tmpCountry2.Destinations.data);
+      setDestinations(tmpCountry2.attributes.Destinations.data);
     }
   }, []);
   return (
     <Box>
-      <BigTitle content={tmpCountry.Name}></BigTitle>
+      <BigTitle content={tmpCountry.attributes.Name}></BigTitle>
       <DistinFrame>
         <>
           <Box className={styles.item15}>
@@ -80,7 +84,9 @@ export default function Country({
                 </Grid>
               </Box> */}
               <Box
-                dangerouslySetInnerHTML={{ __html: tmpCountry.Detail }}
+                dangerouslySetInnerHTML={{
+                  __html: tmpCountry.attributes.Detail,
+                }}
               ></Box>
               <Grid>
                 {/* <Box className={styles.h1_about}>
@@ -105,11 +111,11 @@ export default function Country({
                   <Grid container md={12}>
                     <QuestCard
                       title={t("whyVisit")}
-                      content={tmpCountry.Why_Visit}
+                      content={tmpCountry.attributes.Why_Visit}
                     ></QuestCard>
                     <QuestCard
                       title={t("whenToGo")}
-                      content={tmpCountry.Best_Time_to_Visit}
+                      content={tmpCountry.attributes.Best_Time_to_Visit}
                     ></QuestCard>
                   </Grid>
                   <Grid md={12}>

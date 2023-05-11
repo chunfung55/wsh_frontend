@@ -77,6 +77,7 @@ export default function LatestNews() {
                       imgLink={jou.imgLink}
                       name={jou.name}
                       btnContent={jou.btnContent}
+                      styleClass={""}
                     ></JourneyCard>
                   </Box>
                 </Grid>
@@ -98,6 +99,7 @@ export default function LatestNews() {
                   imgLink={jou.imgLink}
                   name={jou.name}
                   btnContent={jou.btnContent}
+                  styleClass={""}
                 ></JourneyCard>
               </Box>
             </Grid>

@@ -45,7 +45,7 @@ export default function Faqs() {
   return (
     <Box>
       <BigTitle content="FREQUENTLY ASKED QUESTIONS"></BigTitle>
-      <PageFrame>
+      <PageFrame navItems={[]} sliderImgs={[]}>
         <Box className={styles.item15}>
           <Box sx={{ p: "10px 20px" }}></Box>
           <Box sx={{ p: "20px 0px", m: "20px 0px" }}></Box>
@@ -74,7 +74,7 @@ export default function Faqs() {
       </PageFrame>
 
       <BigTitle content="RECOMMENDED JOURNEYS"></BigTitle>
-      <Container maxWidth="false" sx={{ maxWidth: "85%" }}>
+      <Container sx={{ maxWidth: "85%" }}>
         <Grid container md={12} sx={{ pb: "50px" }}>
           {journeys.map((jou) => (
             <Grid item md={4}>
@@ -84,6 +84,7 @@ export default function Faqs() {
                   imgLink={jou.imgLink}
                   name={jou.name}
                   btnContent={jou.btnContent}
+                  styleClass={""}
                 ></JourneyCard>
               </Box>
             </Grid>

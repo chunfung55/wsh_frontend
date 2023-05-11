@@ -77,7 +77,7 @@ export async function getDestinationCategorieDetail(id: string) {
       },
     }
   );
-  return destinationCategories.data.attributes;
+  return destinationCategories.data;
 }
 
 export async function getDestinationCategorieId(locale: string) {

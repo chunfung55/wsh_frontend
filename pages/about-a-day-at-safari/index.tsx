@@ -33,38 +33,38 @@ const contents = [
 
 const AboutADayAtSafari = (props: CommonPageProps) => {
   const router = useRouter();
-  const { t} = useTranslation('safari');
- 
+  const { t } = useTranslation("safari");
+
   return (
     <Layout {...props}>
       <AboutFrame>
-        <Box className={styles.h1_title}>
-          <Grid justifyContent="top" md={12}>
-            {" "}
-            <Typography className={styles.big_title_font}>
-             {t('aDaytitle')}
-            </Typography>
-          </Grid>
-        </Box>
-        <Box className={styles.h1_about}>
-          <Grid justifyContent="top" md={12}>
-            {" "}
-            <Typography className={styles.p2}>
-            {t('aDaySubtitle')}
-            </Typography>
-          </Grid>
-        </Box>
-        <Box>
-          {contents.map((con) => (
-            <Box sx={{ padding: "10px" }}>
-              <DayAtSafiContent
-                title={con.title}
-                content={con.content}
-                img={con.imgUrl}
-              ></DayAtSafiContent>
-            </Box>
-          ))}
-        </Box>
+        <>
+          <Box className={styles.h1_title}>
+            <Grid justifyContent="top" md={12}>
+              {" "}
+              <Typography className={styles.big_title_font}>
+                {t("aDaytitle")}
+              </Typography>
+            </Grid>
+          </Box>
+          <Box className={styles.h1_about}>
+            <Grid justifyContent="top" md={12}>
+              {" "}
+              <Typography className={styles.p2}>{t("aDaySubtitle")}</Typography>
+            </Grid>
+          </Box>
+          <Box>
+            {contents.map((con) => (
+              <Box sx={{ padding: "10px" }}>
+                <DayAtSafiContent
+                  title={con.title}
+                  content={con.content}
+                  img={con.imgUrl}
+                ></DayAtSafiContent>
+              </Box>
+            ))}
+          </Box>
+        </>
       </AboutFrame>
     </Layout>
   );

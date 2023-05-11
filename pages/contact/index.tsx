@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "@/styles/Home.module.css";
 import { useTranslation } from "next-i18next";
 
 import { useRouter } from "next/router";
 import Layout from "@/components/layout";
-import { commonGetStaticPropsContext } from "@/lib/api";
+import { commonGetStaticPropsContext, getStrapiURL } from "@/lib/api";
 import {
   CommonPageProps,
   CommonGetStaticProps,
   ContactInfo,
   ContextPageProps,
+  DestinationCategorie,
 } from "@/interfaces/common";
 import { Box, Container, Divider, Grid, Typography } from "@mui/material";
 import styles from "@/styles/Home.module.css";
@@ -25,6 +26,49 @@ import { getContactInfo } from "@/services/common";
 const Contact = (props: ContextPageProps) => {
   const router = useRouter();
   const { t } = useTranslation("contact");
+  const [tmpCountry, setTempCountry] = useState<DestinationCategorie[]>([]);
+  // useEffect(() => {
+  //   if (
+  //     props.destinationCategories != null &&
+  //     props.destinationCategories != undefined &&
+  //     props.destinationCategories.length > 0
+  //   ) {
+  //     if (
+  //       props.destinationCategories[0].attributes.Child_Destination != null &&
+  //       props.destinationCategories[0].attributes.Child_Destination != undefined
+  //     ) {
+  //       if (
+  //         props.destinationCategories[0].attributes.Child_Destination.data !=
+  //           null &&
+  //         props.destinationCategories[0].attributes.Child_Destination.data !=
+  //           undefined &&
+  //         props.destinationCategories[0].attributes.Child_Destination.data
+  //           .length > 0
+  //       ) {
+  //         console.log("props", props);
+  //         const tmpCountry2 = props.destinationCategories;
+  //         console.log("tmpCountry2", tmpCountry2);
+  //         const tmpCountry3 = tmpCountry2.map(
+  //           (DestinationCategorie: DestinationCategorie) => {
+  //             DestinationCategorie.attributes.Detail =
+  //               DestinationCategorie.attributes.Detail.replaceAll(
+  //                 getStrapiURL() + "/uploads",
+  //                 "/uploads"
+  //               );
+  //             DestinationCategorie.attributes.Detail =
+  //               DestinationCategorie.attributes.Detail.replaceAll(
+  //                 "/uploads",
+  //                 getStrapiURL() + "/uploads"
+  //               );
+  //             return DestinationCategorie;
+  //           }
+  //         );
+
+  //         // setTempCountry(tmpCountry3);
+  //       }
+  //     }
+  //   }
+  // }, []);
   return (
     <Layout {...props}>
       <>
@@ -255,7 +299,7 @@ const Contact = (props: ContextPageProps) => {
               </Grid>
             </Grid>
 
-            <ContactCard />
+            <ContactCard destinationCategories={props.destinationCategories} />
           </Box>
         </Container>
         <FooterCard />

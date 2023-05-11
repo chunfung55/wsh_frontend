@@ -5,7 +5,11 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import Layout from "@/components/layout";
 import { getDestinationCategories, getMenu } from "@/services/common";
-import { CommonGetStaticProps, NavBarProps } from "@/interfaces/common";
+import {
+  CommonGetStaticProps,
+  CommonPageProps,
+  NavBarProps,
+} from "@/interfaces/common";
 import { commonGetStaticPropsContext } from "@/lib/api";
 import {
   BottomNavigation,
@@ -57,39 +61,37 @@ const AboutGreatMigration = (props: CommonPageProps) => {
               <Grid container md={12}>
                 <Grid item={true} justifyContent="top" md={5.5}>
                   <Typography className={styles.p_right} paddingRight="15px">
-                  {t("greatMigP1")}
+                    {t("greatMigP1")}
                   </Typography>
                 </Grid>
                 <Grid item={true} justifyContent="top" md={5.5}>
                   <Typography className={styles.p_right} paddingRight="15px">
-                  {t("greatMigP2")}
+                    {t("greatMigP2")}
                   </Typography>
                   <br></br>
                   <Typography className={styles.p_right}>
-                  {t("greatMigP1")}
+                    {t("greatMigP1")}
                   </Typography>
                 </Grid>
                 <Grid item md={1}></Grid>
               </Grid>
 
               <Grid container md={12}>
-                  <Grid item md={11}>
-                    <Typography className={styles.p_right}>
+                <Grid item md={11}>
+                  <Typography className={styles.p_right}>
                     {t("greatMigP3")}
-                    </Typography>
-                  </Grid>
-                  <Grid md={1}></Grid>
+                  </Typography>
+                </Grid>
+                <Grid md={1}></Grid>
               </Grid>
               <Grid container md={12}>
-                  <Grid item md={11}>
-                    <Typography className={styles.p_right}>
+                <Grid item md={11}>
+                  <Typography className={styles.p_right}>
                     {t("greatMigp3.5")}
-                    </Typography>
-                  </Grid>
-                  <Grid md={1}></Grid>
+                  </Typography>
+                </Grid>
+                <Grid md={1}></Grid>
               </Grid>
-
-
 
               <Grid container md={12}>
                 <Grid item={true} justifyContent="top" md={5.25}>
@@ -114,7 +116,7 @@ const AboutGreatMigration = (props: CommonPageProps) => {
                 <Grid container md={12}>
                   <Grid item md={11}>
                     <Typography className={styles.p_right}>
-                    {t("greatMigP4")}
+                      {t("greatMigP4")}
                     </Typography>
                   </Grid>
                   <Grid md={1}></Grid>
@@ -122,34 +124,34 @@ const AboutGreatMigration = (props: CommonPageProps) => {
                 <Grid container md={12}>
                   <Grid item md={11}>
                     <Typography className={styles.p_right}>
-                    {t("greatMigP5")}
+                      {t("greatMigP5")}
                     </Typography>
                   </Grid>
                   <Grid md={1}></Grid>
                 </Grid>
                 <Grid container md={12}>
-                <Grid item={true} justifyContent="top" md={5.25}>
-                  <Box className={styles.item15}>
-                    <img
-                      src="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"
-                      width="100%"
-                    />
-                  </Box>
+                  <Grid item={true} justifyContent="top" md={5.25}>
+                    <Box className={styles.item15}>
+                      <img
+                        src="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"
+                        width="100%"
+                      />
+                    </Box>
+                  </Grid>
+                  <Grid item={true} justifyContent="top" md={5.25}>
+                    <Box className={styles.item15}>
+                      <img
+                        src="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"
+                        width="100%"
+                      />
+                    </Box>
+                  </Grid>
+                  <Grid item md={1}></Grid>
                 </Grid>
-                <Grid item={true} justifyContent="top" md={5.25}>
-                  <Box className={styles.item15}>
-                    <img
-                      src="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"
-                      width="100%"
-                    />
-                  </Box>
-                </Grid>
-                <Grid item md={1}></Grid>
-              </Grid>
                 <Grid container md={12}>
                   <Grid item md={11}>
                     <Typography className={styles.p_right}>
-                    {t("greatMigP6")}
+                      {t("greatMigP6")}
                     </Typography>
                   </Grid>
                   <Grid md={1}></Grid>

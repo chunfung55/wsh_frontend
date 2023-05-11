@@ -12,6 +12,7 @@ export type CommonPageProps = {
   navItems: NavItems;
   locale: string;
   sliderImgs: sliderImgs;
+  destinationCategories: DestinationCategorie[];
 };
 export type StaticPathsProps = {
   locale: string;
@@ -66,12 +67,17 @@ export type DestinationsStaticProps = {
 } & CommonGetStaticProps;
 
 export interface DestinationCategorie {
-  Name: string;
-  Detail: string;
-  Why_Visit: string;
-  Best_Time_to_Visit: string;
-  Capture: string;
-  Destinations: { data: Destination[] };
+  map(arg0: (destinationCategorie: any) => JSX.Element): unknown;
+  id: number;
+  attributes: {
+    Name: string;
+    Detail: string;
+    Why_Visit: string;
+    Best_Time_to_Visit: string;
+    Capture: string;
+    Destinations: { data: Destination[] };
+    Child_Destination: { data: DestinationCategorie[] };
+  };
 }
 
 export interface Destination {
@@ -122,4 +128,17 @@ export interface ContactInfo {
     publishedAt: string;
     locale: string;
   };
+}
+
+export interface FormInputState {
+  Name: string;
+  Email: string;
+  Phone: string;
+  Month: string;
+  Year: string;
+  NumberOfNights: string;
+  NumberOfAdults: string;
+  NumberOfChildren: string;
+  PleaseTickWhichCountry: string;
+  IsThereAnythingYoudLikeToKetUsKnow: string;
 }
