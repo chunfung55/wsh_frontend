@@ -33,16 +33,14 @@ const AboutSafariAccommodation = (props: CommonPageProps) => {
           <Grid justifyContent="top" md={12}>
             {" "}
             <Typography className={styles.big_title_font}>
-            {t("safariAccTitle")}
+              {t("safariAccTitle")}
             </Typography>
           </Grid>
         </Box>
         <Box className={styles.h1_about}>
           <Grid justifyContent="top" md={12}>
             {" "}
-            <Typography className={styles.p}>
-            {t("safariAccP1")}
-            </Typography>
+            <Typography className={styles.p}>{t("safariAccP1")}</Typography>
           </Grid>
         </Box>
         <Grid container>
@@ -58,7 +56,7 @@ const AboutSafariAccommodation = (props: CommonPageProps) => {
           <Grid item md={3.5}>
             <Box className={styles.h1_title}>
               <Typography className={styles.small_title_font}>
-              {t("safariAccP2")}
+                {t("safariAccP2")}
               </Typography>
             </Box>
             <Typography className={styles.p_right}>
@@ -82,7 +80,7 @@ const AboutSafariAccommodation = (props: CommonPageProps) => {
             <Grid item md={3.5}>
               <Box className={styles.h1_title}>
                 <Typography className={styles.small_title_font}>
-                {t("safariAccP3")}
+                  {t("safariAccP3")}
                 </Typography>
               </Box>
               <Typography className={styles.p_right}>

@@ -74,20 +74,20 @@ const AboutBig5 = (props: CommonPageProps) => {
                 <Grid justifyContent="top" md={12}>
                   {" "}
                   <Typography className={styles.big_title_font}>
-                  {t("bigFivetitle")}
+                    {t("bigFivetitle")}
                   </Typography>
                 </Grid>
               </Box>
               <Box className={styles.h1_about}>
                 <Grid justifyContent="top" md={12}>
                   <Typography className={styles.p_right}>
-                  {t("bigFiveP1")}
+                    {t("bigFiveP1")}
                   </Typography>
                   <br></br>
                 </Grid>
                 <Grid justifyContent="top" md={12}>
                   <Typography className={styles.p_right}>
-                  {t("bigFiveP2")}
+                    {t("bigFiveP2")}
                   </Typography>
                 </Grid>
                 <Grid container alignItems="center" justifyContent="center">

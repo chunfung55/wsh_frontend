@@ -11,7 +11,6 @@ import AboutFrame from "../about/components/AboutFrame";
 import styles from "../../styles/Home.module.css";
 import DayAtSafiContent from "../about/components/DayAtSafiContent";
 
-
 const contents = [
   {
     title: "Morning Game Drive",
@@ -27,10 +26,9 @@ const contents = [
   },
 ];
 
-
 const AboutBestForSafari = (props: CommonPageProps) => {
   const router = useRouter();
-  const { t } = useTranslation('safari');
+  const { t } = useTranslation("safari");
   return (
     <Layout {...props}>
       <AboutFrame>
@@ -38,7 +36,7 @@ const AboutBestForSafari = (props: CommonPageProps) => {
           <Grid justifyContent="top" md={12}>
             {" "}
             <Typography className={styles.big_title_font}>
-             {t("whatTimetitle")}
+              {t("whatTimetitle")}
             </Typography>
           </Grid>
         </Box>
@@ -46,20 +44,20 @@ const AboutBestForSafari = (props: CommonPageProps) => {
           <Grid justifyContent="top" md={12}>
             {" "}
             <Typography className={styles.h3_about}>
-            {t("whatTimeP1")}
+              {t("whatTimeP1")}
             </Typography>
             <Typography className={styles.h1_about}>
-            {t("whatTimeC1")}
+              {t("whatTimeC1")}
             </Typography>
             <br />
             <Typography className={styles.h3_about}>
-            {t("whatTimeP2")}
+              {t("whatTimeP2")}
             </Typography>
             <Typography className={styles.h1_about}>
-            {t("whatTimeC2")}
+              {t("whatTimeC2")}
             </Typography>
             <Typography className={styles.h1_about}>
-            {t("whatTimeP3")}
+              {t("whatTimeP3")}
             </Typography>
             <br />
           </Grid>
