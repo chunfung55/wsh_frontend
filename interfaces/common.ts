@@ -67,7 +67,6 @@ export type DestinationsStaticProps = {
 } & CommonGetStaticProps;
 
 export interface DestinationCategorie {
-  map(arg0: (destinationCategorie: any) => JSX.Element): unknown;
   id: number;
   attributes: {
     Name: string;
