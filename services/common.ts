@@ -1,5 +1,6 @@
 import { NavItem, NavItems } from "@/interfaces/common";
 import { fetchAPI, getStrapiURL } from "@/lib/api";
+import { InputFormData } from "@/interfaces/common";
 
 const changeLanguage = (locale: string) => {
   if (locale === "zh") {
@@ -95,4 +96,17 @@ export async function getContactInfo(locale: string) {
     locale: locale,
   });
   return contactInfo.data;
+}
+
+export async function saveContactUs(InputFormData: InputFormData) {
+  const postData = { data: InputFormData };
+  const result = await fetchAPI(
+    "/contact-us-forms",
+    {},
+    {
+      method: "POST",
+      body: JSON.stringify(postData),
+    }
+  );
+  return result;
 }

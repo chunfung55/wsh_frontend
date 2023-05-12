@@ -145,3 +145,16 @@ export interface FormInputState {
 export interface ButtonStates {
   [key: string]: boolean;
 }
+
+export interface InputFormData {
+  Name: string;
+  Email: string;
+  Phone: string;
+  Month: string;
+  Year: string;
+  NumberOfNights: string;
+  NumberOfAdults: string;
+  NumberOfChildren: string;
+  PleaseTickWhichCountry: string;
+  IsThereAnythingYoudLikeToKetUsKnow: string;
+}

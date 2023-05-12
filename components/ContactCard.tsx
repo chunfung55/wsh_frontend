@@ -17,6 +17,7 @@ import {
   DestinationCategorie,
   FormInputState,
 } from "@/interfaces/common";
+import { saveContactUs } from "@/services/common";
 
 const currencies = [
   {
@@ -113,9 +114,10 @@ const ContactCard = ({
   };
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("formInput:");
-    console.log(formInput);
-    setSubmitedForm(true);
+    try {
+      saveContactUs(formInput);
+      setSubmitedForm(true);
+    } catch {}
   };
 
   useEffect(() => {
