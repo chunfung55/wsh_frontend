@@ -15,5 +15,6 @@
   "destinationOfInterest": "你打算前往的目的地* (可選多於一個)",
   "send": "提交",
   "reset": "重設",
-  "anythingElseYouLikeUsToKnow": "歡迎提供更多資訊，以便我們為你設計旅程？"
+  "anythingElseYouLikeUsToKnow": "歡迎提供更多資訊，以便我們為你設計旅程？",
+  "thankyou": "謝謝你！ 我們已收到您的詢問，將盡快回覆您。"
 }
